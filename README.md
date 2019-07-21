@@ -11,7 +11,7 @@ A single tool to accept bitcoin payments online that are directly placed into th
       - Electrum
       - Trezor
       - or use [Ian Coleman\'s BIP39 Mnemonic Code Generator](https://iancoleman.io/bip39/) to generate an entirely OFFLINE HD wallet.
-* Faster Payments
+* Faster
   - No need to sign up with payment gateways who:
     - charge you a fee to process your transaction.
     - cause a delay and loss of use of your funds by having to wait for two on-chain transactions to confirm.
