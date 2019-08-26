@@ -3,8 +3,8 @@ A single tool to accept bitcoin payments online that are directly placed into th
 ## Using the Bitcoin-Payments-Tool is:
 * Simple
   - Installation and configuration is easy and simple. You only need:
-    - A Linux Server installed with Apache2 and the latest version of PHP
-    - [Base58 extension](https://github.com/legalthings/base58-php-ext) for PHP
+    - A Linux Server installed with Apache2 and the latest version of PHP7
+    - The [Base58 extension](https://github.com/legalthings/base58-php-ext) for PHP7
     - Basic HTML5/CSS/PHP7 programming
     - An exported account-level extended public key from an HD Wallet such as:
       - Mycelium
@@ -25,5 +25,6 @@ A single tool to accept bitcoin payments online that are directly placed into th
   - With Bitcoin, EVERYONE needs to be able to verify the code in order to trust it.
   - The code is written in a linear functional programming manner where each step in the process is documented so as to be easily understood by even a non-programmer.
   - No tricky online API calls.
-  ## Installation
-  * LAXP(Linux Apache My) Server
+  ## Installation of the function
+  * Upload the function into a directory which is NOT below the Document Root directory, but IS on the PHP Include Path.
+  * 
