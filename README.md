@@ -4,7 +4,7 @@ A single tool to accept bitcoin payments online that are directly placed into th
 * Simple
   - Installation and configuration is easy and simple. You only need:
     - A Linux Server installed with Apache2 and the latest version of PHP7
-    - The [Base58 extension](https://github.com/legalthings/base58-php-ext) for PHP7
+    - The [Base58 extension](https://centos.pkgs.org/7/remi-x86_64/base58-0.1.4-1.el7.remi.x86_64.rpm.html) for PHP7
     - Basic HTML5/CSS/PHP7 programming
     - An exported account-level extended public key from an HD Wallet such as:
       - Mycelium
