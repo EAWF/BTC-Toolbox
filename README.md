@@ -1,6 +1,6 @@
 # Bitcoin-Payments-Tool
 A single tool to accept bitcoin payments online that are directly placed into the users HD wallet without any third-party handling.
-## Making Bitcoin Payments is:
+## Using the Bitcoin-Payments-Tool is:
 * Simple
   - Installation and configuration is easy and simple. You only need:
     - A Linux Server installed with Apache2 and the latest version of PHP
