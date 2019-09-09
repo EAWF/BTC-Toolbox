@@ -1,5 +1,5 @@
 # HD Wallet Account-Level Extended Public Key to Address Tool
-A simple PHP function that derives payment addresses from an exported BIP49 extended public key.
+A simple PHP function that derives payment addresses from an exported account-level extended public key.
 ## Why?
 ### Faster AND Cheaper
 * Do ALL the payment address derivation processing on YOUR server and not in the hands of a rent-seeking third-party who doesn't really need your personal business.
