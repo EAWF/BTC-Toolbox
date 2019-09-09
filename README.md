@@ -1,5 +1,11 @@
-# BTC-HD-Wallet-xPub-yPub-zPub-to-Address-Tool
-A simple tool that derives payment addresses from an HD Wallet's exported account-level extended public keys.
+# A Merchants BTC HD-Wallet to Payment Address Toolbox
+Bitcoin is a great solution for merchants and sellers to 
+## Problems
+## Solutions and Costs
+## The HD Wallet to Address Toolbox
+## Requirements
+A simple toolbox of tools to be used by an online merchant/seller as a peer to peer payment gateway, eliminating the need for third parties to process transactions and route such payments into the users business or personal bitcoinwalletto route payments for goods and services into their business bitcoin wallet in a true peer to peer transaction.
+With these tools, there is no need to contract with a third party payment process to process such payments. A simple tool that derives payment addresses from an HD Wallet's exported account-level extended public keys.
 ## Why?
 ### Faster AND Cheaper
 * Do ALL the payment address derivation processing on YOUR server and not in the hands of a rent-seeking third-party who doesn't really need your personal business.
