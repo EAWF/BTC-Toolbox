@@ -13,6 +13,6 @@
       - NOT USED IN THE DERIVATION PROCESS
     - Depth(1 byte) - This shows the level of the derivation path which has already been performed on the exported extended public key.
     - The Derivation Path Levels are defined [here](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Path_levels)
-    - ![Depth examples](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/blob/master/Images/DepthExamples.jpg)
-    
-    
+    - Here are some examples that hopefully help you to understand how the depth field works:
+![Depth examples](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/blob/master/Images/DepthExamples.jpg)
+
