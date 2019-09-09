@@ -1,4 +1,4 @@
-# Contribution by Peter S. on 20190908 by eMail.
+# Contribution on 20190908 by eMail.
 
 Algorithm to derive a payment address from an Account Extended Public Key (ypub) in a hierarchical wallet
 
