@@ -17,5 +17,8 @@
 ![Depth examples](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/blob/master/Images/DepthExamples.jpg)
       - As you can see, for an exported account-level extended public key from an HD wallet, the depth will always be 03, and as the previous derivation does not affect the following derivation, for all intents and purposes, the Account can safely be ignored when deriving change or payment addresses from it.
     - Parent Fingerprint (4 bytes) - As it's not necessary for our purposes here, it's ignored.
-    - 
-
+    - Child (aka Account) Number (4 bytes) - **Always** hardened (0x800000xx) with account-level extended public keys and ***DO NOT USE for derivation as you may lose funds!***.
+    - Parent Chain Code (32 bytes) - **Required for Derivation**
+    - Parent Public Key (33 bytes) - **Required for Derivation**
+    - Base58 Checksum (4 bytes)- *ONLY needed for verification when extended public key is transmitted via electronic means.*
+    
