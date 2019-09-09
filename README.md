@@ -24,12 +24,12 @@ A simple PHP function that derives payment addresses from an exported account-le
   - Ledger
   - or you can use [Ian Coleman\'s BIP39 Mnemonic Code Generator](https://iancoleman.io/bip39/) to generate an entirely OFFLINE HD wallet.
 * Linux Server
-* PHP7 or newer
-* The PHP [Base58 extension](https://centos.pkgs.org/7/remi-x86_64/base58-0.1.4-1.el7.remi.x86_64.rpm.html)
-  - Basic HTML/PHP programming.
+* Web Server
+  - Basic HTML5 programming.
+* Server Side Programming Language:
+  - PHP7 or newer
+    - The PHP [Base58 extension](https://centos.pkgs.org/7/remi-x86_64/base58-0.1.4-1.el7.remi.x86_64.rpm.html)
 * Method to store use address(invoice) indexes
 
-## Installation:
-* Install the Base58 PHP extension(see above)
-* Upload the function into a directory which below the Document Root directory, and on the PHP Include Path.
-* Configure the 
+## The Algorithm
+   - [Psuedocode]()
