@@ -1,4 +1,4 @@
-# yPub Address Tool
+# HD Wallet Account-Level Extended Public Key to Address Tool
 A simple PHP function that derives payment addresses from an exported BIP49 extended public key.
 ## Why?
 ### Faster AND Cheaper
