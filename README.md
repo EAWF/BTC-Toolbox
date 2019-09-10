@@ -39,3 +39,6 @@ With these tools, there is no need to contract with a third party payment proces
 
 ## The Algorithm
    - [Psuedocode]()
+## Contributors/Collaborators:
+
+* [Bob Holden]()
