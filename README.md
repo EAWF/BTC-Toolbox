@@ -36,9 +36,7 @@ With these tools, there is no need to contract with a third party payment proces
   - PHP7 or newer
     - The PHP [Base58 extension](https://centos.pkgs.org/7/remi-x86_64/base58-0.1.4-1.el7.remi.x86_64.rpm.html)
 * Method to store use address(invoice) indexes
-
 ## The Algorithm
    - [Psuedocode]()
 ## Contributors/Collaborators:
-
 * [Bob Holden](https://github.com/EAWF)
