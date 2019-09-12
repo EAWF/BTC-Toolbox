@@ -1,18 +1,21 @@
 # The Derivation Algorithm
+* The Derivation procedure is based on the derivation path
+  - By definition, the derivation path of an account-level extended public key is **m/TYPE'/NETWORK'/ACCOUNT'/** meaning that the Parent Public Key and the Parent Chain Code have already been derived by the wallet deriving the current and previous levels using their Master Private Keys(hardened).
+  - To extract the address level public key that is used with Normal Child Key Derivation to create a public key  address, we need to derive a public address for one further level, which is the payment/change level.
 * To derive a payment address from an account level extended public key, we need two inputs:
   - Exported Account-Level Extended Public Key from a HD Wallet Account.
   - An index corresponding to the payment address one wants to use to direct incoming bitcoin to the wallet's account.
 
 ## Decoding the Extended Public Key
+* NOTES about checking values of the extended public key:
+   - Checking the first 4 bytes is not necessary as the SLIP-132 codes directly convert to the characters in the exported public key. (ex: base58_decoding "ypub" equals "0x049d7cb2" and base58_encoding "0x049d7cb2" equals "ypub".
+  - Checking the checksum is only necessary if you are using somone else's extended public key that has been sent to you electronically.
+  - The Depth and Fingerprint fields are meaningless for the CKD process.
+  - The Account is meaningless for the CKD process as the extended public key is exported for the specific account level of the wallet, derivation can only occur on the 0 account of that extended public key. Using a different account number in the CKD process will cause you to lose funds.
 * base58_decode the exported account level extended public key. Returns binary
 * Convert binary to hexadecimal string
 * Extract and store the parent chain code by parsing out 64 characters(32 bytes) beginning at character 26(byte 13)
 * Extract and store the parent public key by parsing out 66 characters(33 bytes) beginning at character 90(byte 45)
-### NOTES about checking values of the extended public key:
-* Checking the first 4 bytes is not necessary as the SLIP-132 codes directly convert to the characters in the exported public key. (ex: base58_decoding "ypub" equals "0x049d7cb2" and base58_encoding "0x049d7cb2" equals "ypub".
-* Checking the checksum is only necessary if you are using somone else's extended public key that has been sent to you electronically.
-* The Depth and Fingerprint fields are meaningless for the CKD process.
-* The Account is meaningless for the CKD process as the extended public key is exported for the specific account level of the wallet, derivation can only occur on the 0 account of that extended public key. Using a different account number in the CKD process will cause you to lose funds.
 ## Processing the Index
 * For the purposes of payment address derivation, the child index(aka index, aka invoice number) is an integer within the range of 0(zero) to (2^64-1)
   - NOTE: Not sure if this is 100% accurate, but it seems to me that since hardened derivation only pertains the the first 4 fields of the derivation path(ex. m/44'/0'/A'/0/0) there doesn't seem to me to be a reason that the full range of address indexes can't be used.
