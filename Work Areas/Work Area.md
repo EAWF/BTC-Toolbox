@@ -1,6 +1,14 @@
 # The Derivation Algorithm
+* The Derivation procedure is governed by a Derivation Path scheme 
 * The Derivation procedure is based on the derivation path
-  - By definition, the derivation path of an ***account-level extended public key*** is ***m/TYPE'/NETWORK'/ACCOUNT'/***, meaning that the Parent Public Key and the Parent Chain Code have already been derived by the wallet deriving the current and previous levels using their Master Private Keys(hardened).
+  - By definition, the derivation path of an exported **account-level extended public key** is *m/PURPOSE'/NETWORK'/ACCOUNT'/*, where:
+    - PURPOSE = "0x80000044" for xpub, "0x80000049" for ypub, and "0x80000084" for zpub.
+      - Depth is "00" in an extended private key for this level
+    - NETWORK = "0x80000000" for MainNet and "0x80000001" for TestNet
+      - Depth is "01" in an extended private key for this level
+    - ACCOUNT - "0x80000000" for the first HD Account in the wallet
+      - Depth is "03" in an extended public key for this level
+  - This means that the Parent Public Key and the Parent Chain Code have already been derived by the wallet using each levels Master Private Keys(hardened).
   - To extract the address level public key that is used with Normal Child Key Derivation to create a public key  address, we need to derive a public address for one further level, which is the payment/change level.
 * To derive a payment address from an account level extended public key, we need two inputs:
   - Exported Account-Level Extended Public Key from a HD Wallet Account.
