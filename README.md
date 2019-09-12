@@ -11,3 +11,4 @@
   - BIP 84
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
+* [Peter N. Steinmetz](https://github.com/PeterNSteinmetz)
