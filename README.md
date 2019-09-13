@@ -38,8 +38,7 @@
       - Parent Chain Code
       - child Index range
         - 0x00000000 - 0x8ffffffe to derive normal public keys
-  - NOTE: When writing the derivation function in shorthand below:
-    - the Parent Private or Public Key is ALWAYS concantenated with the child index to the right as:
+  - NOTE: When writing the derivation function in shorthand below, the Parent Private or Public Key is ALWAYS concantenated with the child index to the right as:
       > ParentPrivateKey|ChildIndex  ***OR***  ParentPublicKey|ChildIndex
 * The derivation path describes the relationship of a derived private or public key to the private or public key found at the level above it based upon the index indicated in the derivation path.
   - "Normal" indices range between zero(0x00000000) to 2^32-1(0x8ffffffe) and are derived from **Public OR Private Keys**
