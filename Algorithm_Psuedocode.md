@@ -6,6 +6,10 @@ This should be written in plain, relatively easy to understand english, programm
   - Encode
   - Decode
 * RIPEMD160
-## Derivation Phases:
-   - Obtain raw data contained in the Exported Account-Level Extended Public Key
-   - 
+# Derivation Phases:
+## Extract Change level public key from account-level extended pubic key
+1. Export Account-Level Extended Public Key from the HD wallet.
+2. Decode the Account-Level Extended Public Key with Base58 function
+   - Output will be binary.
+3. Convert output from step 2 from binary to a big-endian hexadecimal string
+4. 
