@@ -8,13 +8,13 @@
 ## Repository Standards: (remove this section when project is final)
 **When working/participating on this project:**
 * **Keep it simple, stupid!** 
-* **Don't Write Code** Use [Psuedocode](https://en.wikipedia.org/wiki/Pseudocode) or flow charts - We're writing the [algorithm](https://www.merriam-webster.com/dictionary/algorithm), not programming language specific code.
+* **Don't Write Code!** Use [Psuedocode](https://en.wikipedia.org/wiki/Pseudocode) or flow charts - We're writing the [algorithm](https://www.merriam-webster.com/dictionary/algorithm), not program code.
 * **Avoid techno-babble**: 
   - Explain every acronym **before** using it. Example: Child Key Derivation(**CKD**).
-* **Keep it concise**, short, sweet, and clear without any possible confusion.
-  - **Focus** in on only what is necessary to include in this repository.
-  - **Link** to external technical explanations/resources whenever possible. Don't re-invent the wheel here as it may change in the future.
-* Use the [repository Wiki](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/wiki) for documentation, discussions, long explanations, and comments.
+* **Keep it concise, short, sweet, and clear** without any possible confusion.
+  - **Focus in on only what is necessary** to include in this repository.
+  - **Link to external technical explanations/resources** whenever possible. Don't re-invent the wheel here as it may change in the future.
+* **Use the [repository Wiki](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/wiki)** for documentation, discussions, long explanations, and comments.
 ## Definitions:
 - [BIP\[XX\]](https://github.com/bitcoin/bips) - Bitcoin Improvement Proposals are the concensus driven rules for programming bitcoin.
 - [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) - P2SH - Pay to Script Hash (aka "Legacy") payment addresses that begin with the number "1" and are derived from an xPub. 
@@ -38,8 +38,8 @@
       - Parent Chain Code
       - child Index range
         - 0x00000000 - 0x8ffffffe to derive normal public keys
-  - NOTE: When writing the derivation function in shorthand below, the Parent Private or Public Key is ALWAYS concantenated with the child index to the right as:
-      > ParentPrivateKey|ChildIndex  ***OR***  ParentPublicKey|ChildIndex
+  - NOTE: When writing the derivation function in shorthand below, the Parent Private or Public Key is ALWAYS concantenated( **||**) with the child index to the right as:
+      > ParentPrivateKey || ChildIndex  ***OR***  ParentPublicKey || ChildIndex
 * The derivation path describes the relationship of a derived private or public key to the private or public key found at the level above it based upon the index indicated in the derivation path.
   - "Normal" indices range between zero(0x00000000) to 2^32-1(0x8ffffffe) and are derived from **Public OR Private Keys**
   - "Hardened" indices(indicated by the prime symbol"'" range between 2^32(0x80000000) and 2^64-1(0xfffffffe) and are derived only by using **Private Keys** 
@@ -51,9 +51,9 @@
         - The BIP39 backup mnemonic seed is generated from this number as a wallet backup scheme.
     - "CT'" is is the "CoinType"(defined as the "Purpose"), and is the private key derived from the master private key with the index of 0x8000000XX.
       - the derivation index values(XX) can be:
-        - "44'" for xpub origined addresses (0x80000044)
-        - "49'" for ypub origined addresses (0x80000049)
-        - "84'" for zpub origined addresses (0x80000084)
+        - "44'" for xpub origined addresses (0x8000002C)
+        - "49'" for ypub origined addresses (0x80000032)
+        - "84'" for zpub origined addresses (0x80000054)
     - "N'" is the Network level and for Bitcoin, and index values are limited to:
       - "0'" for the Bitcoin MainNet (0x80000000)
       - "1'" for the Bitcoin TestNet (0x80000001)
@@ -88,3 +88,4 @@
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
 * [Peter N. Steinmetz](https://github.com/PeterNSteinmetz)
+* []()
