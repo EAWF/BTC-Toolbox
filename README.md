@@ -70,8 +70,6 @@
         - An index of "0x00000000" is used to derive a **Public Key** to be used to derive **Payment Addresses** that are used to receive funds from invoice remittances.
         - An index of "0x00000001" is used to derive a **Public Key** to be used to derive **Change Addresses** that are used to return funds back to the wallet from spending transactions.
           - Change addresses are not used for this repository as we are not concerned with spending bitcoin and receiving change from that transaction.
-
-
 * By definition, an "account-level" "extended public key" has been exported from an HD wallet at the derivation path's account level, meaning:
           - The master private exists.
           - Hardened derivation has been performed on the master private key and a Hash has been created containing the CoinType Parent Private key and Chain Code.
