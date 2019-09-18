@@ -85,7 +85,17 @@
   - BIP44 - Uses the public key extracted from a BIP
   - BIP49
   - BIP84
+## Elliptic Curve Math Libraries:
+* Elliptic Curve Cryptography support is fairly universal.
+  - [C](https://www.cs.auckland.ac.nz/~pgut001/cryptlib/)
+  - [C#](http://www.bouncycastle.org/csharp/)
+  - [C++](https://www.cryptopp.com/)
+  - [Java](http://bouncycastle.org/java.html)
+  - [JavaScript](https://github.com/bitchan/eccrypto)
+  - [PHP](https://github.com/phpecc/phpecc)
+  - [Python](https://pypi.org/project/fastecdsa/)
+  - [Ruby](https://github.com/DavidEGrayson/ruby_ecdsa)
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
 * [Peter N. Steinmetz](https://github.com/PeterNSteinmetz)
-* []()
+* [Carson Mullins](https://github.com/Septem151)
