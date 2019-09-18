@@ -1,5 +1,15 @@
 # Key Extractor Tool
-## The Exported Account-Level Extended Public Key
+## Purpose
+* Derives a 128 character long hexadecimal string for use as input by the deriver tools.
+  - The public key is located at depth 0x04 along the derivation path
+    > masterseed, Bitcoin_[Legacy|Segwit-Compat|Segwit], Bitcoin_MainNet, Account#, Payment_Address, PublicKey
+* The Procedure:
+  1. Base58Decode the exported public key which outputs a binary encoded string
+  1. Convert the binary encoded string to a hexadecimal string
+  1. Parse out characters x through y as the Parent Chain Code
+  1. Parse out characters x through y as the Parent Public Key
+  1. Use CKDPub with index 0x00000000 to output a 128 character long hexadecimal string, which is the string that the deriver tool will use to create payment addresses.
+## About The Exported Account-Level Extended Public Key
 * An exported account-level extended public key contains all of the basic information necessary for:
   - Verification of the exported public key when:
     - it is transmitted electronically via the Internet so as to avoid any possibility of Man-In-The-Middle attacks
@@ -20,5 +30,5 @@
     - Child (aka Account) Number (4 bytes) - **Always** hardened (0x800000xx) with account-level extended public keys and ***DO NOT USE for derivation as you may lose funds!***.
     - Parent Chain Code (32 bytes) - **Required for Derivation**
     - Parent Public Key (33 bytes) - **Required for Derivation**
-    - Base58 Checksum (4 bytes)- *ONLY needed for verification when extended public key is transmitted via electronic means.*
-    
+    - Base58 Checksum (4 bytes)- *ONLY needed for verification when extended public key is transmitted via electronic means.*  
+## 
