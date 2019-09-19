@@ -23,7 +23,7 @@
 - [CKD](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#Specification_Key_derivation) - Child Key Derivation  - algorithms describing the methods used to compute public and private keys along a derivation path
 - [HD](https://en.bitcoin.it/wiki/Deterministic_wallet) - Hierarchical Deterministic
 - [Path](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels) - HD Wallet Derivation Path
-- **XPub** - Refers interactively to ANY of the exported, account-level extended public keys, including xPub, yPub, and zPub's. 
+- **XPub** - Refers interactively to any of the exported, account-level extended public keys from an HD wallet, specifically xPub, yPub, and zPub. 
 ## Key Concepts:
 * Child Key Derivation Function Types
   - CKDPrv - Can derive hardened private ***or*** normal public keys
