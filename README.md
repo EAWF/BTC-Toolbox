@@ -21,8 +21,9 @@
 - [BIP49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) - P2WPKH-P2SH - Pay to Witness Public Key Hash nested within a Pay to Script Hash (aka "Segwit-Compatible") payment addresses that begin with the number "3" and are derived from a yPub.
 - [BIP84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki) - P2WPKH - Pay to Witness Public Key Hash (aka "Bech32") addresses that begin with "bc1") and are derived from a zPub.
 - [CKD](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#Specification_Key_derivation) - Child Key Derivation  - algorithms describing the methods used to compute public and private keys along a derivation path
+- [HD](https://en.bitcoin.it/wiki/Deterministic_wallet) - Hierarchical Deterministic
 - [Path](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels) - HD Wallet Derivation Path
-- [HD]() - Hierarchical Deterministic
+- **XPub** - Refers interactively to ANY of the exported, account-level extended public keys, including xPub, yPub, and zPub's. 
 ## Key Concepts:
 * Child Key Derivation Function Types
   - CKDPrv - Can derive hardened private ***or*** normal public keys
@@ -48,7 +49,7 @@
   - where:
     - "m" is the root level.
       - This is the 256 bit cryptographically secure random Master private key) that ***IS*** the HD wallet.
-        - The BIP39 backup mnemonic seed is generated from this number as a wallet backup scheme.
+        - NOTE: The BIP39 backup mnemonic seed is generated from this number as a wallet backup scheme.
     - "CT'" is is the "CoinType"(defined as the "Purpose"), and is the private key derived from the master private key with the index of 0x8000000XX.
       - the derivation index values(XX) can be:
         - "44'" for xpub origined addresses (0x8000002C)
@@ -71,18 +72,24 @@
         - An index of "0x00000001" is used to derive a **Public Key** to be used to derive **Change Addresses** that are used to return funds back to the wallet from spending transactions.
           - Change addresses are not used for this repository as we are not concerned with spending bitcoin and receiving change from that transaction.
 * By definition, an "account-level" "extended public key" has been exported from an HD wallet at the derivation path's account level, meaning:
-          - The master private exists.
-          - Hardened derivation has been performed on the master private key and a Hash has been created containing the CoinType Parent Private key and Chain Code.
-          - Hardened derivation has been performed on the CoinType Hash with an appropriate index, and a new hash has ben created
-          
-          
-          - The Account number has been derived and accounted for in the resulting PUBLIC key.
+  - The master private exists.
+  - Hardened derivation has been performed on the master private key and a Hash has been created containing the CoinType Parent Private key and Chain Code.
+  - Hardened derivation has been performed on the CoinType Hash with an appropriate index, and a new hash has been created   
+  - The Account number has been derived and accounted for in the resulting PUBLIC key.
 ## The Algorithms/Tool List
-* Public Key Extractor - Extracts a [change level](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels) public key to be used by the Deriver tools.
-* The Derivers - Uses the above extracted [change level](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels) public key to derive payment addresses that route incoming invoice remittances to the proper account of the HD Wallet
-  - BIP44 - Uses the public key extracted from a BIP
-  - BIP49
-  - BIP84
+* Public Key Extractor - Extracts and derives a [change level](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#path-levels) PublicKey/ChainCode pair from the Xpub to be used by the Deriver tools.
+* The Derivers - Uses the above extracted PublicKey/ChainCode pair to derive payment addresses that route incoming invoice remittances to the proper account of the HD Wallet
+  - BIP44 - Produces Legacy Addresses that begin with "1"
+  - BIP49 - Produces Segwit-Compatible Addresses that begin with "3"
+  - BIP84 - Produces Segwit (Bech32) Addresses that begin with "bc1"
+## Base58 Encoding and Decoding:
+* [Base58Check](https://en.bitcoin.it/wiki/Base58Check_encoding) was innovated by Satoshi Nakamoto specifically for Bitcoin, and is a variant of Base64.
+  - Base58Check automatically adds or strips the checksum to/from the rightmost 4 bytes of the Base58Check string.
+  - If a Base58Check function is not available for your selected programming language:
+    - Use or create a Base58 function set, which includes encoding and decoding.
+    - Account for the CheckSum manually.
+      - Checksum is always the leftmost 4 bytes of a double SHA-256 hash of the payload.
+      - The checksum is always the rightmost 4 bytes of a Base58Check string.
 ## Elliptic Curve Math Libraries:
 * Elliptic Curve Cryptography support is fairly universal.
   - [C](https://www.cs.auckland.ac.nz/~pgut001/cryptlib/)
@@ -93,7 +100,10 @@
   - [PHP](https://github.com/phpecc/phpecc)
   - [Python](https://pypi.org/project/fastecdsa/)
   - [Ruby](https://github.com/DavidEGrayson/ruby_ecdsa)
+## Hashing Gotcha's
+   - SHA-256 assumes binary input and outputs hexadecimal output
+   - SHA-512 assumes binary input and outputs hexadecimal output
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
-* [Peter N. Steinmetz](https://github.com/PeterNSteinmetz)
 * [Carson Mullins](https://github.com/Septem151)
+* [Peter N. Steinmetz](https://github.com/PeterNSteinmetz)
