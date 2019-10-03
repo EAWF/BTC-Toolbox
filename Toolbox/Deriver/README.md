@@ -1,4 +1,7 @@
-# Key Extractor Tool
+# Address Deriver
+
+> Extending/Changing this tool into a single tool for extracting and deriving into all three address types.
+
 ## Purpose
 * Derives a 128 character long hexadecimal string for use as input by the deriver tools.
   - The public key is located at depth 0x04 along the derivation path
