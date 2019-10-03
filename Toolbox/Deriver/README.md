@@ -1,4 +1,4 @@
-# Address Deriver
+# XPub2Address Deriver
 
 > Extending/Changing this tool into a single tool for extracting and deriving into all three address types.
 
