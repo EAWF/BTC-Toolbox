@@ -1,0 +1,15 @@
+{
+    "name": "vendor/address-deriver",
+    "description": "Derives Bitcoin addresses from account-level extended public keys.",
+    "authors": [
+        {
+            "name": "Carson Mullins",
+            "email": "carsonmullins@yahoo.com"
+        }
+    ],
+    "require": {
+        "stephenhill/base58": "v1.1.5",
+        "simplito/elliptic-php": "1.0.4",
+        "bitwasp/bech32": "v0.0.1"
+    }
+}
