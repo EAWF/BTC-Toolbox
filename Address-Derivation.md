@@ -1,15 +1,5 @@
 # Deriving Addresses from an Account-Level Extended Public Key
 
-## Overview
-### BIP44 (xpub)
-[BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) is a Bitcoin Improvement Proposal which standardizes how addresses are derived in an account-like structure. BIP44 extended keys start with `xpub` (ex: `xpub6CLfqgeNzEvu1RSMfY4uU7vMCpobtU1Z8BofwUjz9msJUnAuzHfxo6MzW4XH26TGXKW5qBgwqumShCPSFQANnEHgk7ncCyLK15ocBk8aTAt`). Addresses derived from BIP44 Account-Level Extended Public Keys start with `1` (ex: `1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2`) and are referred to as [P2PKH](https://en.bitcoinwiki.org/wiki/Pay-to-Pubkey_Hash) (Pay To Public Key Hash) addresses. P2PKH addresses are the first address type ever used in Bitcoin, and are the most common form of transaction on the Bitcoin network. The typical BIP44 derivation path is `m/44'/0'/0'`.
-
-### BIP49 (ypub)
-[BIP49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) is a Bitcoin Improvement Proposal which standardizes how [P2SH-P2WPKH](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#p2wpkh-nested-in-bip16-p2sh) addresses are derived in an account-like structure. BIP49 extended keys start with `ypub` (ex: `ypub6XEx6G1kXkQibbPVPEezYskDLaFhQUiNdbQBTymoo2MgiKsFr9bnLRr75EmGBcnmzBFt9QAGDSHxeUNycm2tkTo66aEvjVsDMGWZtijCEj8`). Addresses derived from BIP49 Account-Level Extended Public Keys start with `3` (ex: `32kVqkUjdTXLk2C4iBEQzUbNLsSenQifTt`) and are referred to as P2SH-P2WPKH (Pay To Witness Public Key Hash nested in Pay To Script Hash) addresses. P2SH-P2WPKH addresses allow for the use of [Segwit](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) that is backward-compatible with older wallet software and bitcoin nodes, so that the users of P2SH-P2WPKH addresses can partially benefit from the lower fees of segwit. This address type is the second most common form of transaction on the Bitcoin network. The typical BIP49 derivation path is `m/49'/0'/0'`.
-
-### BIP84 (zpub)
-[BIP84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki) is a Bitcoin Improvement Proposal which standardizes how [P2WPKH](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#p2wpkh) addresses are derived in an account-like structure. BIP84 extended keys start with `zpub` (ex: `zpub6rSY1F5aH9TDByNxUE6T5mNWVAJ6iLebADyhUCcXhHADSPMT9acWoRWz7QDpuJScZjByMvd99CnhwDRzgh6Ym1GwQ1LdWz6vP7QFnMQgbYC`). Addresses derived from BIP84 Account-Level Extended Public Keys start with `bc1` (ex: `bc1qtyhdcwnwnc0rhqj076zd9fufce789s4g06ph2u`) and are referred to as P2WPKH (Pay To Witness Public Key Hash) addresses. P2WPKH addresses are a native implementation of Segwit that is not backward-compatible with older wallet software and bitcoin nodes, but takes full advantage of lower fees. Adoption of P2WPKH addresses -- also known as "Native Segwit addresses" or "Bech32 addresses" -- is rising, but [there are still services that do not support segwit yet.](https://en.bitcoin.it/wiki/Bech32_adoption) The typical BIP84 derivation path is `m/84'/0'/0'`.
-
 ## Extended Keys
 An extended key is a private or public key accompanied by a [chain code](https://bitcoin.org/en/glossary/chain-code) to faciliate in the derivation of child extended keys. A private extended key is able to derive *private* and *public* information, whereas a public extended key only allows the derivation of *public* information. **You should never share an extended private key with anyone! Doing so will give them access to all of your funds.**
 
@@ -72,6 +62,7 @@ A bitcoin address is simply a [script](https://en.bitcoin.it/wiki/Script) encode
 To obtain an address from an External-Level Extended Public Key, perform the CKDpub function on the extended key to obtain a child extended public key. The public key of the child extended key is used as the public key for an address. 
 
 ### P2PKH
+[BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) is a Bitcoin Improvement Proposal which standardizes how addresses are derived in an account-like structure. BIP44 extended keys start with `xpub` (ex: `xpub6CLfqgeNzEvu1RSMfY4uU7vMCpobtU1Z8BofwUjz9msJUnAuzHfxo6MzW4XH26TGXKW5qBgwqumShCPSFQANnEHgk7ncCyLK15ocBk8aTAt`). Addresses derived from BIP44 Account-Level Extended Public Keys start with `1` (ex: `1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2`) and are referred to as [P2PKH](https://en.bitcoinwiki.org/wiki/Pay-to-Pubkey_Hash) (Pay To Public Key Hash) addresses. P2PKH addresses are the first address type ever used in Bitcoin, and are the most common form of transaction on the Bitcoin network. The typical BIP44 derivation path is `m/44'/0'/0'`.
 For BIP44 wallets, P2PKH addresses -- also known as "legacy addresses" -- are used. For a technical background of legacy addresses, click [here](https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses).
 Example Address: `1E5FY55B8AWf6iHC3pdQ4F7f6oXqpaqe8M`
 
@@ -90,6 +81,8 @@ return address
 ```
 
 ### P2SH-P2WPKH
+[BIP49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) is a Bitcoin Improvement Proposal which standardizes how [P2SH-P2WPKH](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#p2wpkh-nested-in-bip16-p2sh) addresses are derived in an account-like structure. BIP49 extended keys start with `ypub` (ex: `ypub6XEx6G1kXkQibbPVPEezYskDLaFhQUiNdbQBTymoo2MgiKsFr9bnLRr75EmGBcnmzBFt9QAGDSHxeUNycm2tkTo66aEvjVsDMGWZtijCEj8`). Addresses derived from BIP49 Account-Level Extended Public Keys start with `3` (ex: `32kVqkUjdTXLk2C4iBEQzUbNLsSenQifTt`) and are referred to as P2SH-P2WPKH (Pay To Witness Public Key Hash nested in Pay To Script Hash) addresses. P2SH-P2WPKH addresses allow for the use of [Segwit](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) that is backward-compatible with older wallet software and bitcoin nodes, so that the users of P2SH-P2WPKH addresses can partially benefit from the lower fees of segwit. This address type is the second most common form of transaction on the Bitcoin network. The typical BIP49 derivation path is `m/49'/0'/0'`.
+
 For BIP49 wallets, P2SH-P2WPKH addresses -- also known as "segwit addresses" -- are used.
 Example Address: `32kVqkUjdTXLk2C4iBEQzUbNLsSenQifTt`
 
@@ -109,6 +102,8 @@ return address
 ```
 
 ### P2WPKH
+[BIP84](https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki) is a Bitcoin Improvement Proposal which standardizes how [P2WPKH](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki#p2wpkh) addresses are derived in an account-like structure. BIP84 extended keys start with `zpub` (ex: `zpub6rSY1F5aH9TDByNxUE6T5mNWVAJ6iLebADyhUCcXhHADSPMT9acWoRWz7QDpuJScZjByMvd99CnhwDRzgh6Ym1GwQ1LdWz6vP7QFnMQgbYC`). Addresses derived from BIP84 Account-Level Extended Public Keys start with `bc1` (ex: `bc1qtyhdcwnwnc0rhqj076zd9fufce789s4g06ph2u`) and are referred to as P2WPKH (Pay To Witness Public Key Hash) addresses. P2WPKH addresses are a native implementation of Segwit that is not backward-compatible with older wallet software and bitcoin nodes, but takes full advantage of lower fees. Adoption of P2WPKH addresses -- also known as "Native Segwit addresses" or "Bech32 addresses" -- is rising, but [there are still services that do not support segwit yet.](https://en.bitcoin.it/wiki/Bech32_adoption) The typical BIP84 derivation path is `m/84'/0'/0'`.
+
 For BIP84 wallets, P2WPKH addresses -- also known as "native segwit addresses" or "bech32 addresses" -- are used.
 Example Address: `bc1qtyhdcwnwnc0rhqj076zd9fufce789s4g06ph2u`
 
