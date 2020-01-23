@@ -4,7 +4,7 @@
 * Inputs:
   - Wallet Extended Public Key
 * Outputs:
-  - Single Hexadecimal string which can be exploded to the following data bits:
+  - Single Hexadecimal string which can be exploded to the following data specification:
     - Address Type: (8 bytes)  _From: https://github.com/satoshilabs/slips/blob/master/slip-0132.md_
       - xpub('_0488b21e_') - Legacy Addresses(1) - p2sh - m/44'/0' 
       - ypub('_049d7cb2_') - Segwit Compatible Addresses(3) - p2sh-p2wpkh - m/49'/0'
@@ -15,3 +15,5 @@
     - Parent Chain Code: (64 bytes)
     - Parent Public Key: (66 bytes)
     - Checksum: (8 bytes)
+* Procedure:
+  - wip rh
