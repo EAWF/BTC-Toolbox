@@ -16,4 +16,6 @@
     - Parent Public Key: (66 bytes)
     - Checksum: (8 bytes)
 * Procedure:
-  - wip rh
+  - use base58 decode to convert the extended public key string to binary
+  - use bin2hex to convert the binary to hexadecimal
+  
