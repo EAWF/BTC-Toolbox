@@ -1,16 +1,14 @@
-# ExPub Data Extractor.
+# YPub Data Extractor.
 ## Syntax:
-  - expubkeydecode('ExPub')
+  - ypubkeydecode('YPub')
     - extracts raw Exported Account Level Extended Public Key data.
       - Account Level Extended Public Key
       - Checksum
 ## Inputs:
-  - Base58CheckEncoded Exported account level public key from Users BTC HD Wallet (164 chars).
+  - Base58CheckEncoded Exported BIP-49 account level public key from Users BTC HD Wallet (164 chars).
     - ExPubData: (156 chars)
       - Address Type: (8 chars)  _From: https://github.com/satoshilabs/slips/blob/master/slip-0132.md_
-        - xpub('_0488b21e_') - Legacy Addresses(1) - p2sh - m/44'/0' 
-        - ypub('_049d7cb2_') - Segwit Compatible Addresses(3) - p2sh-p2wpkh - m/49'/0'
-        - zpub('_04b24746_') - Segwit Addresses(bc1) - p2wpkh - m/84'/0'
+        - '_049d7cb2_' - P2SH-P2WPKH Segwit Compatible Addresses(3) - ypub - BIP-49
       - Depth: (2 chars) - Indicates derivation level of the extended public key (_Account level is '03'_)
       - Parent Fingerprint: (8 chars) - Matches the finger print of the parent key that created the extended account level public key
       - Account: (8 chars) - Matches the account of the derivation path. (_Account '80000000' is the first hardened account_)
@@ -27,7 +25,10 @@
    - ELSE
    - Return 'INVALID'
 ## NOTES:
-* Essential Data:
-  - Account Number: chars 18-25 or substr(ExPubData,18,8)
-  - Parent Chain Code: chars 26-89 or substr(ExPubData,26,64)
-  - Parent Public Key: chars 90-156 or substr(ExPubData,90,66)
+* ExPub Essential Data:
+  - Type:
+    - ExPubData chars 1-8 or substr(ExPubData,0,8) (see above)
+    - ExPub char 1 or substr(ExPub,0,1) (x, y, or z) (see above)
+  - Account: ExPubData chars 18-25 or substr(ExPubData,18,8)
+  - Parent Chain Code: ExPubData chars 26-89 or substr(ExPubData,26,64)
+  - Parent Public Key: ExPubData chars 90-156 or substr(ExPubData,90,66)
