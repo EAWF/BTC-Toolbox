@@ -1,19 +1,22 @@
-# Function Work Area
+# List of Functions:
 ## Definitions:
 * For this section, we will use the abbreviation **ExPub** to refer to the Exported Account Level Public Key extracted from a users Bitcoin HD(BIP-32) Wallet and to avoid confusion with the abbreviation xpub, which refers to a BIP-44 extended account level public key.
+## NOTES/REMARKS
+* Built-in function definitions/syntax are linked to and described at **[PHP](https://php.net)**. Your programming software may have these functions named differently, however the functions you select ***should*** return the same results.
 ## Purpose:
 * This area is used to collect/build the individual functions used for creating a bitcoin payment address from an exported account level extended public key obtained from a merchant/trader/seller's bitcoin HD wallet.
-## Functions:
-* Built-In Hash Functions that are usually built-in to a programming language:
-  - **bin2hex(binary_number)** - Converts a binary number to a hexadecimal string.
-  - **hex2bin(hexadecimal_string)** - Converts a hexadecimal string to a binary number.
-  - **hash('sha256','string')** - hashes any text string to a 256 byte binary number
-  - **hash('ripemd160','string')** - hashes text string to a 160 byte string
-  - **hash_hmac('sha512','datastring','secretstring')** - hashes text and secret string to a 512 byte hexadecimal string
-* The following functions are not usually found in current programming languages and must be created:
-  - **[base58decode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58decode/base58decode.md)** - Decodes a Base58 encoded hexadecimal string to a hexadecimal string.
-  - **[base58encode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58encode/base58encode.md)** - Encodes a hexadecimal string to a base58 encoded hexadecimal string.
-  - **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode/base58chkencode.md)** - Encodes a hexadecimal string to a base58check string.
-  - **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode/base58chkdecode.md)** - Validates and Decodes a base58check string to a hexadecimal string.
-  - **[expubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/expubkeydecode/expubkeydecode.md)** - Converts an **ExPub** to hexadecimal text.
-  - **[prvkey2pubkey()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/prvkey2pubkey/prvkey2pubkey.md)** - Converts a private key to a public key.
+## Standard Functions:
+* Built-In Hash Functions that are usually included in most programming languages:
+  - **[bin2hex('string')](https://www.php.net/manual/en/function.bin2hex.php)** - Convert binary string data into its hexadecimally encoded representation.
+  - **[hex2bin('string')](https://www.php.net/manual/en/function.hex2bin.php)** - Decode hexadecimally encoded binary data into its binary string representation.
+  - **hash('sha256','string')** - Returns a 256 byte hashed binary representation of a text string.
+  - **hash('ripemd160','string')** - Returns a 40 byte hexadecimally encoded string from a text string.
+  - **hash_hmac('sha512','datastring','secretstring')** - Returns a 512 byte hexadecimally encoded hashed message digest of a text string and a text secret string;
+## Non-Standard Functions:
+* These functions are not usually included with mainstream programming languages and are easily created.
+  - **[base58decode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58decode/base58decode.md)** - Inputs a Base58 encoded hexadecimal string and returns a hexadecimal string of the input.
+  - **[base58encode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58encode/base58encode.md)** - Inputs a hexadecimal string and returns the base58 encoded hexadecimal string of the input.
+  - **[chksum()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/chksum/chksum/md)** - Inputs a hexadecimal string and returns the double-sha256 checksum (8 bytes) of the input.
+  - **[expubdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/expubdecode/expubdecode.md)** - Inputs an **ExPub** and returns the **ExPub Extended Account Level Public Key** data and **Checksum**. 
+  - **[prvkey2pubkey()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/prvkey2pubkey/prvkey2pubkey.md)** - Creates a **Public Key** from a **Private Key**.
+  - **[pubkey2address()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/pubkey2address/pubkey2address.md)** - Creates a **Bitcoin Payment Address** from a **Public Key**.
