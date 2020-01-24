@@ -5,7 +5,7 @@
       - Account Level Extended Public Key
       - Checksum
 ## Inputs:
-  - Base58CheckEncoded Exported account level public key from Users BTC HD Wallet.
+  - Base58CheckEncoded Exported account level public key from Users BTC HD Wallet (164 chars).
     - ExPubData: (156 chars)
       - Address Type: (8 chars)  _From: https://github.com/satoshilabs/slips/blob/master/slip-0132.md_
         - xpub('_0488b21e_') - Legacy Addresses(1) - p2sh - m/44'/0' 
@@ -19,10 +19,15 @@
     - Checksum: (8 chars)
 ## Procedure:
 1. Store bin2hex(base58decode('ExPub')) to 'ExPubRaw'.
-2. Store ExPubRaw[1-156] to 'ExPubData'
-3. Store ExPubRaw[156-163] to 'ExPubChk'
+2. Store ExPubRaw[1-156] _(substr(ExPubRaw,0,156))_ to 'ExPubData'
+3. Store ExPubRaw[157-164] _(substr(ExPubRaw,-8))_ to 'ExPubChk'
 4. Store substr(bin2hex(hash('sha256',bin2hex(hash('sha256','ExPubData')))),0,8) to 'Chksum'
-5. IF 'Chksum' equals 'ExPubChk' then:
-   - Return True, 'ExPubData'
-   - else
-   - Return False, '0'
+5. IF 'Chksum' matches 'ExPubChk' then:
+   - Return 'ExPubData'
+   - ELSE
+   - Return 'INVALID'
+## NOTES:
+* Essential Data:
+  - Account Number: chars 18-25 or substr(ExPubData,18,8)
+  - Parent Chain Code: chars 26-89 or substr(ExPubData,26,64)
+  - Parent Public Key: chars 90-156 or substr(ExPubData,90,66)
