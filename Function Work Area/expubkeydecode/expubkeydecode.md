@@ -1,4 +1,4 @@
-# Extracts the account level extended public key data from the ExPub.
+# ExPub Data Extractor.
 * Syntax:
   - expubkeydecode(ExPub)
 * Inputs:
