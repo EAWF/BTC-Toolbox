@@ -11,6 +11,8 @@
   - **hash('ripemd160','string')** - hashes text string to a 160 byte string
   - **hash_hmac('sha512','datastring','secretstring')** - hashes text and secret string to a 512 byte hexadecimal string
 * The following functions are not usually found in current programming languages and must be created:
+  - **[base58decode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58decode/base58decode.md)** - Decodes a Base58 encoded hexadecimal string to a hexadecimal string.
+  - **[base58encode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58encode/base58encode.md)** - Encodes a hexadecimal string to a base58 encoded hexadecimal string.
   - **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode/base58chkencode.md)** - Encodes a hexadecimal string to a base58check string.
   - **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode/base58chkdecode.md)** - Validates and Decodes a base58check string to a hexadecimal string.
   - **[expubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/expubkeydecode/expubkeydecode.md)** - Converts an **ExPub** to hexadecimal text.
