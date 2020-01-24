@@ -2,7 +2,7 @@
 * Syntax:
   - expubkeydecode(ExPub)
 * Inputs:
-  - Users  Exported account level public key.
+  - Base58CheckEncoded Exported account level public key from Users BTC HD Wallet.
 * Outputs:
   - Hexadecimal string which can be exploded to the following data specification:
     - Extended Public Key:
@@ -18,10 +18,11 @@
     - Checksum: (8 bytes)
 * Procedure:
 ```text
-  1. Convert ExPub to binary with base58 function.
-  2. Convert #1 to hexadecimal with bin2hex
-  3. Separate #2 into:
-     3.1 Extended Public Key (above)
-     3.2 Checksum (above)
-  4. Compare Base58CheckEncode(Extended Public Key 
+  1. Convert ExPub to binary with base58decode function.
+  2. Convert step 1 to hexadecimal with bin2hex.
+  3. Separate step 2 into:
+     3.1 Extended Public Key. (above)
+     3.2 Checksum. (above)
+  4. Convert 
+  
 ```
