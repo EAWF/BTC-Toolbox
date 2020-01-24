@@ -1,5 +1,9 @@
 # Function Work Area
+## Definitions:
+* For this section, we will use the abbreviation **ExPub** to refer to the Exported Account Level Public Key extracted from a users Bitcoin HD(BIP-32) Wallet and to avoid confusion with the abbreviation xpub, which refers to a BIP-44 extended account level public key.
+## Purpose:
 * This area is used to collect/build the individual functions used for creating a bitcoin payment address from an exported account level extended public key obtained from a merchant/trader/seller's bitcoin HD wallet.
+## Functions:
 * Built-In Hash Functions that are usually built-in to a programming language:
   - **bin2hex(binary_number)** - Converts a binary number to a hexadecimal string.
   - **hex2bin(hexadecimal_string)** - Converts a hexadecimal string to a binary number.
@@ -9,5 +13,5 @@
 * The following functions are not usually found in current programming languages and must be created:
   - **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode/base58chkencode.md)** - Encodes a hexadecimal string to a base58check string.
   - **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode/base58chkdecode.md)** - Validates and Decodes a base58check string to a hexadecimal string.
-  - **[xpubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode/xpubkeydecode.md)** - Converts an account level extended public key to hexadecimal text.
+  - **[expubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/expubkeydecode/expubkeydecode.md)** - Converts an **ExPub** to hexadecimal text.
   - **[prvkey2pubkey()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/prvkey2pubkey/prvkey2pubkey.md)** - Converts a private key to a public key.
