@@ -1,4 +1,4 @@
-# Extracts the account level extended public key data from the bitcoin wallet.
+# Extracts the account level extended public key data from the ExPub.
 * Syntax:
   - expubkeydecode(ExPub)
 * Inputs:
