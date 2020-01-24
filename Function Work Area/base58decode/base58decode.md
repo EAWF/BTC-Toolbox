@@ -1,1 +1,1 @@
-# base58decode function
+# base58decode('datastring')
