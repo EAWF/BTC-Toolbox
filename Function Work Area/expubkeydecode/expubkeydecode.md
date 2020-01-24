@@ -1,6 +1,6 @@
 # Extracts the account level extended public key data from the bitcoin wallet.
 * Syntax:
-  - expubkeydecode(exPub)
+  - expubkeydecode(ExPub)
 * Inputs:
   - Users  Exported account level public key.
 * Outputs:
@@ -17,4 +17,11 @@
       - Parent Public Key: (66 bytes)
     - Checksum: (8 bytes)
 * Procedure:
-  
+```text
+  1. Convert ExPub to binary with base58 function.
+  2. Convert #1 to hexadecimal with bin2hex
+  3. Separate #2 into:
+     3.1 Extended Public Key (above)
+     3.2 Checksum (above)
+  4. Compare Base58CheckEncode(Extended Public Key 
+```
