@@ -7,6 +7,6 @@
   - [x] **hash('ripemd160','string')** - hashes text string to a 160 byte string
   - [x] **hash_hmac('sha512','datastring','secretstring')** - hashes text and secret string to a 512 byte hexadecimal string
 * The following functions are not usually found in current programming languages and must be created:
-  - [ ] **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode)** - Encodes a hexadecimal string to a base58check string.
-  - [ ] **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode)** - Validates and Decodes a base58check string to a hexadecimal string.
-  - [ ] **[xpubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode)** - explodes and validates an account level extended public key.
+  - [ ] **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode.md)** - Encodes a hexadecimal string to a base58check string.
+  - [ ] **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode.md)** - Validates and Decodes a base58check string to a hexadecimal string.
+  - [ ] **[xpubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode.md)** - explodes and validates an account level extended public key.
