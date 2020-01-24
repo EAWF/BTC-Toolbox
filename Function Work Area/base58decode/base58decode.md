@@ -1,1 +1,1 @@
-# base58chkdecode function
+# base58decode function
