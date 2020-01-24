@@ -18,7 +18,11 @@
       - Parent Public Key: (66 chars)
     - Checksum: (8 chars)
 ## Procedure:
-1. Store the result of bin2hex(base58decode('ExPub')) to 'ExPubRaw'.
-2. Store ExPubRaw[0-155] to ExPubData
-3. Store ExPubRaw[156-163] to ExPubChk
-4. Return ExPubData, ExPubChk
+1. Store bin2hex(base58decode('ExPub')) to 'ExPubRaw'.
+2. Store ExPubRaw[1-156] to 'ExPubData'
+3. Store ExPubRaw[156-163] to 'ExPubChk'
+4. Store substr(bin2hex(hash('sha256',bin2hex(hash('sha256','ExPubData')))),0,8) to 'Chksum'
+5. IF 'Chksum' equals 'ExPubChk' then:
+   - Return True, 'ExPubData'
+   - else
+   - Return False, '0'
