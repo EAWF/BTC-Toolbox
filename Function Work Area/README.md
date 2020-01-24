@@ -9,4 +9,5 @@
 * The following functions are not usually found in current programming languages and must be created:
   - **[base58chkencode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkencode/base58chkencode.md)** - Encodes a hexadecimal string to a base58check string.
   - **[base58chkdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58chkdecode/base58chkdecode.md)** - Validates and Decodes a base58check string to a hexadecimal string.
-  - **[xpubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode/xpubkeydecode.md)** - explodes and validates an account level extended public key.
+  - **[xpubkeydecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode/xpubkeydecode.md)** - Converts an account level extended public key to hexadecimal text.
+  - **[prvkey2pubkey()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/xpubkeydecode/xpubkeydecode.md)** - Converts a private key to a public key.
