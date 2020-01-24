@@ -1,2 +1,2 @@
 # prvkey2pubkey()
-* Convert public key to a private key.
+* Convert private key to a public key.
