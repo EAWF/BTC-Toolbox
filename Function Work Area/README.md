@@ -14,7 +14,7 @@ These Built-in function definitions/syntax are found and described at **[PHP.net
 * These functions are not usually included with mainstream programming languages and are easily created.
   - **[base58decode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58decode/base58decode.md)** - Inputs a Base58 encoded hexadecimal string and returns a hexadecimal string of the input.
   - **[base58encode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/base58encode/base58encode.md)** - Inputs a hexadecimal string and returns the base58 encoded hexadecimal string of the input.
-  - **[chksum()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/chksum/chksum/md)** - Inputs a hexadecimal string and returns the double-sha256 checksum (8 bytes) of the input.
+  - **[chksum()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/chksum/chksum.md)** - Inputs a hexadecimal string and returns the double-sha256 checksum (8 bytes) of the input.
   - **[expubdecode()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/expubdecode/expubdecode.md)** - Inputs an **ExPub** and returns the **ExPub Extended Account Level Public Key** data and **Checksum**. 
   - **[prvkey2pubkey()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/prvkey2pubkey/prvkey2pubkey.md)** - Creates a **Public Key** from a **Private Key**.
   - **[pubkey2address()](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/tree/master/Function%20Work%20Area/pubkey2address/pubkey2address.md)** - Creates a **Bitcoin Payment Address** from a **Public Key**.
