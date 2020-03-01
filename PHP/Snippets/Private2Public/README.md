@@ -1,6 +1,6 @@
 # BTC Private Key to Public Key Conversion
 * Performs ECC conversion algorithm on your private Key to convert it to a public key which can be used to create a BTC Payment Address
-* Code for [secp256k1.php](https://github.com/ItayRosen/cryptophp/blob/master/src/secp256k1.php) taken from [ItayRosen's CryptoPHP Repository](https://github.com/ItayRosen/cryptophp)
+* Use [secp256k1.php](https://github.com/ItayRosen/cryptophp/blob/master/src/secp256k1.php) code from from [ItayRosen's CryptoPHP Repository](https://github.com/ItayRosen/cryptophp)
 * Code snippet:
 ```php
 <?php
