@@ -1,4 +1,9 @@
 <?php
+# Example usage from command line:
+# php Usage.php [HEX PRIVATE KEY] (optional)[0 for uncompressed, 1 for compressed]
+# php Usage.php [WIF PRIVATE KEY] (optional)[0 for uncompressed, 1 for compressed]
+# The Optional compression flag (0 or 1) defaults to Compressed (1)
+
 require('Secp256k1.php');
 $Secp256k1 = new Secp256k1();
 
