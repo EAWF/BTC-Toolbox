@@ -1,4 +1,4 @@
-# A simple, pure PHP implementation of the base8 encode and decode should be grabbed from here:
+# A simple, pure PHP implementation of the base58 encode and decode should be grabbed from here:
 [Base58 Encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
 
 * Base58 Conversion Operations
