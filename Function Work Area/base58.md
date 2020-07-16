@@ -1,8 +1,8 @@
 # OBSOLETE:
-**It's easier to install the php-base58 extension *(on RH, use yum -y install php_base58)***
+**It's easier to install the php-base58 extension *(on RH, use yum -y install php_base58 - Function calls are exactly the same)***
 
-## A simple, pure PHP implementation of the base58 encode and decode should be grabbed from here:
-[Base58 Encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
+## <del>A simple, pure PHP implementation of the base58 encode and decode should be grabbed from here:
+[Base58 Encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)</del>
 
 * Base58 Conversion Operations
 ```php
