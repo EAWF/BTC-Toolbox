@@ -1,15 +1,3 @@
-# :exclamation: ABANDONING REPO :exclamation:
-## :skull: This repo will no longer be maintained! :skull:
-
-:disappointed: This rabbit-hole has dead-ended with the way we were heading. :disappointed:
-
-:sparkles: A newer, more simple, working solution will be linked here when it's ready. :sparkles:
-
-:expressionless: Repo will be deleted a month after the new repo is published to the public. :expressionless:
-  - Contact [EAWF](https://github.com/EAWF) for details or more information.
-
----
-
 # A Merchants BTC HD Wallet to Payment Address Toolbox
 ## Purpose
 * Provide a simple set of algorithms that programmers can use to obtain payment addresses for an exported, account-level, extended public key that is obtained from an existing bitcoin HD Wallet. 
