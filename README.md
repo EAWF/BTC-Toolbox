@@ -5,7 +5,7 @@
 * Merchants/Sellers of products and services who want to add bitcoin as a method of invoice remittance.
 * Programmers developing bitcoin payment gateways for use by Merchants/Sellers of products and services.
 ## Resources:
-* [BIP\[XX\]](https://github.com/bitcoin/bips) - Bitcoin Improvement Proposals are the concensus driven rules for programming bitcoin.
+* [BIP's](https://github.com/bitcoin/bips) - Bitcoin Improvement Proposals are the concensus driven rules for programming bitcoin.
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
 * [Carson Mullins](https://github.com/Septem151)
