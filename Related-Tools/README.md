@@ -1,4 +1,7 @@
-   # Data Integrity Verification Methods
+   # Tools Related to Bitcoin Programming/Computation
+   ## ECDSA Encryption Methods
+   THIS is the main method of insuring security of the Bitcoin Network/System.
+   ## Data Integrity Verification Methods
    * Necessary for validating data which has been transmitted manually and electronically.
    * 2 Types:
      - [Base58](https://en.bitcoin.it/Base58Check_encoding)Check Encoding/Decoding
