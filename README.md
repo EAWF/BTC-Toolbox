@@ -10,13 +10,13 @@ The tools listed below have their own section in this repository. Additional lin
 - If the module that you need is not availble in the language you wish, please create an issue to request it.
 
 ## The Toolbox
-* [getBTC]() - Derives payment addresses from an HD Wallet's exported, account-level, extended public key.
-* [getRate]() - returns the current exchange rate for bitcoin in different currencies (ex. [Integrate Blockchain.info Ticker](https://blockchain.info/ticker))
-* [getPaymentRequest]() - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
-* [getQRCode]() - utilizes the users browser to build a [QR Code](https://github.com/davidshimjs/qrcodejs) on the web page
-* [getPaid]() - Checks the blockchain for the current balance of the payment address and number of confirmations.
+* [getBTC](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Derives payment addresses from an HD Wallet's exported, account-level, extended public key.
+* [getRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns the current exchange rate for bitcoin in different currencies (ex. [Integrate Blockchain.info Ticker](https://blockchain.info/ticker))
+* [getPaymentRequest](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
+* [getQRCode](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - utilizes the users browser to build a [QR Code](https://github.com/davidshimjs/qrcodejs) on the web page
+* [getPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
-## Helpful Resources:
+## Additional Helpful Resources:
 * [BIP's](https://github.com/bitcoin/bips) - Bitcoin Improvement Proposals are the concensus driven rules for programming bitcoin.
 * [Kyle Honeycutt](https://github.com/coinables)
   - [How To Code A Bitcoin Paywall](https://www.youtube.com/watch?v=baW2XdtaOXw) (PHP/Javascript)
