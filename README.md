@@ -5,12 +5,9 @@
 * Merchants/Sellers of products and services who want to add bitcoin as a method of invoice remittance for their operations.
 * Programmers developing bitcoin payment gateways for use by Merchants/Sellers of products and services.
 
-## Repository Layout
-The tools listed below have their own section in this repository. Additional links will be found on those pages for varying programming languages using the same strategy/parameters.
-- If the module that you need is not availble in the language you wish, please create an issue to request it.
-
 ## The Toolbox
-* [getBTC](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Derives payment addresses from an HD Wallet's exported, account-level, extended public key.
+These are tools and code snippets that you can use to build your own Bitcoin paywall.
+* [getAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
 * [getRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns the current exchange rate for bitcoin in different currencies (ex. [Integrate Blockchain.info Ticker](https://blockchain.info/ticker))
 * [getPaymentRequest](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
 * [getQRCode](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - utilizes the users browser to build a [QR Code](https://github.com/davidshimjs/qrcodejs) on the web page
