@@ -13,11 +13,13 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 * [getQRCode](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - utilizes the users browser to build a [QR Code](https://github.com/davidshimjs/qrcodejs) on the web page
 * [getPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
+## Test Vectors
+* Test vectors have been obtained by using [Ian Coleman](https://iancoleman.io)'s excellent [BIP 39 Mnemonic Code Converter](https://github.com/iancoleman/bip39) with this 12 word mnemonic:
+  - ```abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about```
+  - ***WARNING!!! - DO NOT SEND ANY BITCOIN TO ADDRESSES CREATED FROM THIS MNEMONIC!!! YOU WILL PROBABLY LOSE YOUR FUNDS!!!!!***
+  
 ## Additional Helpful Resources:
 * [BIP's](https://github.com/bitcoin/bips) - Bitcoin Improvement Proposals are the concensus driven rules for programming bitcoin.
-* [Kyle Honeycutt](https://github.com/coinables)
-  - [How To Code A Bitcoin Paywall](https://www.youtube.com/watch?v=baW2XdtaOXw) (PHP/Javascript)
-    - [Simple Barebone Bitcoin Paywall](https://github.com/coinables/Simple-Barebone-Bitcoin-Paywall/blob/master/index.php) (Git Repository of the files created in the video)
 
 ## Contributors/Collaborators:
 * [Bob Holden](https://github.com/EAWF)
