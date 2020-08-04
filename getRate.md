@@ -1,4 +1,4 @@
-# getPrice - Return the current exchange rates for BTC
+# getRate - Return the current exchange rates for BTC
 Focusing predominantly on the USD/BTC echange pair.
 ## Bitcoin Exchanges Providing Fiat Information:
 * [Bitcoinaverage](https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD) - ```https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCXXX```
