@@ -8,7 +8,7 @@ Focusing predominantly on the USD/BTC echange pair.
   - *USD ONLY*
 * [Bitstamp](https://www.bitstamp.net/api/v2/ticker/btcusd/) - ```https://www.bitstamp.net/api/v2/ticker/btcxxx/```
   - **USD EUR**
-* [Blockchain](https://blockchain.info/ticker) - '''https://blockchain.info/ticker'''
+* [Blockchain](https://blockchain.info/ticker) - ```https://blockchain.info/ticker```
   - **USD AUD BRL CAD CHF CLP CNY DKK EUR GBP HKD INR ISK JPY KRW NZD PLN RUB SEK SGD THB TRY TWD**
 * [BTC_China](https://data.btcchina.com/data/ticker) - ```https://data.btcchina.com/data/ticker``` 
   - *CNY ONLY*
@@ -31,4 +31,4 @@ Focusing predominantly on the USD/BTC echange pair.
     - l = low array(<today>, <last 24 hours>),
     - h = high array(<today>, <last 24 hours>),
     - o = today's opening price
-* [myBitX](https://api.mybitx.com/api/1/ticker?pair=XBT{$fiat}) - '''https://api.mybitx.com/api/1/ticker?pair=XBTNGN'''
+* [myBitX](https://api.mybitx.com/api/1/ticker?pair=XBT{$fiat}) - ```https://api.mybitx.com/api/1/ticker?pair=XBTNGN```
