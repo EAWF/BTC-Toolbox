@@ -6,3 +6,6 @@ Focusing predominantly on the USD/BTC echange pair.
 * [Blockchain](https://blockchain.info/ticker) - ```https://blockchain.info/ticker```
 
 This is NOT a complete list of the rate resources.
+
+## Language Specific Snippets
+[PHP](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/Snippets)
