@@ -5,4 +5,4 @@ Focusing predominantly on the USD/BTC echange pair.
 * [Bitstamp](https://www.bitstamp.net/api/v2/ticker/btcusd/) - ```https://www.bitstamp.net/api/v2/ticker/btc[usd][eur][gbp]/```
 * [Blockchain](https://blockchain.info/ticker) - ```https://blockchain.info/ticker```
 
-This is NOT a complete list of the rate resources, but they have been found to be the easiest to work with.
+This is NOT a complete list of the rate resources.
