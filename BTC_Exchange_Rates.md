@@ -6,7 +6,7 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 Click [here](http://www.google.com/search?q=bitcoin+ticker+api) to search for Bitcoin Ticker API's
 
 ## Language Specific Snippets
-### PHP
+### PHP7.x w/json extension
 * **Bitstamp**:
 ```php
  <?php
