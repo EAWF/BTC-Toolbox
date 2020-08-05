@@ -7,16 +7,16 @@ Click [here](http://www.google.com/search?q=bitcoin+ticker+api) to search for Bi
 ## Language Specific Snippets
 ### PHP
 * **Bitstamp**:
-  - ```php
-    <?php
-     $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
-     echo "Bitstamp: $".number_format($bitstamp["last"],2);
-    ?>
-    ```
+```php
+ <?php
+  $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
+  echo "Bitstamp: $".number_format($bitstamp["last"],2);
+ ?>
+ ```
 * **Blockchain**:
-  - ```php
-    <?php
-     $blockchain = json_decode(file_get_contents('https://blockchain.info/ticker'),true);
-     echo "Blockchain: ".$blockchain["USD"]["symbol"].number_format($blockchain["USD"]["last"],2);
-    ?>
-    ```
+ ```php
+ <?php
+  $blockchain = json_decode(file_get_contents('https://blockchain.info/ticker'),true);
+  echo "Blockchain: ".$blockchain["USD"]["symbol"].number_format($blockchain["USD"]["last"],2);
+ ?>
+ ```
