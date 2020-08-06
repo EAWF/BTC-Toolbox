@@ -11,7 +11,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 * [getRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns the current exchange rate for bitcoin in different currencies (ex. [Integrate Blockchain.info Ticker](https://blockchain.info/ticker))
 * [getPaymentRequest](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
 * [getQRCode](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - utilizes the users browser to build a [QR Code](https://github.com/davidshimjs/qrcodejs) on the web page
-* [getPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Checks the blockchain for the current balance of the payment address and number of confirmations.
+* [isPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
 ## Test Vectors
 * Test vectors have been obtained by using [Ian Coleman](https://iancoleman.io)'s excellent [BIP 39 Mnemonic Code Converter](https://github.com/iancoleman/bip39) with this 12 word mnemonic:
