@@ -7,10 +7,10 @@
 
 ## The Toolbox
 These are tools and code snippets that you can use to build your own Bitcoin paywall.
-* [getAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
-* [getRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns the current exchange rate for bitcoin
-* [getPaymentRequest](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
-* [isPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox) - Checks the blockchain for the current balance of the payment address and number of confirmations.
+* [getBTCAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCAddress.md) - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
+* [getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCRate.md) - returns the current exchange rate for bitcoin
+* [getPaymentRequest](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCPaymentRequest.md) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
+* [isBTCPaid](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/isBTCPaid) - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
 ## Test Vectors
 * Test vectors have been obtained by using [Ian Coleman](https://iancoleman.io)'s excellent [BIP 39 Mnemonic Code Converter](https://github.com/iancoleman/bip39) with this 12 word mnemonic:
