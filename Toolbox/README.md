@@ -1,6 +1,6 @@
 # The Tools
 These are the tools to help you to easily build your own Bitcoin paywall.
-* **[getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/Toolbox/getBTCRate.md)** - returns the current USD exchange rate for bitcoin
+* **[getBTCRate](Toolbox/getBTCAddress.md)** - returns the current USD exchange rate for bitcoin
   - Two Modes:
     - Return Current USD Exchange Rate
       - *param*  - Dollar Amount <= 0 (#)
