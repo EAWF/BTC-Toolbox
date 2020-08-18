@@ -5,7 +5,7 @@ These are the tools to help you to easily build your own Bitcoin paywall.
     - Return Current USD Exchange Rate
       - *param*  - Dollar Amount <= 0 (#)
       - *return* - USD(string) ($)(#,###.##)
-    - Get Current BTC amount for specified USD Amount
+    - Convert USD Amount to BTC Amount
       - *param*  - Dollar Amount > 0 (####.##)
       - *return* - BTC(string) (####.########)
 * **[getBTCAddress](getBTCAddress.md)** - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
