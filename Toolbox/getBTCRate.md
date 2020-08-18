@@ -5,7 +5,7 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 
 Click [here](http://www.google.com/search?q=bitcoin+ticker+api) to search for Bitcoin Ticker API's
 
-## Language Specific Snippets
+## Snippets
 ### PHP7.x w/json extension
 * **Bitstamp**:
 ```php
@@ -21,3 +21,18 @@ Click [here](http://www.google.com/search?q=bitcoin+ticker+api) to search for Bi
   echo "Blockchain: ".$blockchain["USD"]["symbol"].number_format($blockchain["USD"]["last"],2);
  ?>
  ```
+## The Tool
+* returns the current USD exchange rate for bitcoin
+  - Two Modes:
+    - Return Current USD Exchange Rate
+      - *param*  - Dollar Amount <= 0 (#)
+      - *return* - USD(string) ($)(#,###.##)
+    - Get Current BTC amount for specified USD Amount
+      - *param*  - Dollar Amount > 0 (####.##)
+      - *return* - BTC(string) (####.########)
+### PHP7.x FUNCTION (Requires JSON extension)      
+```php
+<?php
+// Requires JSON extension
+?>
+```
