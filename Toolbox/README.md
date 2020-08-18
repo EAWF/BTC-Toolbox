@@ -5,7 +5,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
     - Return Current USD Exchange Rate
       - *param*  - Dollar Amount <= 0 (#)
       - *return* - USD(string) ($)(#,###.##)
-    - Get Current BTC amount for USD Amount
+    - Get Current BTC amount for specified USD Amount
       - *param*  - Dollar Amount > 0 (####.##)
       - *return* - BTC(string) (####.########)
 * **[getBTCAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/PHP/getBTCAddress.md)** - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
