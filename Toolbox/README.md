@@ -1,6 +1,6 @@
 # The Tools
-These are tools and code snippets that you can use to build your own Bitcoin paywall using PHP 7 with the base58, gmp, and mcrypt extensions installed.
-* **[getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/PHP/getBTCRate.md)** - returns the current USD exchange rate for bitcoin
+These are the tools that you can use to easily build your own Bitcoin paywall.
+* **[getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCRate.md)** - returns the current USD exchange rate for bitcoin
   - Two Modes:
     - Return Current USD Exchange Rate
       - *param*  - Dollar Amount <= 0 (#)
