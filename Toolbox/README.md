@@ -1,5 +1,5 @@
 # The Tools
-These are the tools that you can use to easily build your own Bitcoin paywall.
+These are the tools required to easily build your own Bitcoin paywall.
 * **[getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCRate.md)** - returns the current USD exchange rate for bitcoin
   - Two Modes:
     - Return Current USD Exchange Rate
@@ -8,6 +8,7 @@ These are the tools that you can use to easily build your own Bitcoin paywall.
     - Get Current BTC amount for specified USD Amount
       - *param*  - Dollar Amount > 0 (####.##)
       - *return* - BTC(string) (####.########)
+  - [CODE](getBTCRate.md) - Link to the code
 * **[getBTCAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/PHP/getBTCAddress.md)** - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
   - *param*  - Extended Public Key(string)
   - *param*  - Index(int)
@@ -23,7 +24,7 @@ These are the tools that you can use to easily build your own Bitcoin paywall.
   - *return* - QRCodeString(string) - BIP-21 formatted Bitcoin Invoice string to send to browser
 * **[getBTCBalance](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/PHP/getBTCBalance.md)** - Checks the blockchain for the current balance of the payment address and number of confirmations.
   - *param*  - Bitcoin Address(string)
-  - *return* - Received(float) in BTC(####.########)
-  - *return* - Spent(float) in BTC(####.########)
-  - *return* - Balance(float) in BTC(####.########)
-  - *return* - Confirmations(int) - # of confirmations 
+  - *return* - Received(float) in BTC(####.########) - Amount of bitcoin received by the address
+  - *return* - Spent(float) in BTC(####.########) - Amount of bitcoin spent by the address
+  - *return* - Balance(float) in BTC(####.########) - Balance of bitcoin remaining in the address
+  - *return* - Confirmations(int) - # of confirmations on the blockchain
