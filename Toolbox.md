@@ -1,5 +1,5 @@
 # The Tools
-These are the tools required to easily build your own Bitcoin paywall.
+These are the tools to help you to easily build your own Bitcoin paywall.
 * **[getBTCRate](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCRate.md)** - returns the current USD exchange rate for bitcoin
   - Two Modes:
     - Return Current USD Exchange Rate
