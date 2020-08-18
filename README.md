@@ -7,7 +7,7 @@
 
 ## The Toolbox
 These are tools and code snippets that you can use to build your own Bitcoin paywall.
-* [getBTCAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/getBTCAddress.md) - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
+* [getBTCAddress](/Toolbox/getBTCAddress.md) - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
 * [getBTCRate](/Toolbox/getBTCRate.md) - returns the current exchange rate for bitcoin
 * [getBTCInvoice](/Toolbox/getBTCInvoice.md) - returns [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) strings that encode payment information such as amounts, labels, and messages that would be included in the payers wallet
 * [getBTCBalance](/Toolbox/getBTCBalance.md) - Checks the blockchain for the current balance of the payment address and number of confirmations.
