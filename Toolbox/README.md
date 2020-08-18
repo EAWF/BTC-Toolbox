@@ -8,7 +8,6 @@ These are the tools required to easily build your own Bitcoin paywall.
     - Get Current BTC amount for specified USD Amount
       - *param*  - Dollar Amount > 0 (####.##)
       - *return* - BTC(string) (####.########)
-  - [CODE](getBTCRate.md) - Link to the code
 * **[getBTCAddress](https://github.com/EAWF/Bitcoin-Merchants-Toolbox/PHP/getBTCAddress.md)** - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
   - *param*  - Extended Public Key(string)
   - *param*  - Index(int)
