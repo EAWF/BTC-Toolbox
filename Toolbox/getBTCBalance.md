@@ -66,6 +66,8 @@ Here's one way to use this function:
   $address=""; // This is the address we want to check.
   $confirmations="3"; // This is the address we want to check to see if the balance has 3 confirmations.
   $balance=getBTCBalance($address,$confirmations);
-  
+  print <<<END
+  <span>Balance for Account: $account is $balance BTC with $confirmations confirmations.</span>
+  END;
  ?>
 ```
