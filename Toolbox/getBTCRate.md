@@ -33,6 +33,16 @@ Click [here](http://www.google.com/search?q=bitcoin+ticker+api) to search for Bi
 ### PHP7.x FUNCTION (Requires JSON extension)      
 ```php
 <?php
-// Requires JSON extension
+  function getBTCRate($amount){
+   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
+   if($amount <= 0){
+    // Display Rate Mode
+    $result = "$".number_format($bitstamp["last"],2);
+   }else{
+    // Exchange Dollars for BTC Mode
+    $result = number_format($amount/$bitstamp["last"],8,'.','');
+   }
+   return $result;
+  }
 ?>
 ```
