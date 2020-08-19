@@ -44,3 +44,28 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
  ```
   
 ## The Tool
+* Request balance for Address and filter confirmations
+* Return balance of address in Bitcoin
+```php
+ <?php
+  function getBTCBalance($address,$confirmations){
+   // Request current balance of $address, filtered by confirmations (0-6)
+   // Return balance of address in bitcoin.
+   $result = file_get_contents('https://blockchain.info/q/addressbalance/$address?confirmations=$confirmations');
+   $amount = $result*100000000; //Convert satoshi's to bitcoin
+   return $amount;
+  }
+ ?>
+```
+## Usage
+Here's one way to use this function:
+```php
+ <?php
+  require_once 'getBTC.php'
+  $amount=0.00010000;
+  $address=""; // This is the address we want to check.
+  $confirmations="3"; // This is the address we want to check to see if the balance has 3 confirmations.
+  $balance=getBTCBalance($address,$confirmations);
+  
+ ?>
+```
