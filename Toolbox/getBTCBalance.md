@@ -43,7 +43,7 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
  ?>
  ```
   
-## The Tool
+## The getBTCBalance Tool
 * Request balance for Address and filter confirmations
 * Return balance of address in Bitcoin
 ```php
@@ -57,7 +57,7 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
   }
  ?>
 ```
-## Usage
+## Code Example
 Here's one way to use this function:
 ```php
  <?php
