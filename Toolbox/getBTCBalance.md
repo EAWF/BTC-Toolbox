@@ -71,11 +71,8 @@ Here's one way to use this function:
   }else{
    echo "Payment has been received! Your order will ship ASAP."
   }
+ ?>
+```
 ## Thoughts:
 * Load and use [php-ev](https://www.php.net/manual/en/ev.examples.php), a pecl event timer that you can use to pause enough time to avoid API rate limits.
 
-  print <<<END
-  <span>Balance for Account: $account is $balance BTC with $confirmations confirmations.</span>
-  END;
- ?>
-```
