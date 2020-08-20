@@ -66,6 +66,14 @@ Here's one way to use this function:
   $address=""; // This is the address we want to check.
   $confirmations="3"; // This is the address we want to check to see if the balance has 3 confirmations.
   $balance=getBTCBalance($address,$confirmations);
+  if ($balance < $amount){
+   echo "Waiting for more confirmations...please be patient"; 
+  }else{
+   echo "Payment has been received! Your order will ship ASAP."
+  }
+## Thoughts:
+* Load and use [php-ev](https://www.php.net/manual/en/ev.examples.php), a pecl event timer that you can use to pause enough time to avoid API rate limits.
+
   print <<<END
   <span>Balance for Account: $account is $balance BTC with $confirmations confirmations.</span>
   END;
