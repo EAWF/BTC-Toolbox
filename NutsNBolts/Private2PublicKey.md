@@ -1,4 +1,4 @@
-# PrivateKey to PublicKey
+# Private2PublicKey
 
 This is the most difficult part of HD Address Derivation, converting a private key to a public key using ECDSA
 I've found the answer on [r/Bitcoin](https://www.reddit.com/r/Bitcoin/comments/9922jj/how_in_bitcoin_to_generate_a_public_key_from_a/).
