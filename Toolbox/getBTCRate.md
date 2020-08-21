@@ -11,18 +11,18 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 ```php
  <?php
   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
-  echo "Bitstamp: $".number_format($bitstamp["last"],2);
+  $BTCRate="Bitstamp: $".number_format($bitstamp["last"],2);
  ?>
  ```
 * **Blockchain**:
  ```php
  <?php
   $blockchain = json_decode(file_get_contents('https://blockchain.info/ticker'),true);
-  echo "Blockchain: ".$blockchain["USD"]["symbol"].number_format($blockchain["USD"]["last"],2);
+  $BTCRate="Blockchain: ".$blockchain["USD"]["symbol"].number_format($blockchain["USD"]["last"],2);
  ?>
  ```
-## The Tool
-* returns the current USD exchange rate for bitcoin
+## A Functional Tool
+* returns the current USD/BTC exchange rate for your paywall.
   - Two Modes:
     - Return Current USD Exchange Rate
       - *param*  - Dollar Amount <= 0 (#)
