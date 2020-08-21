@@ -30,7 +30,7 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
     - Get Current BTC amount for specified USD Amount
       - *param*  - Dollar Amount > 0 (####.##)
       - *return* - BTC(string) (####.########)
-### PHP7.x FUNCTION (Requires JSON extension)      
+* PHP7.x FUNCTION (Requires JSON extension)      
 ```php
 <?php
   function getBTCRate($amount){
