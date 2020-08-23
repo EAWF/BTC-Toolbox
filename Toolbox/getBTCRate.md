@@ -25,7 +25,7 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 * returns the current USD/BTC exchange rate for your paywall.
   - Two Modes:
     - Return Current USD Exchange Rate
-      - *param*  - Dollar Amount <= 0 (#)
+      - No Parameters
       - *return* - USD(string) ($ #,###.##)
     - Get Current BTC amount for specified USD Amount
       - *param*  - Dollar Amount > 0 (####.##)
@@ -33,16 +33,17 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 * PHP7.x FUNCTION (Requires JSON extension)      
 ```php
 <?php
-  function getBTCRate($amount){
-   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
-   if($amount <= 0){
+function getBTCRate($amount = null)
+{
+  $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'), true);
+  if ($amount == null) {
     // Display Rate Mode
-    $result = "$ ".number_format($bitstamp["last"],2);
-   }else{
+    $result = "$ " . number_format($bitstamp["last"], 2);
+  } else {
     // Exchange Dollars for BTC Mode
-    $result = number_format($amount/$bitstamp["last"],8,'.','');
-   }
-   return $result;
+    $result = number_format($amount / $bitstamp["last"], 8, '.', '');
   }
+  return $result;
+}
 ?>
 ```
