@@ -5,8 +5,9 @@ Encapsulates bitcoin relevant payment information in preparation for QRCode to b
 ## Premises:
 * Server is best for handling building a payment address without revealing the public key
 * Browsers are best for handling the display work.
-## Function:
+## Preparation:
 * Store qrcode.min.js in docroot.
+* Then, in the head section of the HTML insert the script tag:
 ```html
 <head>
  <script src="/qrcode.min.js" ></script>
