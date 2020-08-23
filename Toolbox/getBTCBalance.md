@@ -3,76 +3,30 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
 ## Bitcoin Exchanges Providing Free Or Low Cost Current Rate Information:
 *Some Exchanges may having rate limiting or require an API key/payment plan. See each sites API documentation for trading pairs available and other details*
 
-* Click [here](http://www.google.com/search?q=block+explorer+api) to search for Blockchain Explorer API's
-  - [Blockchain.com](https://www.blockchain.com/api/q) API.
+* Click [here](http://www.google.com/search?q=block+explorer+api) to search for Blockchain Explorer API's 
 
 ## Snippets
 ### PHP7.x w/json extension
-* **Blockchain**:
-* Get the balance of an address (in satoshi).
-  - https://blockchain.info/q/addressbalance/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6
+* **Blockstream**:
+* Get the balance of an address (in satoshi) as JSON.
+  - https://blockstream.info/api/address/[address]
  ```php
  <?php
-  $amount = file_get_contents('https://blockchain.info/q/addressbalance/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6');
-  echo $amount;
+  // Uncomment one to test.
+  // $address="1LqBGSKuX5yYUonjxT5qGfpUsXKYYWeabA";         // Legacy
+  // $address="37VucYSaXLCAsxYyAPfbSi9eh4iEcbShgf";         // Segwit-Compatible
+  // $address="bc1qcr8te4kr609gcawutmrza0j4xv80jy8z306fyu"; // Segwit(bech32)
+  $query="https://blockstream.info/api/address/".$address;  // Build the query
+  $result=json_decode(file_get_contents($query),true);      // Retrieve the result
+  var_dump($result);                                        // Display the result
  ?>
- ```
-  
-* Get the total number of bitcoins received by an address (in satoshi).
-  - https://blockchain.info/q/getreceivedbyaddress/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6
- ```php
- <?php
-  $amount = file_get_contents('https://blockchain.info/q/getreceivedbyaddress/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6');
-  echo $amount;
- ?>
- ```
-* Get the total number of bitcoins sent by an address (in satoshi).
-  - https://blockchain.info/q/getsentbyaddress/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6
- ```php
- <?php
-  $amount = file_get_contents('https://blockchain.info/q/getsentbyaddress/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj?confirmations=6');
-  echo $amount;
- ?>
- ```
-* Timestamp of the block an address was first confirmed in.
-  - https://blockchain.info/q/addressfirstseen/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj
- ```php
- <?php
-  $firstseen = file_get_contents('https://blockchain.info/q/addressfirstseen/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj');
-  echo $firstseen;
- ?>
- ```
-  
+  ```
 ## The getBTCBalance Tool
-* Request balance for Address and filter confirmations
+* Request balance for Address
 * Return balance of address in Bitcoin
 ```php
  <?php
-  function getBTCBalance($address,$confirmations){
-   // Request current balance of $address, filtered by confirmations (0-6)
-   // Return balance of address in bitcoin.
-   $result = file_get_contents('https://blockchain.info/q/addressbalance/'.urlencode($address).'?confirmations='.urlencode($confirmations));
-   $amount = $result/100000000; //Convert satoshi's to bitcoin
-   return $amount;
-  }
+ // Work In Progress
  ?>
 ```
-## Code Example
-Here's one way to use this function:
-```php
- <?php
-  require_once 'getBTC.php'
-  $amount=0.00010000;
-  $address=""; // This is the address we want to check.
-  $confirmations=3; // This is the address we want to check to see if the balance has 3 confirmations.
-  $balance=getBTCBalance($address,$confirmations);
-  if ($balance < $amount){
-   echo "Waiting for more confirmations...please be patient"; 
-  }else{
-   echo "Payment has been received! Your order will ship ASAP."
-  }
- ?>
-```
-## Thoughts:
-* Load and use [php-ev](https://www.php.net/manual/en/ev.examples.php), a pecl event timer that you can use to pause enough time to avoid API rate limits.
 
