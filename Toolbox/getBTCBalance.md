@@ -22,7 +22,7 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
 //echo getBTCBalance($address, 6);    // Returns balance of transactions with >= 6 confirmations
 //echo getBTCBalance($address);       // Returns balance including unconfirmed transactions
 
-function getBTCBalance(string $address, int $confirmations = 0): float
+function getBTCBalance(string $address, int $confirmations = 0): string
 {
   $query = "https://blockstream.info/api/address/" . urlencode($address) . "/utxo";
   $result = json_decode(file_get_contents($query), true);
@@ -37,9 +37,9 @@ function getBTCBalance(string $address, int $confirmations = 0): float
     }
     if ($utxo_confirmations >= $confirmations)
       $balance += (float)$utxo["value"];
-    }
-  $balance /= 100000000;                  // Convert Satoshis to BTC
-  $balance = number_format($balance,8);   // Format $balance to match $amount from getBTCInvoice()
+  }
+  $balance /= 100000000;                   // Convert Satoshis to BTC
+  $balance = number_format($balance, 8);   // Format $balance to match $amount from getBTCInvoice()
   return $balance;
 }
 ?>
