@@ -33,7 +33,7 @@ function getBTCBalance(string $address, int $confirmations = 0): float
     if ($confirmations > 0 && filter_var($utxo["status"]["confirmed"], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) {
       if ($blockheight == 0)
         $blockheight = (int)file_get_contents("https://blockstream.info/api/blocks/tip/height");
-      $utxo_confirmations = $blockheight - (int)$utxo["status"]["block_height"];
+      $utxo_confirmations = 1 + $blockheight - (int)$utxo["status"]["block_height"];
     }
     if ($utxo_confirmations >= $confirmations)
       $balance += (int)$utxo["value"];
