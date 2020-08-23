@@ -26,9 +26,9 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
   - Two Modes:
     - Return Current USD Exchange Rate
       - No Parameters
-      - *return* - USD(string) ($ #,###.##)
+      - *return* - USD(string) ($ ###,###,###.##)
     - Get Current BTC amount for specified USD Amount
-      - *param*  - Dollar Amount > 0 (####.##)
+      - *param*  - Dollar Amount > 0 (#######.##)
       - *return* - BTC(string) (####.########)
 * PHP7.x FUNCTION (Requires JSON extension)      
 ```php
