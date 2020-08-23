@@ -33,15 +33,16 @@ The examples below focus on the USD/BTC exchange pair. Other currency pair data 
 * PHP7.x FUNCTION (Requires JSON extension)      
 ```php
 <?php
-function getBTCRate($amount = null)
-{
+// Assign $amount = 0 if null
+function getBTCRate($amount = 0)  
+{   
   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'), true);
-  if ($amount == null) {
-    // Display Rate Mode
-    $result = "$ " . number_format($bitstamp["last"], 2);
+  if ($amount <= 0) {           // Assign 0 if null, and protect against accidental use of negative numbers.
+    // Display Rate in Dollars mode
+    $result = "$ " . number_format($bitstamp["last"], 2);     // return $result in users locale format with 2 decimal places and thousands separators.
   } else {
     // Exchange Dollars for BTC Mode
-    $result = number_format($amount / $bitstamp["last"], 8, '.', '');
+    $result = number_format($amount / $bitstamp["last"], 8,'.','');  // return $result with 8 decimal places and no thousands separators.
   }
   return $result;
 }
