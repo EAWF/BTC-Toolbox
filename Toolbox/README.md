@@ -27,3 +27,8 @@ These are the tools to help you to easily build your own Bitcoin paywall.
   - *return* - Spent(float) in BTC(####.########) - Amount of bitcoin spent by the address
   - *return* - Balance(float) in BTC(####.########) - Balance of bitcoin remaining in the address
   - *return* - Confirmations(int) - # of confirmations on the blockchain
+
+## getBTC.conf
+Configuration File used to store account names and associated extended public keys.
+
+See the [example file](getBTC.conf) for usage.
