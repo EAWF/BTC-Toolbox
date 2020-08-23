@@ -7,9 +7,9 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
 
 ## Snippets
 ### PHP7.x w/json extension
-* **Blockstream**:
-* Get the balance of an address (in satoshi) as JSON.
-  - https://blockstream.info/api/address/[address]
+* **Example Using Blockstream**: 
+  - https://blockstream.info/api/address/:address
+  - Returns the address data from the blockchain(in satoshi) as JSON.
  ```php
  <?php
   // Uncomment one to test.
@@ -21,12 +21,4 @@ The examples below focus on the Blockchain.info blockchain explorer API. Always 
   var_dump($result);                                        // Display the result
  ?>
   ```
-## The getBTCBalance Tool
-* Request balance for Address
-* Return balance of address in Bitcoin
-```php
- <?php
- // Work In Progress
- ?>
-```
-
+  
