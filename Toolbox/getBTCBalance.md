@@ -36,7 +36,7 @@ function getBTCBalance(string $address, int $confirmations = 0): float
       $utxo_confirmations = 1 + $blockheight - (int)$utxo["status"]["block_height"];
     }
     if ($utxo_confirmations >= $confirmations)
-      $balance += (int)$utxo["value"];
+      $balance += (float)$utxo["value"];
   }
   return $balance /= 100000000;
 }
