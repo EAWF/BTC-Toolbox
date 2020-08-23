@@ -38,7 +38,9 @@ function getBTCBalance(string $address, int $confirmations = 0): float
     if ($utxo_confirmations >= $confirmations)
       $balance += (float)$utxo["value"];
   }
-  return $balance /= 100000000;
+  $balance /= 100000000;                  // Convert Satoshis to BTC
+  $balance = number_format($balance,8);   // Format $balance to match $amount from getBTCInvoice()
+  return $balance;
 }
 ?>
   ```
