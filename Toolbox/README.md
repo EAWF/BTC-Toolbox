@@ -1,5 +1,5 @@
 ## Table of Contents
-- Bitcoin Merchants Toolbox
+- **Bitcoin Merchants Toolbox**
   - [getBTCAddress][getBTCAddress]
   - [getBTCBalance][getBTCBalance]
   - [getBTCInvoice][getBTCInvoice]

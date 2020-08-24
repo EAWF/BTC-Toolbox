@@ -1,7 +1,7 @@
 ## Table of Contents
 - [Bitcoin Merchants Toolbox][Toolbox]
   - [getBTCAddress][getBTCAddress]
-  - getBTCBalance
+  - **getBTCBalance**
   - [getBTCInvoice][getBTCInvoice]
   - [getBTCRate][getBTCRate]
 

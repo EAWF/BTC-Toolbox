@@ -3,7 +3,7 @@
   - [getBTCAddress][getBTCAddress]
   - [getBTCBalance][getBTCBalance]
   - [getBTCInvoice][getBTCInvoice]
-  - getBTCRate
+  - **getBTCRate**
 
 # getBTCRate
 Function that returns either the current USD price of Bitcoin, or the Bitcoin amount for a specified USD amount.
