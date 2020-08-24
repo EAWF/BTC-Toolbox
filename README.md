@@ -47,7 +47,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 [getBTC.conf]: ./Toolbox/getBTC.conf/
 [Bob Holden]: https://github.com/EAWF
 [Carson Mullins]: https://github.com/Septem151
-[Ian Coleman]: https://iancoleman.io
+[Ian Coleman]: https://github.com/iancoleman
 [BIP-39 Mnemonic Code Converter]: https://github.com/iancoleman/bip39
 [Jan Lindeman]: https://github.com/rgex
 [BitcoinECDSA.php]: https://github.com/BitcoinPHP/BitcoinECDSA.php
@@ -64,3 +64,4 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 [BIP-49]: https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki
 [BIP-84]: https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki
 [BIP-173]: https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki
+[SLIP-0132]: https://github.com/satoshilabs/slips/blob/master/slip-0132.md
