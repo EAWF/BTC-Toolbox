@@ -1,9 +1,16 @@
+## Table of Contents
+- [Bitcoin Merchants Toolbox][Toolbox]
+  - [getBTCAddress][getBTCAddress]
+  - getBTCBalance
+  - [getBTCInvoice][getBTCInvoice]
+  - [getBTCRate][getBTCRate]
+
 # getBTCBalance
 Function that returns the balance of an address with the option to specify a minimum number of confirmations.
 
 Uses the [Blockstream Esplora][esplora] API to retrieve balance information.
 
-## Inputs
+### Inputs
 - Bitcoin Address
   - Type: string
   - Restrictions:
@@ -15,7 +22,7 @@ Uses the [Blockstream Esplora][esplora] API to retrieve balance information.
     - Must be in the range `0 <= x < 2^31`
   - Description: Minimum number of confirmations a transaction needs to be considered completed
 
-## Outputs
+### Outputs
 - Balance
   - Type: string
   - Units: Bitcoin
@@ -40,3 +47,7 @@ Currently a WIP.
 
 
 [esplora]: https://github.com/Blockstream/esplora
+[Toolbox]: ../
+[getBTCAddress]: ../getBTCAddress/
+[getBTCInvoice]: ../getBTCInvoice/
+[getBTCRate]: ../getBTCRate/

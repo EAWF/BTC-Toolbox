@@ -1,9 +1,16 @@
+## Table of Contents
+- [Bitcoin Merchants Toolbox][Toolbox]
+  - [getBTCAddress][getBTCAddress]
+  - [getBTCBalance][getBTCBalance]
+  - [getBTCInvoice][getBTCInvoice]
+  - getBTCRate
+
 # getBTCRate
 Function that returns either the current USD price of Bitcoin, or the Bitcoin amount for a specified USD amount.
 
 Uses the [Bitstamp v2 API][bitstamp-api] to retrieve price data.
 
-## Inputs
+### Inputs
 - USD Amount (Optional)
   - Type: float
   - Units: USD
@@ -11,7 +18,7 @@ Uses the [Bitstamp v2 API][bitstamp-api] to retrieve price data.
     - Must be greater than `0`
   - Description: If given, the amount of USD to convert to Bitcoin
 
-## Outputs
+### Outputs
 - Exchange Rate *OR* Bitcoin Amount
   - Type: string
   - Units: USD *OR* Bitcoin
@@ -38,3 +45,7 @@ Currently a WIP.
 
 
 [bitstamp-api]: https://www.bitstamp.net/api/
+[Toolbox]: ../
+[getBTCAddress]: ../getBTCAddress/
+[getBTCBalance]: ../getBTCBalance/
+[getBTCInvoice]: ../getBTCInvoice/

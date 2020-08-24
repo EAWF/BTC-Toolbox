@@ -1,9 +1,16 @@
+## Table of Contents
+- [Bitcoin Merchants Toolbox][Toolbox]
+  - [getBTCAddress][getBTCAddress]
+  - [getBTCBalance][getBTCBalance]
+  - getBTCInvoice
+  - [getBTCRate][getBTCRate]
+
 # getBTCInvoice
 Function that returns a QR Code containing payment request information for a customer to scan.
 
 Follows the [BIP-21][bip21] Payment Protocol which is supported by most popular Bitcoin wallets.
 
-## Inputs
+### Inputs
 - Bitcoin Address
   - Type: string
   - Restrictions:
@@ -22,7 +29,7 @@ Follows the [BIP-21][bip21] Payment Protocol which is supported by most popular 
   - Type: string
   - Description: Message that the customer will see as a reason for payment
 
-## Outputs
+### Outputs
 - QR Code
   - Type: image (binary)
   - Description: QR Code image data encapsulating the payment request information
@@ -46,3 +53,7 @@ Currently a WIP.
 
 
 [bip21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
+[Toolbox]: ../
+[getBTCAddress]: ../getBTCAddress/
+[getBTCBalance]: ../getBTCBalance/
+[getBTCRate]: ../getBTCRate/

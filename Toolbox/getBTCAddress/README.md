@@ -1,7 +1,14 @@
+## Table of Contents
+- [Bitcoin Merchants Toolbox][Toolbox]
+  - getBTCAddress
+  - [getBTCBalance][getBTCBalance]
+  - [getBTCInvoice][getBTCInvoice]
+  - [getBTCRate][getBTCRate]
+
 # getBTCAddress
 Function that returns an address of an account defined in the [getBTC.conf][conf-file] file at a specific index.
 
-## Inputs
+### Inputs
 - Account Name
   - Type: string
   - Restrictions:
@@ -13,7 +20,7 @@ Function that returns an address of an account defined in the [getBTC.conf][conf
     - Must be in the range `0 <= x < 2^31`
   - Description: Index of the Address to derive
 
-## Outputs
+### Outputs
 - Bitcoin Address
   - Type: string
   - Description: Address of the given account extended public key at the given index
@@ -36,3 +43,7 @@ Currently a WIP.
 Currently a WIP.
 
 [conf-file]: ../getBTC.conf
+[Toolbox]: ../
+[getBTCBalance]: ../getBTCBalance/
+[getBTCInvoice]: ../getBTCInvoice/
+[getBTCRate]: ../getBTCRate/

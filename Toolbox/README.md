@@ -1,3 +1,10 @@
+## Table of Contents
+- Bitcoin Merchants Toolbox
+  - [getBTCAddress][getBTCAddress]
+  - [getBTCBalance][getBTCBalance]
+  - [getBTCInvoice][getBTCInvoice]
+  - [getBTCRate][getBTCRate]
+
 # Bitcoin Merchants Toolbox
 The Bitcoin Merchants Toolbox is a collection of functions for various programming languages that helps merchants interact with Bitcoin in useful ways, such as:
 - Generating Bitcoin addresses for receiving payments
