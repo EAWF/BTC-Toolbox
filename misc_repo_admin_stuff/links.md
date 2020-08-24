@@ -1,5 +1,5 @@
 # Repo-Snippets
-## Links for bottom of pages:
+## Links for bottom of pages - Copy and Paste
 ```txt
 [Toolbox]: ./Toolbox/
 [getBTCAddress]: ./Toolbox/getBTCAddress/
