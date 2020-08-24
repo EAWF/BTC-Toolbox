@@ -1,5 +1,6 @@
 ## Table of Contents
 - **Bitcoin Merchants Toolbox**
+  - [getBTC.conf]
   - [getBTCAddress][getBTCAddress]
   - [getBTCBalance][getBTCBalance]
   - [getBTCInvoice][getBTCInvoice]
@@ -27,6 +28,7 @@ The Toolbox functions are contained in a single file for ease of use, portabilit
 ## Installation
 ### Configuration File
 All versions of the Toolbox require a configuration file. The configuration file is used to store account names and associated extended public keys.
+- Download the [getBTC.conf] file
 
 The configuration file must be named `getBTC.conf`. For an example configuration file, see [getBTC.conf][getBTC.conf].
 
