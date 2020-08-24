@@ -35,4 +35,4 @@ Currently a WIP.
 ### Ruby
 Currently a WIP.
 
-[conf-file]: Toolbox/getBTC.conf
+[conf-file]: ../getBTC.conf
