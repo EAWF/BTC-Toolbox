@@ -1,0 +1,6 @@
+**/Dockerfile*
+**/index.php
+**/.dockerignore
+test_results/
+**/getBTC.conf
+**/*.sh

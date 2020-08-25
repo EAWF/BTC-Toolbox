@@ -1,0 +1,42 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - "**"
+  push:
+    branches:
+      - "**"
+
+jobs:
+  tests:
+    # ubuntu-latest == Ubuntu 18.04 as of 08-25-2020
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install PHP Extension dependencies
+      run: |
+        sudo apt-get update && sudo apt-get install -y libbase58-dev libmcrypt-dev
+
+    - name: Setup PHP Environment
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
+        tools: pecl
+        extensions: gmp, base58-0.1.4, mcrypt-1.0.3
+        coverage: none
+    
+    - name: Setup PHP Logging to GitHub Actions Console
+      run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+    
+    - name: Run Tests
+      run: php ./Toolbox/tests/tests.php
+    
+    - name: Upload Test Result Artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test_results
+        path: test_results/
+      if: ${{ always() }}
