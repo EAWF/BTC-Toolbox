@@ -43,7 +43,31 @@ Currently a WIP.
 Currently a WIP.
 
 ### PHP
-Currently a WIP.
+WIP, not finished testing ATM
+```php
+function getBTCInvoice(string $account = 'Default', int $index, float $amount, string $label, string $message): string
+  {
+   $address = getBTCAddress( $account , $index);
+   $BIP21 = "bitcoin:" . $address;
+   if ( $amount > 0 )
+   {
+    $total = getBTCRate( $amount );
+    $BIP21 = $BIP21 . "&amount=". $total;
+   } else {
+    // handle if no amount, but there IS a label
+   }
+   if ( ! empty( $label )
+   {
+    $BIP21 = $BIP21 . "&label=" . $label;
+    if ( ! empty( $message )
+    {
+     $BIP21 = $BIP21 . "&message=" . $message;
+    }
+   }
+   $BIP21 = str_replace( $string, " ", "%20");
+   return $BIP21;
+  }
+```
 
 ### Python
 Currently a WIP.
