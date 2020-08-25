@@ -1,9 +1,10 @@
 ## Table of Contents
 - [Bitcoin Merchants Toolbox][Toolbox]
-  - [getBTCAddress][getBTCAddress]
-  - [getBTCBalance][getBTCBalance]
-  - [getBTCInvoice][getBTCInvoice]
-  - [getBTCRate][getBTCRate]
+  - [getBTCAddress]
+  - [getBTCBalance]
+  - [getBTCInvoice]
+  - [getBTCRate]
+- [Developer Documentation][DevDocs]
 
 # A Toolbox for Building Your Own Bitcoin Paywall
 ***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
@@ -14,10 +15,10 @@
 
 ## The Toolbox
 These are tools and code snippets that you can use to build your own Bitcoin paywall.
-* [getBTCAddress][getBTCAddress] - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
-* [getBTCRate][getBTCRate] - returns the current exchange rate for bitcoin
-* [getBTCInvoice][getBTCInvoice] - returns a [BIP-21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki) string that encodes payment information such as amounts, labels, and messages that may be included in the payers wallet.
-* [getBTCBalance][getBTCBalance] - Checks the blockchain for the current balance of the payment address and number of confirmations.
+* [getBTCAddress] - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
+* [getBTCRate] - returns the current exchange rate for bitcoin
+* [getBTCInvoice] - returns a [BIP-21] string that encodes payment information such as amounts, labels, and messages that may be included in the payers wallet.
+* [getBTCBalance] - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
 ## Safe Test Vectors
 * Safe test addresses may been obtained by using [Ian Coleman](https://iancoleman.io)'s excellent [BIP 39 Mnemonic Code Converter](https://github.com/iancoleman/bip39) with this 12 word mnemonic:
@@ -38,8 +39,10 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 * [Andreas M. Antonopoulos](https://aantonop.com/) - Bitcoin Explainer Extraordinaire
 
 
+[BIP-21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
 [Toolbox]: ./Toolbox/
 [getBTCAddress]: ./Toolbox/getBTCAddress/
 [getBTCBalance]: ./Toolbox/getBTCBalance/
 [getBTCInvoice]: ./Toolbox/getBTCInvoice/
 [getBTCRate]: ./Toolbox/getBTCRate/
+[DevDocs]: ./Toolbox/docs/
