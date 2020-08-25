@@ -35,7 +35,22 @@ Currently a WIP.
 Currently a WIP.
 
 ### PHP
-Currently a WIP.
+PHP Standalone Function
+```php
+<?php
+  function getBTCRate($amount){
+   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
+   if($amount <= 0){
+    // Display Rate Mode
+    $result = "Bitstamp: $".number_format($bitstamp["last"],2);
+   }else{
+    // Exchange Dollars for BTC Mode
+    $result = number_format($amount/$bitstamp["last"],8,'.','');
+   }
+   return $result;
+  }
+?>
+```
 
 ### Python
 Currently a WIP.
