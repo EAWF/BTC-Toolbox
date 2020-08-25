@@ -1,9 +1,10 @@
 ## Table of Contents
 - [Bitcoin Merchants Toolbox][Toolbox]
-  - [getBTCAddress][getBTCAddress]
-  - [getBTCBalance][getBTCBalance]
-  - [getBTCInvoice][getBTCInvoice]
+  - [getBTCAddress]
+  - [getBTCBalance]
+  - [getBTCInvoice]
   - **getBTCRate**
+- [Developer Documentation][DevDocs]
 
 # getBTCRate
 Function that returns either the current USD price of Bitcoin, or the Bitcoin amount for a specified USD amount.
@@ -23,8 +24,8 @@ Uses the [Bitstamp v2 API][bitstamp-api] to retrieve price data.
   - Type: string
   - Units: USD *OR* Bitcoin
   - Description:
-    - `USD Amount` Input Provided: The exchange rate (in USD) of 1 Bitcoin
-    - `USD Amount` Input Not Provided: The Bitcoin amount of the given USD Amount
+    - `USD Amount` Input Provided: The exchange rate (in USD) of 1 Bitcoin. Format: $###,###,###.##
+    - `USD Amount` Input Not Provided: The Bitcoin amount of the given USD Amount. Format: ########.########
 
 ## Usage
 
@@ -35,20 +36,18 @@ Currently a WIP.
 Currently a WIP.
 
 ### PHP
-PHP Standalone Function
 ```php
 <?php
-  function getBTCRate($amount){
-   $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true);
-   if($amount <= 0){
-    // Display Rate Mode
-    $result = "Bitstamp: $".number_format($bitstamp["last"],2);
-   }else{
-    // Exchange Dollars for BTC Mode
-    $result = number_format($amount/$bitstamp["last"],8,'.','');
-   }
-   return $result;
-  }
+require_once('getBTC.php');
+
+# Prints the current price of Bitcoin in USD
+$exchange_rate = getBTCRate();
+echo "Current price of Bitcoin is: " . $exchange_rate;
+
+# Prints the amount of Bitcoin equivalent to $199.99
+$usd_price = 199.99;
+$bitcoin_price = getBTCRate($usd_price);
+echo "The USD amount of $" . number_format($usd_price, 2) . " is equivalent to " . $bitcoin_price . " BTC";
 ?>
 ```
 
@@ -60,7 +59,10 @@ Currently a WIP.
 
 
 [bitstamp-api]: https://www.bitstamp.net/api/
+[getBTC.conf]: ../getBTC.conf
 [Toolbox]: ../
 [getBTCAddress]: ../getBTCAddress/
 [getBTCBalance]: ../getBTCBalance/
 [getBTCInvoice]: ../getBTCInvoice/
+[getBTCRate]: ../getBTCRate/
+[DevDocs]: ../docs/

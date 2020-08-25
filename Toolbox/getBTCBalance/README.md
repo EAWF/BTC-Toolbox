@@ -1,9 +1,10 @@
 ## Table of Contents
 - [Bitcoin Merchants Toolbox][Toolbox]
-  - [getBTCAddress][getBTCAddress]
+  - [getBTCAddress]
   - **getBTCBalance**
-  - [getBTCInvoice][getBTCInvoice]
-  - [getBTCRate][getBTCRate]
+  - [getBTCInvoice]
+  - [getBTCRate]
+- [Developer Documentation][DevDocs]
 
 # getBTCBalance
 Function that returns the balance of an address with the option to specify a minimum number of confirmations.
@@ -26,7 +27,7 @@ Uses the [Blockstream Esplora][esplora] API to retrieve balance information.
 - Balance
   - Type: string
   - Units: Bitcoin
-- Description: Total balance of the Bitcoin Address
+- Description: Total balance of the Bitcoin Address. Format: ########.########
 
 ## Usage
 
@@ -37,28 +38,20 @@ Currently a WIP.
 Currently a WIP.
 
 ### PHP
-Standalone Function
 ```php
-function getBTCBalance(string $address, int $confirmations = 0): string
-{
- $query = "https://blockstream.info/api/address/" . urlencode($address) . "/utxo";
- $result = json_decode(file_get_contents($query), true);
- $blockheight = 0;
- $balance = 0;
- foreach ($result as $utxo) {
-   $utxo_confirmations = 0;
-   if ($confirmations > 0 && filter_var($utxo["status"]["confirmed"], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) {
-     if ($blockheight == 0)
-       $blockheight = (int)file_get_contents("https://blockstream.info/api/blocks/tip/height");
-     $utxo_confirmations = 1 + $blockheight - (int)$utxo["status"]["block_height"];
-   }
-   if ($utxo_confirmations >= $confirmations)
-     $balance += (float)$utxo["value"];
- }
- $balance = $balance /= 100000000;
- $balance = number_format($balance,8,'.','');
- return $balance;
-}
+<?php
+require_once('getBTC.php');
+
+# Prints the balance of address, including unconfirmed transactions
+$address = "bc1qqssy2886jwzm2nwhsmrsf03cguwupufhz6sqq3";
+$balance = getBTCBalance($address);
+echo "The address " . $address . " has a total balance of: " . $balance;
+
+# Prints the balance of address, only including transactions with confirmations >= 6
+$address = "1Eyesds32qPzUF7jq7GyNne7gQxpPiQRV5";
+$balance = getBTCBalance($address);
+echo "The address " . $address . " has a total balance of: " . $balance;
+?>
 ```
 
 ### Python
@@ -69,7 +62,10 @@ Currently a WIP.
 
 
 [esplora]: https://github.com/Blockstream/esplora
+[getBTC.conf]: ../getBTC.conf
 [Toolbox]: ../
 [getBTCAddress]: ../getBTCAddress/
+[getBTCBalance]: ../getBTCBalance/
 [getBTCInvoice]: ../getBTCInvoice/
 [getBTCRate]: ../getBTCRate/
+[DevDocs]: ../docs/

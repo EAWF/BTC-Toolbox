@@ -1,35 +1,38 @@
-# Documentation 
+## Table of Contents
+- [Bitcoin Merchants Toolbox][Toolbox]
+  - [getBTCAddress]
+  - [getBTCBalance]
+  - [getBTCInvoice]
+  - [getBTCRate]
+- **Developer Documentation**
+
+# Developer Documentation
+For developers who wish to see how Bitcoin Merchant Toolbox works in more detail, the docs provided in this section will provide help.
+
 ## Usage
-* getBTCRate:  - (Dual purpose function)
-  - Requirement:
-    - None
-  - ```getBTCRate([amount])```  returns exchange rate data from the Bitstamp Exchange
-    - $amount <= 0 OR null 
-      - returns (string) USD/BTC - $###.###.###.## ) 
-    - $amount > 0 as (############.##)
-      - returns BTC for Amount(USD) (########.########)(*max 21,000,000.00*) 
+### Java
+WIP
 
-* getBTCAddress - returns Base58Check Bitcoin Address for m/'XX/0'/Account'/0/Index for xpub, ypub, or zpub
-  - Requirement:
-    - getBTC.conf
-  - ```getBTCAddress( AccountName, index )```
-    - return format: (string) Base58Check Bitcoin Address for m/'XX/0'/Account'/0/Index for xpub, ypub, or zpub
+### Javascript
+WIP
 
-* getBTCBalance - returns funds available that equal or exceed the number of confirmations
-  - Requirement:
-    - None
-  - Total funds reflects all funds found on the bitcoin network (mempool and onchain) for that address
-  - ```getBTCBalance( address, [confirmations])```
-    -  return format: (string) ################.########
+### PHP
+- Documentation is generated using PhpDoc to create a site based on code comments
+- View the documentation by saving the [php docs][php-docs] folder and opening [index.html][php-index] in a browser
 
-* getBTCInvoice - returns BIP-21 compliant Payment URI.
-  - Requires
-    - getBTCAddress()
-      - getBTC.conf
-    - getBTCRate()
-    - ```getBTCInvoice( account , index [,amount] [,label] [,message] )```
-      - return format: (string) ```bitcoin:[address][?][amount=btc][&][label=label][&][message=message]```
-        - spaces in variables are replaced with "%20"
+### Python
+WIP
 
-## Installation
-* WIP
+### Ruby
+WIP
+
+
+[php-docs]: ./php/
+[php-index]: ./php/index.html
+[getBTC.conf]: ../getBTC.conf
+[Toolbox]: ../
+[getBTCAddress]: ../getBTCAddress/
+[getBTCBalance]: ../getBTCBalance/
+[getBTCInvoice]: ../getBTCInvoice/
+[getBTCRate]: ../getBTCRate/
+[DevDocs]: ../docs/

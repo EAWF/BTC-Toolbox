@@ -1,22 +1,28 @@
 ## Table of Contents
 - [Bitcoin Merchants Toolbox][Toolbox]
-  - [getBTCAddress][getBTCAddress]
-  - [getBTCBalance][getBTCBalance]
+  - [getBTCAddress]
+  - [getBTCBalance]
   - **getBTCInvoice**
-  - [getBTCRate][getBTCRate]
+  - [getBTCRate]
+- [Developer Documentation][DevDocs]
 
 # getBTCInvoice
-Function that returns a QR Code containing payment request information for a customer to scan.
+Function that returns a URI containing a payment request to be packed into a QR code and scanned by the customer.
 
-Follows the [BIP-21][bip21] Payment Protocol which is supported by most popular Bitcoin wallets.
+Follows the [BIP-21] Payment Protocol which is supported by most popular Bitcoin wallets.
 
 ### Inputs
-- Bitcoin Address
+- Account Name
   - Type: string
   - Restrictions:
-    - Must be a valid Bitcoin address
-  - Description: Address to which the customer must send payment to
-- Invoice Amount
+    - Must be defined in the [getBTC.conf] file
+  - Description: Name of the account in [getBTC.conf] that refers to an extended public key
+- Child Index
+  - Type: integer
+  - Restrictions:
+    - Must be in the range `0 <= x < 2^31`
+  - Description: Index of the Address to derive from the Account Name's extended public key
+- Invoice Amount (Optional)
   - Type: float
   - Units: Bitcoin
   - Restrictions:
@@ -30,9 +36,9 @@ Follows the [BIP-21][bip21] Payment Protocol which is supported by most popular 
   - Description: Message that the customer will see as a reason for payment
 
 ### Outputs
-- QR Code
-  - Type: image (binary)
-  - Description: QR Code image data encapsulating the payment request information
+- BIP-21 Payment Request URI
+  - Type: string
+  - Description: Payment request information, url encoded. Format: `bitcoin:[address][?][amount=btc][&][label=label][&][message=message]`
 
 ## Usage
 
@@ -76,8 +82,11 @@ Currently a WIP.
 Currently a WIP.
 
 
-[bip21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
+[BIP-21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
+[getBTC.conf]: ../getBTC.conf
 [Toolbox]: ../
 [getBTCAddress]: ../getBTCAddress/
 [getBTCBalance]: ../getBTCBalance/
+[getBTCInvoice]: ../getBTCInvoice/
 [getBTCRate]: ../getBTCRate/
+[DevDocs]: ../docs/
