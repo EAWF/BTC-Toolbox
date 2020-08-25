@@ -37,7 +37,29 @@ Currently a WIP.
 Currently a WIP.
 
 ### PHP
-Currently a WIP.
+Standalone Function
+```php
+function getBTCBalance(string $address, int $confirmations = 0): string
+{
+ $query = "https://blockstream.info/api/address/" . urlencode($address) . "/utxo";
+ $result = json_decode(file_get_contents($query), true);
+ $blockheight = 0;
+ $balance = 0;
+ foreach ($result as $utxo) {
+   $utxo_confirmations = 0;
+   if ($confirmations > 0 && filter_var($utxo["status"]["confirmed"], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE)) {
+     if ($blockheight == 0)
+       $blockheight = (int)file_get_contents("https://blockstream.info/api/blocks/tip/height");
+     $utxo_confirmations = 1 + $blockheight - (int)$utxo["status"]["block_height"];
+   }
+   if ($utxo_confirmations >= $confirmations)
+     $balance += (float)$utxo["value"];
+ }
+ $balance = $balance /= 100000000;
+ $balance = number_format($balance,8,'.','');
+ return $balance;
+}
+```
 
 ### Python
 Currently a WIP.
