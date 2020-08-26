@@ -87,14 +87,6 @@
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
-                                        <li class="dropdown">
-                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
-                            API Documentation <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                                                        <li><a href="../namespaces/BTC.html">\BTC</a></li>
-                                                    </ul>
-                    </li>
                                         <li class="dropdown" id="charts-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Charts <b class="caret"></b>
@@ -144,57 +136,23 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1794402323"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1962688426"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1794402323" class="accordion-body collapse in">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-856563633"></a>
-                                <a href="../namespaces/BTC.html" style="margin-left: 30px; padding-left: 0">BTC</a>
-            </div>
-            <div id="namespace-856563633" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2025844101"></a>
-                                <a href="../namespaces/BTC.Test.html" style="margin-left: 30px; padding-left: 0">Test</a>
-            </div>
-            <div id="namespace-2025844101" class="accordion-body collapse ">
+            <div id="namespace-1962688426" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/BTC.Test.Logger.html">Logger</a></li>
-                                                    <li class="class"><a href="../classes/BTC.Test.TestLogger.html">TestLogger</a></li>
-                                                    <li class="class"><a href="../classes/BTC.Test.Vectors.html">Vectors</a></li>
+                                                                                                    <li class="class"><a href="../classes/Bech32.html">Bech32</a></li>
+                                                    <li class="class"><a href="../classes/BitcoinECC.html">BitcoinECC</a></li>
+                                                    <li class="class"><a href="../classes/BTCTestVectors.html">BTCTestVectors</a></li>
+                                                    <li class="class"><a href="../classes/ExtendedPublicKey.html">ExtendedPublicKey</a></li>
+                                                    <li class="class"><a href="../classes/HashUtil.html">HashUtil</a></li>
+                                                    <li class="class"><a href="../classes/Logger.html">Logger</a></li>
+                                                    <li class="class"><a href="../classes/Singleton.html">Singleton</a></li>
+                                                    <li class="class"><a href="../classes/TestLogger.html">TestLogger</a></li>
                                             </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="../classes/BTC.Bech32.html">Bech32</a></li>
-                                                    <li class="class"><a href="../classes/BTC.BitcoinECC.html">BitcoinECC</a></li>
-                                                    <li class="class"><a href="../classes/BTC.ExtendedPublicKey.html">ExtendedPublicKey</a></li>
-                                                    <li class="class"><a href="../classes/BTC.HashUtil.html">HashUtil</a></li>
-                                                    <li class="class"><a href="../classes/BTC.Singleton.html">Singleton</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
                 </div>
             </div>
         </div>
@@ -207,13 +165,13 @@
             <div class="row-fluid">
                 <div class="span8 content class">
                     <nav>
-                                                <a href="../namespaces/BTC.Test.html">\BTC\Test</a> <i class="icon-level-up"></i>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\BTC\Test</small>Logger</h1>
-                    <p><em>Singleton Base logger to write to log files</em></p>
-                    <p>Should only be extended, should not be used directly. See <a href="../classes/BTC.Test.TestLogger.html">\BTC\Test\TestLogger</a> for usage.</p>
+                    <h1><small>\</small>TestLogger</h1>
+                    <p><em>Singleton Test Logger that can be used to record if an exception occurs in a test</em></p>
+                    <p>The <a href="../classes/TestLogger.html#method_newLogFile">\TestLogger::newLogFile()</a> function should be called at least once, otherwise the default location is used.</p>
                     
                                         
                     <section id="summary">
@@ -231,10 +189,14 @@
                         </section>
                         <section class="row-fluid public">
                             <section class="span4">
-                                                                    <a href="../classes/BTC.Singleton.html#method___wakeup" class="">__wakeup()</a><br />
-                                                                    <a href="../classes/BTC.Singleton.html#method_getInstance" class="">getInstance()</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#method_log" class="">log()</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#method_logNewLine" class="">logNewLine()</a><br />
+                                                                    <a href="../classes/Logger.html#method_log" class="">log()</a><br />
+                                                                    <a href="../classes/Logger.html#method_logNewLine" class="">logNewLine()</a><br />
+                                                                    <a href="../classes/Singleton.html#method___wakeup" class="">__wakeup()</a><br />
+                                                                    <a href="../classes/Singleton.html#method_getInstance" class="">getInstance()</a><br />
+                                                                    <a href="../classes/TestLogger.html#method_newLogFile" class="">newLogFile()</a><br />
+                                                                    <a href="../classes/TestLogger.html#method_logError" class="">logError()</a><br />
+                                                                    <a href="../classes/TestLogger.html#method_raiseExceptionIfFailure" class="">raiseExceptionIfFailure()</a><br />
+                                                                    <a href="../classes/TestLogger.html#method_close" class="">close()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -245,17 +207,18 @@
                         </section>
                         <section class="row-fluid protected">
                             <section class="span4">
-                                                                    <a href="../classes/BTC.Test.Logger.html#method___construct" class="">__construct()</a><br />
-                                                                    <a href="../classes/BTC.Singleton.html#method___clone" class="">__clone()</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#method_writeLog" class="">writeLog()</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#method_setLogFile" class="">setLogFile()</a><br />
+                                                                    <a href="../classes/TestLogger.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Logger.html#method_writeLog" class="">writeLog()</a><br />
+                                                                    <a href="../classes/Logger.html#method_setLogFile" class="">setLogFile()</a><br />
+                                                                    <a href="../classes/Singleton.html#method___clone" class="">__clone()</a><br />
                                                             </section>
                             <section class="span4">
-                                                                    <a href="../classes/BTC.Test.Logger.html#property_logFile" class="">$logFile</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#property_logDir" class="">$logDir</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#property_fileHandle" class="">$fileHandle</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#property_defaultLogFile" class="">$defaultLogFile</a><br />
-                                                                    <a href="../classes/BTC.Test.Logger.html#property_defaultLogDir" class="">$defaultLogDir</a><br />
+                                                                    <a href="../classes/Logger.html#property_logFile" class="">$logFile</a><br />
+                                                                    <a href="../classes/Logger.html#property_logDir" class="">$logDir</a><br />
+                                                                    <a href="../classes/Logger.html#property_fileHandle" class="">$fileHandle</a><br />
+                                                                    <a href="../classes/Logger.html#property_defaultLogFile" class="">$defaultLogFile</a><br />
+                                                                    <a href="../classes/Logger.html#property_defaultLogDir" class="">$defaultLogDir</a><br />
+                                                                    <a href="../classes/TestLogger.html#property_isFailure" class="">$isFailure</a><br />
                                                             </section>
                             <section class="span4">
                                 <em>N/A</em>
@@ -266,7 +229,7 @@
                                                                     <em>No private methods found</em>
                                                             </section>
                             <section class="span4">
-                                                                    <a href="../classes/BTC.Singleton.html#property_instances" class="">$instances</a><br />
+                                                                    <a href="../classes/Singleton.html#property_instances" class="">$instances</a><br />
                                                             </section>
                             <section class="span4">
                                 <em>N/A</em>
@@ -284,9 +247,11 @@
                             <dd><div class="namespace-wrapper">Test</div></dd>
                                                 <dt>Class hierarchy</dt>
                             <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                
-                                        <div class="namespace-wrapper"><a href="../classes/BTC.Singleton.html">\BTC\Singleton</a></div>
-                                                                                                    <div class="namespace-wrapper">\BTC\Test\Logger</div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                        <div class="namespace-wrapper"><a href="../classes/Singleton.html">\Singleton</a></div>
+                                                                    
+                                        <div class="namespace-wrapper"><a href="../classes/Logger.html">\Logger</a></div>
+                                                                                                    <div class="namespace-wrapper">\TestLogger</div>
                             </dd>
 
                         
@@ -326,6 +291,8 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -350,6 +317,8 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -374,6 +343,8 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -398,6 +369,8 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -418,6 +391,32 @@
                                 <h4>Type</h4>
                 
                                             </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_isFailure" name="property_isFailure" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$isFailure</h3>
+                <pre class="signature">$isFailure : boolean</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Set to true if a failure is written to the logs                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -447,7 +446,7 @@
             <h1><i class="icon-arrow-down"></i></h1>
                         <dl>
                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Singleton.html"><div class="path-wrapper">\BTC\Singleton</div></a></dd>
+                    <dd><a href="../classes/Singleton.html"><div class="path-wrapper">\Singleton</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -462,6 +461,72 @@
                 <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
             </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_log" name="method_log" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">log()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">log(string  <span class="argument">$message</span>) </pre>
+                <p><em>Writes to a log file</em></p>
+                <p>Wrapper function for <a href="../classes/Logger.html#method_writeLog">\Logger::writeLog()</a>.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$message </td>
+                                <td><p>Message to write to the log file</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_logNewLine" name="method_logNewLine" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">logNewLine()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">logNewLine() </pre>
+                <p><em>Writes a new line to a log file</em></p>
+                <p>Wrapper function for <a href="../classes/Logger.html#method_writeLog">\Logger::writeLog()</a> but with an empty message.</p>
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
 
                                     <div class="row-fluid">
         <div class="span8 content class">
@@ -487,7 +552,7 @@
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Singleton.html"><div class="path-wrapper">\BTC\Singleton</div></a></dd>
+                    <dd><a href="../classes/Singleton.html"><div class="path-wrapper">\Singleton</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -518,7 +583,7 @@
                             <span class="label label-info">static</span>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Singleton.html"><div class="path-wrapper">\BTC\Singleton</div></a></dd>
+                    <dd><a href="../classes/Singleton.html"><div class="path-wrapper">\Singleton</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -529,20 +594,25 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_log" name="method_log" class="anchor"></a>
+            <a id="method_newLogFile" name="method_newLogFile" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">log()</h3>
+                <h3 class="public ">newLogFile()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">log(string  <span class="argument">$message</span>) </pre>
-                <p><em>Writes to a log file</em></p>
-                <p>Wrapper function for <a href="../classes/BTC.Test.Logger.html#method_writeLog">\BTC\Test\Logger::writeLog()</a>.</p>
+                <pre class="signature" style="margin-right: 54px;">newLogFile(  <span class="argument">$logDir</span>,   <span class="argument">$logFile</span>) </pre>
+                <p><em>Sets a new log file, must be called at least once otherwise the default location is used</em></p>
+                <p>Wrapper function for <a href="../classes/Logger.html#method_setLogFile">\Logger::setLogFile()</a></p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td>string</td>
-                                <td>$message </td>
-                                <td><p>Message to write to the log file</p></td>
+                                <td></td>
+                                <td>$logDir </td>
+                                <td><p>Directory where the log file is located</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$logFile </td>
+                                <td><p>Name of the log file within the specified log directory</p></td>
                             </tr>
                                             </table>
                 
@@ -555,7 +625,7 @@
                             <span class="label label-info">static</span>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Test.Logger.html"><div class="path-wrapper">\BTC\Test\Logger</div></a></dd>
+                    <dd><a href="../classes/TestLogger.html"><div class="path-wrapper">\TestLogger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -566,13 +636,87 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_logNewLine" name="method_logNewLine" class="anchor"></a>
+            <a id="method_logError" name="method_logError" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">logNewLine()</h3>
+                <h3 class="public ">logError()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">logNewLine() </pre>
-                <p><em>Writes a new line to a log file</em></p>
-                <p>Wrapper function for <a href="../classes/BTC.Test.Logger.html#method_writeLog">\BTC\Test\Logger::writeLog()</a> but with an empty message.</p>
+                <pre class="signature" style="margin-right: 54px;">logError(string  <span class="argument">$message</span>) </pre>
+                <p><em>Logs an error to the log files and sets $isFailure to true</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$message </td>
+                                <td><p>Message to write to the log files</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/TestLogger.html"><div class="path-wrapper">\TestLogger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_raiseExceptionIfFailure" name="method_raiseExceptionIfFailure" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">raiseExceptionIfFailure()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">raiseExceptionIfFailure() : boolean</pre>
+                <p><em>Raises an Exception if there were any failures written to the logs</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Exception</dt>
+                            <dd><p>if there was a failure</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>if there were no failures</p>
+                                    
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/TestLogger.html"><div class="path-wrapper">\TestLogger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() </pre>
+                <p><em>Closes the log file</em></p>
+                
 
                 
                 
@@ -584,7 +728,7 @@
                             <span class="label label-info">static</span>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Test.Logger.html"><div class="path-wrapper">\BTC\Test\Logger</div></a></dd>
+                    <dd><a href="../classes/TestLogger.html"><div class="path-wrapper">\TestLogger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -600,7 +744,7 @@
                 <h3 class="protected ">__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct() </pre>
-                <p><em>Constructor for a base Logger</em></p>
+                <p><em>Constructor for TestLogger</em></p>
                 
 
                 
@@ -612,35 +756,7 @@
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Test.Logger.html"><div class="path-wrapper">\BTC\Test\Logger</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method___clone" name="method___clone" class="anchor"></a>
-            <article class="method">
-                <h3 class="protected ">__clone()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">__clone() </pre>
-                <p><em>Empty clone method, singletons should not be able to be cloned</em></p>
-                
-
-                
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Singleton.html"><div class="path-wrapper">\BTC\Singleton</div></a></dd>
+                    <dd><a href="../classes/TestLogger.html"><div class="path-wrapper">\TestLogger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -676,7 +792,7 @@
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Test.Logger.html"><div class="path-wrapper">\BTC\Test\Logger</div></a></dd>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -717,7 +833,35 @@
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                                     <dt>Inherited from</dt>
-                    <dd><a href="../classes/BTC.Test.Logger.html"><div class="path-wrapper">\BTC\Test\Logger</div></a></dd>
+                    <dd><a href="../classes/Logger.html"><div class="path-wrapper">\Logger</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___clone" name="method___clone" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">__clone()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__clone() </pre>
+                <p><em>Empty clone method, singletons should not be able to be cloned</em></p>
+                
+
+                
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Singleton.html"><div class="path-wrapper">\Singleton</div></a></dd>
                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -748,7 +892,6 @@
                                                         <h1><i class="icon-code"></i></h1>
                             <div>
                                 <ul>
-                                                                            <li><a href="../namespaces/BTC.html">\BTC</a></li>
                                                                     </ul>
                             </div>
                         </section>
@@ -776,7 +919,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 25th, 2020 at 06:16.
+                    on August 26th, 2020 at 01:09.
                 </section>
             </section>
         </section>
