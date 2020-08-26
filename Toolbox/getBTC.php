@@ -41,9 +41,9 @@ function getBTCAddress(string $name, int $childNum): string
  * 
  * @param  string $address       Bitcoin Address to check the address of
  * @param  int    $confirmations (Optional, default = 0) Minimum number of confirmations to consider a UTXO as part of the balance
- * @return string Bitcoin amount formatted to have 8 decimals
+ * @return float  Bitcoin amount
  */
-function getBTCBalance(string $address, int $confirmations = 0): string
+function getBTCBalance(string $address, int $confirmations = 0): float
 {
     $query = "https://blockstream.info/api/address/" . urlencode($address) . "/utxo";
     $result = json_decode(file_get_contents($query), true);
@@ -60,8 +60,7 @@ function getBTCBalance(string $address, int $confirmations = 0): string
             $balance += (float)$utxo["value"];
     }
     $balance /= 100000000;                   // Convert Satoshis to BTC
-    $balance = number_format($balance, 8);   // Format $balance to match $amount from getBTCInvoice()
-    return $balance;
+    return round($balance, 8, PHP_ROUND_HALF_UP);
 }
 
 /**
@@ -81,19 +80,19 @@ function getBTCInvoice()
  * Uses the <a href="https://www.bitstamp.net/api/">Bitstamp v2 API</a> to retrieve USD price data.
  * 
  * @param  float  $amount (Optional, default = 0) Amount in USD to convert to Bitcoin amount
- * @return string Either the current Bitcoin price in USD formatted as "$###,###.##", or an equivalent Bitcoin amount formatted to 8 decimals
+ * @return float  Either the current USD/BTC exchange rate, or an equivalent Bitcoin amount based on the $amount parameter
  */
-function getBTCRate(float $amount = 0): string
+function getBTCRate(float $amount = 0): float
 {
     $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'), true);
     if ($amount <= 0) {           // Assign 0 if null, and protect against accidental use of negative numbers.
         // Display Rate in Dollars mode
-        $result = "$ " . number_format($bitstamp["last"], 2);     // return $result in users locale format with 2 decimal places and thousands separators.
+        $result = $bitstamp["last"];
     } else {
         // Exchange Dollars for BTC Mode
-        $result = number_format($amount / $bitstamp["last"], 8, '.', '');  // return $result with 8 decimal places and no thousands separators.
+        $result = $amount / $bitstamp["last"];
     }
-    return $result;
+    return round($result, 8, PHP_ROUND_HALF_UP);
 }
 
 /**
