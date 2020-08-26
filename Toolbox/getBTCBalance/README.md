@@ -49,7 +49,8 @@ echo "The address " . $address . " has a total balance of: " . $balance;
 
 # Prints the balance of address, only including transactions with confirmations >= 6
 $address = "1Eyesds32qPzUF7jq7GyNne7gQxpPiQRV5";
-$balance = getBTCBalance($address, 6);
+$min_confirmations = 6;
+$balance = getBTCBalance($address, $min_confirmations);
 echo "The address " . $address . " has a total balance of: " . $balance;
 ?>
 ```
