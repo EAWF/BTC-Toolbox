@@ -12,7 +12,7 @@
  * @author     Jan Moritz Lindemann (https://github.com/rgex)
  */
 
-namespace BTC;
+// namespace BTC; - 20200825 EAWF
 
 // Test that PHP modules are installed
 if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
