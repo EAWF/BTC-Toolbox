@@ -64,14 +64,44 @@ function getBTCBalance(string $address, int $confirmations = 0): float
 }
 
 /**
- * Generates a QR Code image, in binary encoding, of a BIP21 Payment Request
+ * Returns a BIP-21 compliant URI BIP21 Payment Request
  * 
- * Function is a WIP
+ * Uses getBTCAddress to create payment address
+ * Uses getBTCRate to convert USD to BTC 
+ *  NOTE: No need to worry about formatting of BTC amount as the wallet will reformat it on the payee's end.
  * 
- * @return void WIP
+ * @param  string $account AccountName from getBTC.conf for getBTCAddress to look up
+ * @param  int    $index   Index for getBTCAddress to derive payment address
+ * @param  float  $amount  Purchase amount in USD used by getBTCRate to convert to BTC
+ * @param  string $label   Label for URI
+ * @param  string $message Message for URI
+ * @return string BIP-21 URI
  */
-function getBTCInvoice()
+function getBTCInvoice(string $account = 'Default', int $index = 0, float $amount = 0.00, string $label = "", string $message = ""): string
 {
+    $address = getBTCAddress($account, $index);
+    $amount = getBTCRate($amount);
+    $string = "";
+    if (!empty($message)) {
+        $string = $string . "message=$message";
+    }
+    if (!empty($label) && !empty($string)) {
+        $string = "label=$label&" . $string;
+    } else {
+        $string = "label=$label";
+    }
+    if ($amount > 0 && !empty($string)) {
+        $string = "amount=$amount&" . $string;
+    } else {
+        $string = "amount=$amount";
+    }
+    if (!empty($string)) {
+        $string = "bitcoin:$address?" . $string;
+    } else {
+        $string = "bitcoin:$address";
+    }
+    $result = str_replace(" ", "%20", $string);
+    return $result;
 }
 
 /**
