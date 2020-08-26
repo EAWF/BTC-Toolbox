@@ -12,11 +12,6 @@
  * @author     Jan Moritz Lindemann (https://github.com/rgex)
  */
 
-<<<<<<< Updated upstream
-// namespace BTC; - 20200825 EAWF
-
-=======
->>>>>>> Stashed changes
 // Test that PHP modules are installed
 if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
     die("Error: Required extension(s) php-base58, php-gmp, and php-mcrypt not installed.\n");
