@@ -1,6 +1,5 @@
 <?php
  // Benchmark test for getBTC.php
- namespace BTC;
 
  require_once 'getBTC.php';
 
