@@ -10,12 +10,216 @@
  * @author  Jan Moritz Lindemann (https://github.com/rgex)
  */
 
-namespace BTC\Test;
-
 require_once(__DIR__ . '/../getBTC.php');
 
-use BTC\Singleton;
-use BTC\ExtendedPublicKey;
+/**
+ * Runs tests for the getBTCAddress function
+ * 
+ * Tests all test vectors and makes sure for each xpub, ypub, and zpub, the appropriate address is derived
+ * and that the derivation path matches what is expected.
+ */
+function getBTCAddressFunctionTest()
+{
+    $xpubs = BTCTestVectors::getXpubs();
+    $ypubs = BTCTestVectors::getYpubs();
+    $zpubs = BTCTestVectors::getZpubs();
+    $expectedXpubAddresses = BTCTestVectors::getExpectedXpubAddresses();
+    $expectedYpubAddresses = BTCTestVectors::getExpectedYpubAddresses();
+    $expectedZpubAddresses = BTCTestVectors::getExpectedZpubAddresses();
+    $expectedXpubDerPaths = BTCTestVectors::getExpectedXpubDerPaths();
+    $expectedYpubDerPaths = BTCTestVectors::getExpectedYpubDerPaths();
+    $expectedZpubDerPaths = BTCTestVectors::getExpectedZpubDerPaths();
+    TestLogger::newLogFile('test_results', 'test_getBTCAddress_results.txt');
+
+    // Test that xpub are working correctly
+    for ($i = 0; $i < count($xpubs); $i++) {
+        $accountExtPubKey = ExtendedPublicKey::fromEncoded($xpubs[$i]);
+        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
+        TestLogger::log("Testing: " . $xpubs[$i]);
+        for ($childNum = 0; $childNum < count($expectedXpubAddresses[$i]); $childNum++) {
+            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
+            $address = $coinExtPubKey->getAddress();
+            $expectedAddress = $expectedXpubAddresses[$i][$childNum];
+            $derPath = $coinExtPubKey->getDerivationPath();
+            $expectedDerPath = $expectedXpubDerPaths[$i] . "/$childNum";
+            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
+                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+            if (strcmp($expectedAddress, $address) !== 0) {
+                $error = "\nxpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
+                TestLogger::logError($error);
+            }
+            if (strcmp($expectedDerPath, $derPath) !== 0) {
+                $error = "\nxpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
+                TestLogger::logError($error);
+            }
+        }
+        TestLogger::logNewLine();
+    }
+
+    // Test that ypub are working correctly
+    for ($i = 0; $i < count($ypubs); $i++) {
+        $accountExtPubKey = ExtendedPublicKey::fromEncoded($ypubs[$i]);
+        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
+        TestLogger::log("Testing: " . $ypubs[$i]);
+        for ($childNum = 0; $childNum < count($expectedYpubAddresses[$i]); $childNum++) {
+            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
+            $address = $coinExtPubKey->getAddress();
+            $expectedAddress = $expectedYpubAddresses[$i][$childNum];
+            $derPath = $coinExtPubKey->getDerivationPath();
+            $expectedDerPath = $expectedYpubDerPaths[$i] . "/$childNum";
+            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
+                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+            if (strcmp($expectedAddress, $address) !== 0) {
+                $error = "\nypub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
+                TestLogger::logError($error);
+            }
+            if (strcmp($expectedDerPath, $derPath) !== 0) {
+                $error = "\nypub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
+                TestLogger::logError($error);
+            }
+        }
+        TestLogger::logNewLine();
+    }
+
+    // Test that zpub are working correctly
+    for ($i = 0; $i < count($zpubs); $i++) {
+        $accountExtPubKey = ExtendedPublicKey::fromEncoded($zpubs[$i]);
+        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
+        TestLogger::log("Testing: " . $zpubs[$i]);
+        for ($childNum = 0; $childNum < count($expectedZpubAddresses[$i]); $childNum++) {
+            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
+            $address = $coinExtPubKey->getAddress();
+            $expectedAddress = $expectedZpubAddresses[$i][$childNum];
+            $derPath = $coinExtPubKey->getDerivationPath();
+            $expectedDerPath = $expectedZpubDerPaths[$i] . "/$childNum";
+            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
+                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+            if (strcmp($expectedAddress, $address) !== 0) {
+                $error = "\nzpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
+                TestLogger::logError($error);
+            }
+            if (strcmp($expectedDerPath, $derPath) !== 0) {
+                $error = "\nzpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
+                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
+                TestLogger::logError($error);
+            }
+        }
+        TestLogger::logNewLine();
+    }
+
+    if (!TestLogger::raiseExceptionIfFailure()) {
+        TestLogger::log("\nAll Tests Passed");
+        TestLogger::close();
+    }
+}
+
+/**
+ * Runs tests for usage of the getBTCAddress function
+ * 
+ * Generates a mock getBTC.conf file and creates entries for each xpub, ypub, and zpub in the test vectors.
+ * Verifies that each address derived using the getBTC.conf file is as expected.
+ */
+function getBTCAddressUsageTest()
+{
+    $xpubs = BTCTestVectors::getXpubs();
+    $ypubs = BTCTestVectors::getYpubs();
+    $zpubs = BTCTestVectors::getZpubs();
+    $expectedXpubAddresses = BTCTestVectors::getExpectedXpubAddresses();
+    $expectedYpubAddresses = BTCTestVectors::getExpectedYpubAddresses();
+    $expectedZpubAddresses = BTCTestVectors::getExpectedZpubAddresses();
+    // Declare names (more than necessary to facilitate further test vectors being added)
+    $names = [
+        "Alice", "Bob", "Charlie", "Dena", "Eve", "Frank", "Gary", "Henry", "Irene",
+        "Jack", "Kyle", "Luke", "Mark", "Nick", "Oscar", "Paul", "Quincy", "Robert",
+        "Sue", "Tom", "Ursula", "Victor", "Will", "Xavier", "Yana", "Zoe"
+    ];
+
+    TestLogger::newLogFile('test_results', 'test_getBTCAddressUsage_results.txt');
+
+    // Create a getBTC.conf file and write test data
+    $fileHandle = fopen('getBTC.conf', 'w');
+    for ($i = 0; $i < count($xpubs); $i++) {
+        fwrite($fileHandle, $names[$i] . "_xpub:" . $xpubs[$i] . "\n");
+    }
+    for ($i = 0; $i < count($ypubs); $i++) {
+        fwrite($fileHandle, $names[$i] . "_ypub:" . $ypubs[$i] . "\n");
+    }
+    for ($i = 0; $i < count($zpubs); $i++) {
+        fwrite($fileHandle, $names[$i] . "_zpub:" . $zpubs[$i] . "\n");
+    }
+    fclose($fileHandle);
+
+    try {
+        // Test against expected xpub addresses
+        TestLogger::log("Testing xpub address derivation");
+        for ($i = 0; $i < count($xpubs); $i++) {
+            $name = $names[$i] . "_xpub";
+            TestLogger::log("Testing name $name using xpub of " . $xpubs[$i]);
+            for ($y = 0; $y < count($expectedXpubAddresses); $y++) {
+                $expectedAddress = $expectedXpubAddresses[$i][$y];
+                $address = getBTCAddress($name, $y);
+                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+                if (strcmp($expectedAddress, $address) !== 0) {
+                    $error = "\nxpub test failed for $name using xpub of " . $xpubs[$i] .
+                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
+                    TestLogger::logError($error);
+                }
+            }
+            TestLogger::logNewLine();
+        }
+
+        // Test against expected ypub addresses
+        TestLogger::log("Testing ypub address derivation");
+        for ($i = 0; $i < count($ypubs); $i++) {
+            $name = $names[$i] . "_ypub";
+            TestLogger::log("Testing name $name using ypub of " . $ypubs[$i]);
+            for ($y = 0; $y < count($expectedYpubAddresses); $y++) {
+                $expectedAddress = $expectedYpubAddresses[$i][$y];
+                $address = getBTCAddress($name, $y);
+                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+                if (strcmp($expectedAddress, $address) !== 0) {
+                    $error = "\nypub test failed for $name using ypub of " . $ypubs[$i] .
+                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
+                    TestLogger::logError($error);
+                }
+            }
+            TestLogger::logNewLine();
+        }
+
+        // Test against expected zpub addresses
+        TestLogger::log("Testing zpub address derivation");
+        for ($i = 0; $i < count($zpubs); $i++) {
+            $name = $names[$i] . "_zpub";
+            TestLogger::log("Testing name $name using zpub of " . $zpubs[$i]);
+            for ($y = 0; $y < count($expectedZpubAddresses); $y++) {
+                $expectedAddress = $expectedZpubAddresses[$i][$y];
+                $address = getBTCAddress($name, $y);
+                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
+                if (strcmp($expectedAddress, $address) !== 0) {
+                    $error = "\nzpub test failed for $name using zpub of " . $zpubs[$i] .
+                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
+                    TestLogger::logError($error);
+                }
+            }
+            TestLogger::logNewLine();
+        }
+    } catch (\Exception $e) {
+        // If any other Exception is thrown that was not accounted for, catch it and report a failure
+        TestLogger::logError($e->getMessage());
+    } finally {
+        // Close the getBTC.conf file
+        unlink('getBTC.conf');
+        if (!TestLogger::raiseExceptionIfFailure()) {
+            TestLogger::log("\nAll Tests Passed");
+            TestLogger::close();
+        }
+    }
+}
 
 /**
  * Singleton class containing test vector data for all tests
@@ -27,7 +231,7 @@ use BTC\ExtendedPublicKey;
  * exactly one sub-array within the respective expected addresses array. For each extended public key, There should be exactly one expected derivation path
  * for each respective extended public key type.
  */
-class Vectors extends Singleton
+class BTCTestVectors extends Singleton
 {
     /**
      * Variables containing arrays of extended public keys
@@ -330,215 +534,6 @@ class TestLogger extends Logger
         $logger->logFile = "";
         $logger->logDir = "";
         fclose($logger->fileHandle);
-    }
-}
-
-/**
- * Runs tests for the getBTCAddress function
- * 
- * Tests all test vectors and makes sure for each xpub, ypub, and zpub, the appropriate address is derived
- * and that the derivation path matches what is expected.
- */
-function getBTCAddressFunctionTest()
-{
-    $xpubs = Vectors::getXpubs();
-    $ypubs = Vectors::getYpubs();
-    $zpubs = Vectors::getZpubs();
-    $expectedXpubAddresses = Vectors::getExpectedXpubAddresses();
-    $expectedYpubAddresses = Vectors::getExpectedYpubAddresses();
-    $expectedZpubAddresses = Vectors::getExpectedZpubAddresses();
-    $expectedXpubDerPaths = Vectors::getExpectedXpubDerPaths();
-    $expectedYpubDerPaths = Vectors::getExpectedYpubDerPaths();
-    $expectedZpubDerPaths = Vectors::getExpectedZpubDerPaths();
-    TestLogger::newLogFile('test_results', 'test_getBTCAddress_results.txt');
-
-    // Test that xpub are working correctly
-    for ($i = 0; $i < count($xpubs); $i++) {
-        $accountExtPubKey = ExtendedPublicKey::fromEncoded($xpubs[$i]);
-        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
-        TestLogger::log("Testing: " . $xpubs[$i]);
-        for ($childNum = 0; $childNum < count($expectedXpubAddresses[$i]); $childNum++) {
-            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
-            $address = $coinExtPubKey->getAddress();
-            $expectedAddress = $expectedXpubAddresses[$i][$childNum];
-            $derPath = $coinExtPubKey->getDerivationPath();
-            $expectedDerPath = $expectedXpubDerPaths[$i] . "/$childNum";
-            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
-                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-            if (strcmp($expectedAddress, $address) !== 0) {
-                $error = "\nxpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
-                TestLogger::logError($error);
-            }
-            if (strcmp($expectedDerPath, $derPath) !== 0) {
-                $error = "\nxpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
-                TestLogger::logError($error);
-            }
-        }
-        TestLogger::logNewLine();
-    }
-
-    // Test that ypub are working correctly
-    for ($i = 0; $i < count($ypubs); $i++) {
-        $accountExtPubKey = ExtendedPublicKey::fromEncoded($ypubs[$i]);
-        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
-        TestLogger::log("Testing: " . $ypubs[$i]);
-        for ($childNum = 0; $childNum < count($expectedYpubAddresses[$i]); $childNum++) {
-            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
-            $address = $coinExtPubKey->getAddress();
-            $expectedAddress = $expectedYpubAddresses[$i][$childNum];
-            $derPath = $coinExtPubKey->getDerivationPath();
-            $expectedDerPath = $expectedYpubDerPaths[$i] . "/$childNum";
-            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
-                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-            if (strcmp($expectedAddress, $address) !== 0) {
-                $error = "\nypub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
-                TestLogger::logError($error);
-            }
-            if (strcmp($expectedDerPath, $derPath) !== 0) {
-                $error = "\nypub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
-                TestLogger::logError($error);
-            }
-        }
-        TestLogger::logNewLine();
-    }
-
-    // Test that zpub are working correctly
-    for ($i = 0; $i < count($zpubs); $i++) {
-        $accountExtPubKey = ExtendedPublicKey::fromEncoded($zpubs[$i]);
-        $externalExtPubKey = ExtendedPublicKey::CKDpub($accountExtPubKey, 0);
-        TestLogger::log("Testing: " . $zpubs[$i]);
-        for ($childNum = 0; $childNum < count($expectedZpubAddresses[$i]); $childNum++) {
-            $coinExtPubKey = ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum);
-            $address = $coinExtPubKey->getAddress();
-            $expectedAddress = $expectedZpubAddresses[$i][$childNum];
-            $derPath = $coinExtPubKey->getDerivationPath();
-            $expectedDerPath = $expectedZpubDerPaths[$i] . "/$childNum";
-            TestLogger::log("Child Number: $childNum\n\tExpected Derivation: $expectedDerPath\n\tActual Derivation:   $derPath" .
-                "\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-            if (strcmp($expectedAddress, $address) !== 0) {
-                $error = "\nzpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Address: " . $expectedAddress . "\n\tActual Address: " . $address . "\n";
-                TestLogger::logError($error);
-            }
-            if (strcmp($expectedDerPath, $derPath) !== 0) {
-                $error = "\nzpub test failed for: " . $accountExtPubKey->getEncoded() . " at childNum " . $childNum;
-                $error .= "\n\tExpected Derivation: " . $expectedDerPath . "\n\tActual Derivation: " . $derPath . "\n";
-                TestLogger::logError($error);
-            }
-        }
-        TestLogger::logNewLine();
-    }
-
-    if (!TestLogger::raiseExceptionIfFailure()) {
-        TestLogger::log("\nAll Tests Passed");
-        TestLogger::close();
-    }
-}
-
-/**
- * Runs tests for usage of the getBTCAddress function
- * 
- * Generates a mock getBTC.conf file and creates entries for each xpub, ypub, and zpub in the test vectors.
- * Verifies that each address derived using the getBTC.conf file is as expected.
- */
-function getBTCAddressUsageTest()
-{
-    $xpubs = Vectors::getXpubs();
-    $ypubs = Vectors::getYpubs();
-    $zpubs = Vectors::getZpubs();
-    $expectedXpubAddresses = Vectors::getExpectedXpubAddresses();
-    $expectedYpubAddresses = Vectors::getExpectedYpubAddresses();
-    $expectedZpubAddresses = Vectors::getExpectedZpubAddresses();
-    // Declare names (more than necessary to facilitate further test vectors being added)
-    $names = [
-        "Alice", "Bob", "Charlie", "Dena", "Eve", "Frank", "Gary", "Henry", "Irene",
-        "Jack", "Kyle", "Luke", "Mark", "Nick", "Oscar", "Paul", "Quincy", "Robert",
-        "Sue", "Tom", "Ursula", "Victor", "Will", "Xavier", "Yana", "Zoe"
-    ];
-
-    TestLogger::newLogFile('test_results', 'test_getBTCAddressUsage_results.txt');
-
-    // Create a getBTC.conf file and write test data
-    $fileHandle = fopen('getBTC.conf', 'w');
-    for ($i = 0; $i < count($xpubs); $i++) {
-        fwrite($fileHandle, $names[$i] . "_xpub:" . $xpubs[$i] . "\n");
-    }
-    for ($i = 0; $i < count($ypubs); $i++) {
-        fwrite($fileHandle, $names[$i] . "_ypub:" . $ypubs[$i] . "\n");
-    }
-    for ($i = 0; $i < count($zpubs); $i++) {
-        fwrite($fileHandle, $names[$i] . "_zpub:" . $zpubs[$i] . "\n");
-    }
-    fclose($fileHandle);
-
-    try {
-        // Test against expected xpub addresses
-        TestLogger::log("Testing xpub address derivation");
-        for ($i = 0; $i < count($xpubs); $i++) {
-            $name = $names[$i] . "_xpub";
-            TestLogger::log("Testing name $name using xpub of " . $xpubs[$i]);
-            for ($y = 0; $y < count($expectedXpubAddresses); $y++) {
-                $expectedAddress = $expectedXpubAddresses[$i][$y];
-                $address = \BTC\getBTCAddress($name, $y);
-                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-                if (strcmp($expectedAddress, $address) !== 0) {
-                    $error = "\nxpub test failed for $name using xpub of " . $xpubs[$i] .
-                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
-                    TestLogger::logError($error);
-                }
-            }
-            TestLogger::logNewLine();
-        }
-
-        // Test against expected ypub addresses
-        TestLogger::log("Testing ypub address derivation");
-        for ($i = 0; $i < count($ypubs); $i++) {
-            $name = $names[$i] . "_ypub";
-            TestLogger::log("Testing name $name using ypub of " . $ypubs[$i]);
-            for ($y = 0; $y < count($expectedYpubAddresses); $y++) {
-                $expectedAddress = $expectedYpubAddresses[$i][$y];
-                $address = \BTC\getBTCAddress($name, $y);
-                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-                if (strcmp($expectedAddress, $address) !== 0) {
-                    $error = "\nypub test failed for $name using ypub of " . $ypubs[$i] .
-                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
-                    TestLogger::logError($error);
-                }
-            }
-            TestLogger::logNewLine();
-        }
-
-        // Test against expected zpub addresses
-        TestLogger::log("Testing zpub address derivation");
-        for ($i = 0; $i < count($zpubs); $i++) {
-            $name = $names[$i] . "_zpub";
-            TestLogger::log("Testing name $name using zpub of " . $zpubs[$i]);
-            for ($y = 0; $y < count($expectedZpubAddresses); $y++) {
-                $expectedAddress = $expectedZpubAddresses[$i][$y];
-                $address = \BTC\getBTCAddress($name, $y);
-                TestLogger::log("Child Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address");
-                if (strcmp($expectedAddress, $address) !== 0) {
-                    $error = "\nzpub test failed for $name using zpub of " . $zpubs[$i] .
-                        "\n\tChild Number: $y\n\tExpected Address: $expectedAddress\n\tActual Address:   $address";
-                    TestLogger::logError($error);
-                }
-            }
-            TestLogger::logNewLine();
-        }
-    } catch (\Exception $e) {
-        // If any other Exception is thrown that was not accounted for, catch it and report a failure
-        TestLogger::logError($e->getMessage());
-    } finally {
-        // Close the getBTC.conf file
-        unlink('getBTC.conf');
-        if (!TestLogger::raiseExceptionIfFailure()) {
-            TestLogger::log("\nAll Tests Passed");
-            TestLogger::close();
-        }
     }
 }
 

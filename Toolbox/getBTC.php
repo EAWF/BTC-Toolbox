@@ -3,7 +3,7 @@
 /**
  * File containing the Bitcoin Merchants Toolbox functions
  * 
- * See https://github.com/EAWF/Bitcoin-Merchants-Toolbox for installation & usage instructions 
+ * See https://github.com/EAWF/Bitcoin-Merchants-Toolbox for installation & usage instructions.
  * 
  * @package    Main
  * @license    https://github.com/EAWF/getBTCAddress/blob/master/LICENSE   Unlicense License
@@ -12,8 +12,11 @@
  * @author     Jan Moritz Lindemann (https://github.com/rgex)
  */
 
+<<<<<<< Updated upstream
 // namespace BTC; - 20200825 EAWF
 
+=======
+>>>>>>> Stashed changes
 // Test that PHP modules are installed
 if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
     die("Error: Required extension(s) php-base58, php-gmp, and php-mcrypt not installed.\n");
