@@ -66,8 +66,8 @@ function getBTCBalance(string $address, int $confirmations = 0): float
 /**
  * Returns a BIP-21 compliant URI BIP21 Payment Request
  * 
- * Use getBTCAddress to create payment address
- * Use getBTCRate to convert USD to BTC 
+ * Use getBTCAddress() to create payment address
+ * Use getBTCRate() to convert USD to BTC 
  * 
  * @param  string $address From getBTCAddress($account,$index)
  * @param  string $amount  From getBTCRate($amount)
