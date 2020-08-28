@@ -27,8 +27,7 @@ Function that returns an address of an account defined in the [getBTC.conf] file
   - Description: Address of the given account extended public key at the given index
 
 ## Usage
-In the usage examples below, it is assumed you have a [getBTC.conf] file in the same directory. The getBTC.conf file for these examples
-is as follows:
+In the usage examples below, it is assumed you have a [getBTC.conf] file. The getBTC.conf file for these examples is as follows:
 ```txt
 PhysicalProducts:xpub6BosfCnifzxcFwrSzQiqu2DBVTshkCXacvNsWGYJVVhhawA7d4R5WSWGFNbi8Aw6ZRc1brxMyWMzG3DSSSSoekkudhUd9yLb6qx39T9nMdj
 DigitalProducts:ypub6Ww3ibxVfGzLrAH1PNcjyAWenMTbbAosGNB6VvmSEgytSER9azLDWCxoJwW7Ke7icmizBMXrzBx9979FfaHxHcrArf3zbeJJJUZPf663zsP

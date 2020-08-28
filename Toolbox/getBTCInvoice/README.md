@@ -12,25 +12,23 @@ Function that returns a URI containing a payment request to be packed into a QR 
 Follows the [BIP-21] Payment Protocol which is supported by most popular Bitcoin wallets.
 
 ### Inputs
-- Address (Required)
+- Bitcoin Address (Required)
   - Type: string
-  - Description: Payment address in Base58Check format
-  - Source: [getBTCAddress]
+  - Restrictions:
+    - Must be a valid Bitcoin Address
+  - Description: Payment address where customer will send Bitcoin. Can be the output of [getBTCAddress]
 - Amount (Optional)
-  - Type: string
+  - Type: float
   - Units: Bitcoin
   - Restrictions:
-    - 26 August 2020 - Amount MUST be greater than or equal to `0.00000546` so as to prevent spamming transactions. 
-  - Description: Amount (in Bitcoin) that the customer must send
-  - Source: [getBTCRate]
+    - Must be greater than or equal to `0.00000546` (minimum dust amount) 
+  - Description: Amount (in Bitcoin) that the customer must send. Can be the output of [getBTCRate] when converting a USD amount to BTC
 - Label (Optional)
   - Type: string
-  - Description: Label that the customer will see in addition to the Address
-  - Note: Most wallets support this field.
+  - Description: Label that the customer will see in addition to the Address. Supported by most wallets 
 - Message (Optional)
   - Type: string
-  - Description: Message that the customer will see as a reason for payment
-  - Note: Many wallets do not support this field.
+  - Description: Message that the customer will see as a reason for payment. Not supported by most wallets
 
 ### Outputs
 - BIP-21 Payment Request URI
@@ -39,6 +37,12 @@ Follows the [BIP-21] Payment Protocol which is supported by most popular Bitcoin
   - Directly usable by a QR Code Builder or as a Anchor URI
 
 ## Usage
+In the usage examples below, it is assumed you have a [getBTC.conf] file. The getBTC.conf file for these examples is as follows:
+```txt
+Default:xpub6BosfCnifzxcFwrSzQiqu2DBVTshkCXacvNsWGYJVVhhawA7d4R5WSWGFNbi8Aw6ZRc1brxMyWMzG3DSSSSoekkudhUd9yLb6qx39T9nMdj
+Donations:zpub6rVZC52z8ugGany9wytHSPQ3DnfvKNPM4Em2tTLPeE2TGd9i5hmjC2kwXNt8oMHAdXruRQAkuqWYmKraSaip3xfPjTq4zKCAJiYGKpmcZ9B
+```
+
 ### Java
 Currently a WIP.
 
@@ -47,26 +51,23 @@ Currently a WIP.
 
 ### PHP
 ```php
- /*
- * Demo PHP Script for BIP-21 URI
- * Requires:
- *  getBTC.php - 
- *  qrcode.min.js - [https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/qrcode.min.js]
+/*
+ * Requires qrcode.min.js - [https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/qrcode.min.js]
+ * for generating a QR Code from the Payment Request URI
  */
- require_once 'getBTC.php';
- $account = "Default";
- $index = 0;
- $address = getBTCAddress($account,$index);
- $amount="";
- $amount="10.00";
- $label="";
- $label="My Company Inc. - Donation";
- $message="";
- $message="Thanks for your patronage!";
- $QRSize = "140";
- $QRQuality = "M";
- $amount = getBTCRate($amount);
- $invoice = getBTCInvoice($address,$amount,$label,$message);
+require_once 'getBTC.php';
+
+$account = "Donations";
+$index = 0;
+$address = getBTCAddress($account,$index);
+$usd_amount = 10.99;
+$btc_amount = getBTCRate($usd_amount);
+$label="My Company Inc. - Donation";
+$message="Thanks for your patronage!";
+$invoice = getBTCInvoice($address, $btc_amount, $label, $message);
+
+$QRSize = "140";
+$QRQuality = "M";
 print <<<END
 <html>
  <head>
@@ -76,7 +77,7 @@ print <<<END
  </head>
  <body>
  <h2>BTC Invoice Demo</h2>
-  <p>Please pay BTC: $amount for your purchase.</p>
+  <p>Please pay BTC: $btc_amount for your purchase.</p>
   <p><div id="qrcode"></div></p>
   <p><small><a href="$invoice" title="Pay on this device.">$address</a><br/><br/>Click on the link above to pay from this device.</small></p>
  </body>
