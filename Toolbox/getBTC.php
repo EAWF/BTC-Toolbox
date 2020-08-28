@@ -66,43 +66,38 @@ function getBTCBalance(string $address, int $confirmations = 0): float
 /**
  * Returns a BIP-21 compliant URI BIP21 Payment Request
  * 
- * Uses getBTCAddress to create payment address
- * Uses getBTCRate to convert USD to BTC 
- *  NOTE: No need to worry about formatting of BTC amount as the wallet will reformat it on the payee's end.
+ * Use getBTCAddress to create payment address
+ * Use getBTCRate to convert USD to BTC 
  * 
- * @param  string $account AccountName from getBTC.conf for getBTCAddress to look up
- * @param  int    $index   Index for getBTCAddress to derive payment address
- * @param  float  $amount  Purchase amount in USD used by getBTCRate to convert to BTC
+ * @param  string $address From getBTCAddress($account,$index)
+ * @param  string $amount  From getBTCRate($amount)
  * @param  string $label   Label for URI
  * @param  string $message Message for URI
- * @return string BIP-21 URI
+ * @return string $result  BIP-21 compliant payment string
  */
-function getBTCInvoice(string $account = 'Default', int $index = 0, float $amount = 0.00, string $label = "", string $message = ""): string
+function getBTCInvoice(string $address='', string $amount='', string $label='', string $message='')
 {
-    $address = getBTCAddress($account, $index);
-    $amount = getBTCRate($amount);
     $string = "";
-    if (!empty($message)) {
-        $string = $string . "message=$message";
+    if(!empty($message)) { 
+     $string="message=$message".$string;
     }
-    if (!empty($label) && !empty($string)) {
-        $string = "label=$label&" . $string;
+    if(!empty($string) && !empty($label)){
+     $string="label=$label&".$string;
+    } elseif(!empty($label)) {
+     $string="label=$label";
+    }
+    if(!empty($string) && !empty($amount)){
+     $string = "amount=$amount&" . $string;
+    } elseif(!empty($amount)) {
+     $string = "amount=$amount";
+    }
+    if(!empty($string)){
+     $string = "bitcoin:$address?".$string;
     } else {
-        $string = "label=$label";
+     $string = "bitcoin:$address";
     }
-    if ($amount > 0 && !empty($string)) {
-        $string = "amount=$amount&" . $string;
-    } else {
-        $string = "amount=$amount";
-    }
-    if (!empty($string)) {
-        $string = "bitcoin:$address?" . $string;
-    } else {
-        $string = "bitcoin:$address";
-    }
-    $result = str_replace(" ", "%20", $string);
-    return $result;
-}
+    return str_replace(" ", "%20", $string);
+   }
 
 /**
  * Get the current USD rate of Bitcoin, or convert a USD amount to Bitcoin amount
