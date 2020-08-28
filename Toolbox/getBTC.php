@@ -70,12 +70,12 @@ function getBTCBalance(string $address, int $confirmations = 0): float
  * Use getBTCRate() to convert USD to BTC 
  * 
  * @param  string $address From getBTCAddress($account,$index)
- * @param  float $amount  From getBTCRate($amount)
+ * @param  float  $amount  From getBTCRate($amount)
  * @param  string $label   Label for URI
  * @param  string $message Message for URI
  * @return string $result  BIP-21 compliant payment string
  */
-function getBTCInvoice(string $address, float $amount='', string $label='', string $message=''): string
+function getBTCInvoice(string $address, float $amount = 0, string $label = '', string $message = ''): string
 {
     $string = "";
     if(!empty($message)) { 
