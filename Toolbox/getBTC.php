@@ -66,14 +66,14 @@ function getBTCBalance(string $address, int $confirmations = 0): float
 /**
  * Returns a BIP-21 compliant URI BIP21 Payment Request
  * 
- * Use getBTCAddress() to create payment address
- * Use getBTCRate() to convert USD to BTC 
+ * Meant to be used with {@see getBTCAddress()} to create payment address and {@see getBTCRate()} to convert USD to BTC.
+ * Can also be used with manually inputting address and amount.
  * 
- * @param  string $address From getBTCAddress($account,$index)
- * @param  float  $amount  From getBTCRate($amount)
- * @param  string $label   Label for URI
- * @param  string $message Message for URI
- * @return string $result  BIP-21 compliant payment string
+ * @param  string $address Bitcoin Address for receiving payment
+ * @param  float  $amount  Amount (in Bitcoin units) of payment to receive
+ * @param  string $label   Label for Address in the Payment Request URI
+ * @param  string $message Message embedded in the Payment Request URI
+ * @return string BIP-21 compliant Payment Request URI
  */
 function getBTCInvoice(string $address, float $amount = 0, string $label = '', string $message = ''): string
 {
