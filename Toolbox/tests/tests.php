@@ -111,7 +111,6 @@ function getBTCAddressFunctionTest()
         }
         TestLogger::logNewLine();
     }
-
     if (!TestLogger::raiseExceptionIfFailure()) {
         TestLogger::log("\nAll Tests Passed");
         TestLogger::close();
@@ -222,6 +221,212 @@ function getBTCAddressUsageTest()
 }
 
 /**
+ * Runs tests for the getBTCBalance function
+ * 
+ * Tests first address in each test vector address formats to make sure that the function works as intended. Unfortunately due to the ever-changing
+ * nature of UTXOs in the Bitcoin Blockchain, there is no way to test that the amount returned from the function is correct.
+ * Doing so would make this test dependent upon keeping an address unused forever, otherwise tests would always fail.
+ */
+function getBTCBalanceFunctionTest()
+{
+    TestLogger::newLogFile('test_results', 'test_getBTCBalance_results.txt');
+    // Test first addresses in vectors.json
+    $addresses = [
+        BTCTestVectors::getExpectedXpubAddresses()[0][0],
+        BTCTestVectors::getExpectedYpubAddresses()[0][0],
+        BTCTestVectors::getExpectedZpubAddresses()[0][0]
+    ];
+    foreach ($addresses as $address) {
+        try {
+            // Test with 0 confirmations
+            $balance = getBTCBalance($address);
+            if ($balance === null)
+                throw new \Exception("Amount was null");
+            else
+                TestLogger::log("Address " . $address . " returned a valid balance with 0 confirmations.");
+            // Sleep 0.5 second between each call to avoid rate limits
+            usleep(500000);
+            // Test with 6 confirmations
+            $balance = getBTCBalance($address, 6);
+            if ($balance === null)
+                throw new \Exception("Amount was null");
+            else
+                TestLogger::log("Address " . $address . " returned a valid balance with 6 confirmations.");
+            // Sleep 0.5 second between each call to avoid rate limits
+            usleep(500000);
+        } catch (\Exception $e) {
+            TestLogger::logError("\nError in getBTCBalance for address: $address\n" . $e->getMessage() . "\n");
+        }
+    }
+    if (!TestLogger::raiseExceptionIfFailure()) {
+        TestLogger::log("\nAll tests passed");
+        TestLogger::close();
+    }
+}
+
+/**
+ * Runs tests for the getBTCInvoice function
+ * 
+ * Tests first address in each test vector address formats to make sure that getBTCInvoice function works as intended.
+ */
+function getBTCInvoiceFunctionTest()
+{
+    TestLogger::newLogFile('test_results', 'test_getBTCInvoice_results.txt');
+    // Test All Addresses in vectors.json
+    $addresses = [
+        BTCTestVectors::getExpectedXpubAddresses()[0][0],
+        BTCTestVectors::getExpectedYpubAddresses()[0][0],
+        BTCTestVectors::getExpectedZpubAddresses()[0][0]
+    ];
+    foreach ($addresses as $address) {
+        try {
+            // Try with just address
+            $invoice = getBTCInvoice($address);
+            $expected_invoice = "bitcoin:" . $address;
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address and amount == 0.005
+            $amount = 0.005;
+            $invoice = getBTCInvoice($address, $amount);
+            $expected_invoice = "bitcoin:" . $address . "?amount=0.005";
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address and amount == 0
+            $amount = 0;
+            $invoice = getBTCInvoice($address, $amount);
+            $expected_invoice = "bitcoin:" . $address;
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address and amount < 0
+            $amount = -0.005;
+            $invoice = getBTCInvoice($address, $amount);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address and amount == 0.005 and a label
+            $amount = 0.005;
+            $label = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label);
+            $expected_invoice = "bitcoin:" . $address . "?amount=0.005&label=" . urlencode($label);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address, amount == 0, and a label
+            $amount = 0;
+            $label = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label);
+            $expected_invoice = "bitcoin:" . $address . "?label=" . urlencode($label);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address, amount == 0, and a message
+            $amount = 0;
+            $label = '';
+            $message = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label, $message);
+            $expected_invoice = "bitcoin:" . $address . "?message=" . urlencode($message);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address, amount == 0.005, and a message
+            $amount = 0.005;
+            $label = '';
+            $message = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label, $message);
+            $expected_invoice = "bitcoin:" . $address . "?amount=0.005&message=" . urlencode($message);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address, amount == 0, a label, and a message
+            $amount = 0;
+            $label = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $message = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label, $message);
+            $expected_invoice = "bitcoin:" . $address . "?label=" . urlencode($label) . "&message=" . urlencode($message);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+            // Try with address, amount == 0.005, a label, and a message
+            $amount = 0.005;
+            $label = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $message = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&\'()*+,;= \\`%';
+            $invoice = getBTCInvoice($address, $amount, $label, $message);
+            $expected_invoice = "bitcoin:" . $address . "?amount=0.005&label=" . urlencode($label) . "&message=" . urlencode($message);
+            if (strcmp($invoice, $expected_invoice) === 0)
+                TestLogger::log("Invoice for Address " . $address . " matched expected invoice of " . $expected_invoice);
+            else
+                throw new \Exception("Invoice for Address " . $address . " did not match expected Invoice.\n\tExpected: " . $expected_invoice . "\n\tActual:   " . $invoice);
+        } catch (\Exception $e) {
+            TestLogger::logError("\n" . $e->getMessage() . "\n");
+        }
+    }
+    if (!TestLogger::raiseExceptionIfFailure()) {
+        TestLogger::log("\nAll tests passed");
+        TestLogger::close();
+    }
+}
+
+/**
+ * Runs tests for the getBTCRate function
+ * 
+ * Tests various amounts with the getBTCRate function. Unable to test exact value amounts returned since bitcoin price fluctuates.
+ */
+function getBTCRateFunctionTest()
+{
+    TestLogger::newLogFile('test_results', 'test_getBTCRate_results.txt');
+    try {
+        // Try function with no args
+        $rate = getBTCRate();
+        if ($rate === null)
+            throw new \Exception("getBTCRate with no args failed");
+        else
+            TestLogger::log("getBTCRate with no args passed");
+        // Sleep 0.5 secs between queries to avoid rate limits
+        usleep(500000);
+        // Try function with amount == 0
+        $rate = getBTCRate(0);
+        if ($rate === null)
+            throw new \Exception("getBTCRate with amount == 0 failed");
+        else
+            TestLogger::log("getBTCRate with amount == 0 passed");
+        // Sleep 0.5 secs between queries to avoid rate limits
+        usleep(500000);
+        // Try function with amount > 0
+        $rate = getBTCRate(15.99);
+        if ($rate === null)
+            throw new \Exception("getBTCRate with amount > 0 failed");
+        else
+            TestLogger::log("getBTCRate with amount > 0 passed");
+        // Sleep 0.5 secs between queries to avoid rate limits
+        usleep(500000);
+        // Try function with amount < 0
+        $rate = getBTCRate(-15.99);
+        if ($rate === null)
+            throw new \Exception("getBTCRate with amount < 0 failed");
+        else
+            TestLogger::log("getBTCRate with amount < 0 passed");
+    } catch (\Exception $e) {
+        TestLogger::logError("\n" . $e->getMessage() . "\n");
+    }
+    if (!TestLogger::raiseExceptionIfFailure()) {
+        TestLogger::log("\nAll tests passed");
+        TestLogger::close();
+    }
+}
+
+/**
  * Singleton class containing test vector data for all tests
  * 
  * A file must exist within the same directory as this file called "vectors.json".
@@ -231,7 +436,7 @@ function getBTCAddressUsageTest()
  * exactly one sub-array within the respective expected addresses array. For each extended public key, There should be exactly one expected derivation path
  * for each respective extended public key type.
  */
-class BTCTestVectors extends Singleton
+class BTCTestVectors extends \Singleton
 {
     /**
      * Variables containing arrays of extended public keys
@@ -256,7 +461,7 @@ class BTCTestVectors extends Singleton
     protected function __construct()
     {
         $filepath = dirname(__FILE__) . "/vectors.json";
-        TestLogger::newLogFile("test_results", "test_vectorsPrecheck_results.txt");
+        TestLogger::newLogFile('test_results', 'test_vectorsPrecheck_results.txt');
         if (!file_exists($filepath)) {
             TestLogger::logError("Vectors file does not exist! Path: " . $filepath);
             TestLogger::raiseExceptionIfFailure();
@@ -539,3 +744,6 @@ class TestLogger extends Logger
 
 getBTCAddressFunctionTest();
 getBTCAddressUsageTest();
+getBTCInvoiceFunctionTest();
+getBTCRateFunctionTest();
+getBTCBalanceFunctionTest();
