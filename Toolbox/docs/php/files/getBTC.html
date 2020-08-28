@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-665581648"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-692843350"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-665581648" class="accordion-body collapse in">
+            <div id="namespace-692843350" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -349,45 +349,39 @@ then checks whether the UTXOs have greater than or an equal amount of confirmati
             <article class="method">
                 <h3 class=" ">getBTCInvoice()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getBTCInvoice(string  <span class="argument">$account = &#039;Default&#039;</span>, integer  <span class="argument">$index</span>, float  <span class="argument">$amount = 0.0</span>, string  <span class="argument">$label = &quot;&quot;</span>, string  <span class="argument">$message = &quot;&quot;</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">getBTCInvoice(string  <span class="argument">$address</span>, float  <span class="argument">$amount</span>, string  <span class="argument">$label = &#039;&#039;</span>, string  <span class="argument">$message = &#039;&#039;</span>) : string</pre>
                 <p><em>Returns a BIP-21 compliant URI BIP21 Payment Request</em></p>
-                <p>Uses getBTCAddress to create payment address
-Uses getBTCRate to convert USD to BTC
-NOTE: No need to worry about formatting of BTC amount as the wallet will reformat it on the payee's end.</p>
+                <p>Meant to be used with <a href="../namespaces/default.html#function_getBTCAddress">\getBTCAddress()</a> to create payment address and <a href="../namespaces/default.html#function_getBTCRate">\getBTCRate()</a> to convert USD to BTC.
+Can also be used with manually inputting address and amount.</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
-                                <td>$account </td>
-                                <td><p>AccountName from getBTC.conf for getBTCAddress to look up</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>integer</td>
-                                <td>$index </td>
-                                <td><p>Index for getBTCAddress to derive payment address</p></td>
+                                <td>$address </td>
+                                <td><p>Bitcoin Address for receiving payment</p></td>
                             </tr>
                                                     <tr>
                                 <td>float</td>
                                 <td>$amount </td>
-                                <td><p>Purchase amount in USD used by getBTCRate to convert to BTC</p></td>
+                                <td><p>Amount (in Bitcoin units) of payment to receive</p></td>
                             </tr>
                                                     <tr>
                                 <td>string</td>
                                 <td>$label </td>
-                                <td><p>Label for URI</p></td>
+                                <td><p>Label for Address in the Payment Request URI</p></td>
                             </tr>
                                                     <tr>
                                 <td>string</td>
                                 <td>$message </td>
-                                <td><p>Message for URI</p></td>
+                                <td><p>Message embedded in the Payment Request URI</p></td>
                             </tr>
                                             </table>
                 
                 
                                     <h4>Returns</h4>
                     string
-                                            &mdash; <p>BIP-21 URI</p>
+                                            &mdash; <p>BIP-21 compliant Payment Request URI</p>
                                     
                             </article>
         </div>
@@ -554,7 +548,7 @@ Requires a getBTC.conf file. Set ownership/permissions with &quot;chown [owner]:
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 26th, 2020 at 13:49.
+                    on August 28th, 2020 at 04:48.
                 </section>
             </section>
         </section>
