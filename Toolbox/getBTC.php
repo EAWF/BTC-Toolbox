@@ -46,7 +46,10 @@ function getBTCAddress(string $name, int $childNum): string
 function getBTCBalance(string $address, int $confirmations = 0): float
 {
     $query = "https://blockstream.info/api/address/" . urlencode($address) . "/utxo";
-    $result = json_decode(file_get_contents($query), true);
+    $response = file_get_contents($query);
+    if (!$response)
+        throw new \Exception("Failed to reach blockstream esplora api");
+    $result = json_decode($response, true);
     $blockheight = 0;
     $balance = 0;
     foreach ($result as $utxo) {
@@ -79,19 +82,19 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
 {
     $string = "";
     if (!empty($message))
-        $string = "message=" . urlencode($message) . $string;
+        $string = "message=" . urlencode($message);
     if (!empty($string) && !empty($label))
-        $string = "label=". urlencode($label) . "&" . $string;
+        $string = "label=" . urlencode($label) . "&" . $string;
     else if (!empty($label))
-        $string = "label=$label";
+        $string = "label=" . urlencode($label);
     if (!empty($string) && $amount > 0)
         $string = "amount=$amount&" . $string;
     else if ($amount > 0)
         $string = "amount=$amount";
     if (!empty($string))
-        $string = "bitcoin:" . urlencode($address) . "?" . $string;
+        $string = "bitcoin:$address?" . $string;
     else
-        $string = "bitcoin:" . urlencode($address);
+        $string = "bitcoin:$address";
     return $string;
 }
 
@@ -105,7 +108,10 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
  */
 function getBTCRate(float $amount = 0): float
 {
-    $bitstamp = json_decode(file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'), true);
+    $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
+    if (!$response)
+        throw new \Exception("Failed to reach bitstamp api");
+    $bitstamp = json_decode($response, true);
     if ($amount <= 0) {           // Assign 0 if null, and protect against accidental use of negative numbers.
         // Display Rate in Dollars mode
         $result = $bitstamp["last"];
