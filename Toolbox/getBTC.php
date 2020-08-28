@@ -84,9 +84,9 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
         $string = "label=$label&" . $string;
     else if (!empty($label))
         $string = "label=$label";
-    if (!empty($string) && !empty($amount))
+    if (!empty($string) && $amount > 0)
         $string = "amount=$amount&" . $string;
-    else if (!empty($amount))
+    else if ($amount > 0)
         $string = "amount=$amount";
     if (!empty($string))
         $string = "bitcoin:$address?" . $string;
