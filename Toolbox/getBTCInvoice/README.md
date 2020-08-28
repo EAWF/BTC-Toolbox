@@ -12,42 +12,33 @@ Function that returns a URI containing a payment request to be packed into a QR 
 Follows the [BIP-21] Payment Protocol which is supported by most popular Bitcoin wallets.
 
 ### Inputs
-- Account Name (Optional)
+- Address (Required)
   - Type: string
-  - Restrictions:
-    - Must be defined in the [getBTC.conf] file
-  - Description: Name of the account in [getBTC.conf] that refers to an extended public key. Defaults to the account name "Default" if not present
-- Child Index (Optional)
-  - Type: integer
-  - Restrictions:
-    - Must be in the range `0 <= x < 2^31`
-  - Description: Index of the Address to derive from the Account Name's extended public key. Defaults to 0 if not present
-- Invoice Amount (Optional)
-  - Type: float
+  - Description: Payment address in Base58Check format
+  - Source: [getBTCAddress]
+- Amount (Optional)
+  - Type: string
   - Units: Bitcoin
   - Restrictions:
-    - Must be greater than or equal to `0.00000546`
+    - 26 August 2020 - Amount MUST be greater than or equal to `0.00000546` so as to prevent spamming transactions. 
   - Description: Amount (in Bitcoin) that the customer must send
-- Address Label (Optional)
+  - Source: [getBTCRate]
+- Label (Optional)
   - Type: string
   - Description: Label that the customer will see in addition to the Address
+  - Note: Most wallets support this field.
 - Message (Optional)
   - Type: string
   - Description: Message that the customer will see as a reason for payment
+  - Note: Many wallets do not support this field.
 
 ### Outputs
 - BIP-21 Payment Request URI
   - Type: string
   - Description: Payment request information, url encoded. Format: `bitcoin:[address][?][amount=btc][&][label=label][&][message=message]`
+  - Directly usable by a QR Code Builder or as a Anchor URI
 
 ## Usage
-In the usage examples below, it is assumed you have a [getBTC.conf] file in the same directory. The getBTC.conf file for these examples
-is as follows:
-```txt
-Default:xpub6BosfCnifzxcFwrSzQiqu2DBVTshkCXacvNsWGYJVVhhawA7d4R5WSWGFNbi8Aw6ZRc1brxMyWMzG3DSSSSoekkudhUd9yLb6qx39T9nMdj
-Donations:zpub6rVZC52z8ugGany9wytHSPQ3DnfvKNPM4Em2tTLPeE2TGd9i5hmjC2kwXNt8oMHAdXruRQAkuqWYmKraSaip3xfPjTq4zKCAJiYGKpmcZ9B
-```
-
 ### Java
 Currently a WIP.
 
@@ -56,33 +47,48 @@ Currently a WIP.
 
 ### PHP
 ```php
-# Generates a Payment Request URI with the 0th child indexed Address of the "Default" account as the payment address
-$invoice_uri = getBTCInvoice();
-echo "Invoice URI for 0th Address of the \"Default\" Account: " . $invoice_uri . "\n";
+ /*
+ * Demo PHP Script for BIP-21 URI
+ * Requires:
+ *  getBTC.php - 
+ *  qrcode.min.js - [https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/qrcode.min.js]
+ */
+ require_once 'getBTC.php';
+ $account = "Default";
+ $index = 0;
+ $address = getBTCAddress($account,$index);
+ $amount="";
+ $amount="10.00";
+ $label="";
+ $label="My Company Inc. - Donation";
+ $message="";
+ $message="Thanks for your patronage!";
+ $QRSize = "140";
+ $QRQuality = "M";
+ $amount = getBTCRate($amount);
+ $invoice = getBTCInvoice($address,$amount,$label,$message);
+print <<<END
+<html>
+ <head>
+  <title>BTC Invoice Test Page</title>
+  <script src="qrcode.min.js" ></script>
+  <meta http-equiv="refresh" content="60">
+ </head>
+ <body>
+ <h2>BTC Invoice Demo</h2>
+  <p>Please pay BTC: $amount for your purchase.</p>
+  <p><div id="qrcode"></div></p>
+  <p><small><a href="$invoice" title="Pay on this device.">$address</a><br/><br/>Click on the link above to pay from this device.</small></p>
+ </body>
+  <script type="text/javascript">
+   new QRCode(document.getElementById("qrcode"), {text: "$invoice", width: $QRSize, height: $QRSize, correctLevel: QRCode.CorrectLevel.$QRQuality} );
+  </script>
+<html>\n
+END;
+?>
 
-# Generates a Payment Request URI with the 0th child indexed Address of the "Donations" account as the payment address
-$invoice_uri = getBTCInvoice("Donations");
-echo "Invoice URI for the 0th Address of the \"Donations\" Account: " . $invoice_uri . "\n";
-
-# Generates a Payment Request URI with the 25th child indexed Address of the "Donations" account as the payment address
-$invoice_uri = getBTCInvoice("Donations", 25);
-echo "Invoice URI for the 25th Address of the \"Donations\" Account: " . $invoice_uri . "\n";
-
-# Generates a Payment Request URI with the 25th child indexed Address of the "Donations" account as the payment address,
-# with a specified amount to send of 0.005 BTC
-$invoice_uri = getBTCInvoice("Donations", 25, 0.005);
-echo "Invoice URI for the 25th Address of the \"Donations\" Account (0.005 BTC Amount): " . $invoice_url . "\n";
-
-# Generates a Payment Request URI with the 25th child indexed Address of the "Donations" account as the payment address,
-# with a specified amount to send of 0.005 BTC, and an address label of "EAWF"
-$invoice_uri = getBTCInvoice("Donations", 25, 0.005, "EAWF");
-echo "Invoice URI for the 25th Address (labeled as \"EAWF\") of the \"Donations\" Account (0.005 BTC Amount): " . $invoice_url . "\n";
-
-# Generates a Payment Request URI with the 25th child indexed Address of the "Donations" account as the payment address,
-# with a specified amount to send of 0.005 BTC, an address label of "EAWF", and a message of "Donation to EAWF"
-$invoice_uri = getBTCInvoice("Donations", 25, 0.005, "EAWF", "Donation to EAWF");
-echo "Invoice URI for the 25th Address (labeled as \"EAWF\") of the \"Donations\" Account (0.005 BTC Amount) with a message of \"Donation to EAWF\": " . $invoice_uri . "\n";
 ```
+With the above script, you can play with the Amount, Label and Message fields to observe the results
 
 ### Python
 Currently a WIP.
