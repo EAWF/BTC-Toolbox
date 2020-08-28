@@ -78,26 +78,22 @@ function getBTCBalance(string $address, int $confirmations = 0): float
 function getBTCInvoice(string $address, float $amount = 0, string $label = '', string $message = ''): string
 {
     $string = "";
-    if(!empty($message)) { 
-     $string="message=$message".$string;
-    }
-    if(!empty($string) && !empty($label)){
-     $string="label=$label&".$string;
-    } elseif(!empty($label)) {
-     $string="label=$label";
-    }
-    if(!empty($string) && !empty($amount)){
-     $string = "amount=$amount&" . $string;
-    } elseif(!empty($amount)) {
-     $string = "amount=$amount";
-    }
-    if(!empty($string)){
-     $string = "bitcoin:$address?".$string;
-    } else {
-     $string = "bitcoin:$address";
-    }
+    if (!empty($message))
+        $string = "message=$message" . $string;
+    if (!empty($string) && !empty($label))
+        $string = "label=$label&" . $string;
+    else if (!empty($label))
+        $string = "label=$label";
+    if (!empty($string) && !empty($amount))
+        $string = "amount=$amount&" . $string;
+    else if (!empty($amount))
+        $string = "amount=$amount";
+    if (!empty($string))
+        $string = "bitcoin:$address?" . $string;
+    else
+        $string = "bitcoin:$address";
     return str_replace(" ", "%20", $string);
-   }
+}
 
 /**
  * Get the current USD rate of Bitcoin, or convert a USD amount to Bitcoin amount
