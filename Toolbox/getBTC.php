@@ -79,9 +79,9 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
 {
     $string = "";
     if (!empty($message))
-        $string = "message=$message" . $string;
+        $string = "message=" . urlencode($message) . $string;
     if (!empty($string) && !empty($label))
-        $string = "label=$label&" . $string;
+        $string = "label=". urlencode($label) . "&" . $string;
     else if (!empty($label))
         $string = "label=$label";
     if (!empty($string) && $amount > 0)
@@ -89,10 +89,10 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
     else if ($amount > 0)
         $string = "amount=$amount";
     if (!empty($string))
-        $string = "bitcoin:$address?" . $string;
+        $string = "bitcoin:" . urlencode($address) . "?" . $string;
     else
-        $string = "bitcoin:$address";
-    return str_replace(" ", "%20", $string);
+        $string = "bitcoin:" . urlencode($address);
+    return $string;
 }
 
 /**
