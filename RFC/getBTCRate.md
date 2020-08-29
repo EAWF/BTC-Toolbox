@@ -1,7 +1,7 @@
 # WORK IN PROGRESS - @EAWF
-# Problem(s):
-* getBTCRate() 400 and 404 Errors
-* Potential API Rate Limiting
+# Synopsis:
+* Deal with potential getBTCRate() 400 and 404 Errors
+* Consider Potential API Rate Limiting
 - getBTCRate() currently obtains exchange rates from external servers which can return 400 and 404 errors. These errors are handled within the function by throwing an exception, which results in a program halt and a relatively useless message sent to the end-user's display.<br/>This could negatively impact the users experience with this project.
 ## Proposal:
 ### A New Data File (getBTCPrice.json)
