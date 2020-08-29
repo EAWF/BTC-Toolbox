@@ -12,7 +12,6 @@
   "URL":"https://www.bitstamp.net/api/v2/ticker/btcusd/",
   "lastupdate":"1598644799",
   "status": true,
-  "timestamp": "1598644799",
   "data": {"high": "11555.61", "last": "11510.00", "timestamp": "1598644799", "bid": "11505.00", "vwap": "11430.48", "volume": "6512.55174336", "low": "11228.50", "ask": "11513.09", "open": "11332.26"}
  }
 }
