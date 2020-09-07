@@ -5,6 +5,7 @@
   - [getBTCInvoice]
   - [getBTCRate]
   - [getBTCPrice]
+- [Developer Documentation][DevDocs]
 
 # Bitcoin Merchants Toolbox
 The Bitcoin Merchants Toolbox is a collection of functions for various programming languages that helps merchants interact with Bitcoin in useful ways, such as:
@@ -65,3 +66,4 @@ The configuration file must be named `getBTC.conf`. For an example configuration
 [getBTCInvoice]: ./getBTCInvoice/
 [getBTCRate]: ./getBTCRate/
 [getBTCPrice]: ./getBTCPrice/
+[DevDocs]: ../docs/
