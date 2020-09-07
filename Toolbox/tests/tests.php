@@ -383,6 +383,7 @@ function getBTCInvoiceFunctionTest()
  * 
  * Tests various amounts with the getBTCRate function. Unable to test exact value amounts returned since bitcoin price fluctuates.
  */
+/*
 function getBTCRateFunctionTest()
 {
     TestLogger::newLogFile('test_results', 'test_getBTCRate_results.txt');
@@ -425,6 +426,7 @@ function getBTCRateFunctionTest()
         TestLogger::close();
     }
 }
+*/
 
 /**
  * Singleton class containing test vector data for all tests
@@ -745,5 +747,5 @@ class TestLogger extends Logger
 getBTCAddressFunctionTest();
 getBTCAddressUsageTest();
 getBTCInvoiceFunctionTest();
-getBTCRateFunctionTest();
+// getBTCRateFunctionTest();
 getBTCBalanceFunctionTest();
