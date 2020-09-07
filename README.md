@@ -4,6 +4,7 @@
   - [getBTCBalance]
   - [getBTCInvoice]
   - [getBTCRate]
+  - [getBTCPrice]
 - [Developer Documentation][DevDocs]
 
 # A Toolbox for Building Your Own Bitcoin Paywall
@@ -17,6 +18,7 @@
 These are tools and code snippets that you can use to build your own Bitcoin paywall.
 * [getBTCAddress] - Payment Address Derivation from an HD Wallet's exported, account-level, extended public key.
 * [getBTCRate] - returns the current exchange rate for bitcoin
+* [getBTCPrice] - returns the BTC amount for the desired dollar amount based on the current bitcoin exchange rate
 * [getBTCInvoice] - returns a [BIP-21] string that encodes payment information such as amounts, labels, and messages that may be included in the payers wallet.
 * [getBTCBalance] - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
@@ -45,4 +47,5 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 [getBTCBalance]: ./Toolbox/getBTCBalance/
 [getBTCInvoice]: ./Toolbox/getBTCInvoice/
 [getBTCRate]: ./Toolbox/getBTCRate/
+[getBTCPrice]: ./Toolbox/getBTCPrice/
 [DevDocs]: ./Toolbox/docs/

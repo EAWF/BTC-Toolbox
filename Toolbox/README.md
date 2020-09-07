@@ -1,9 +1,11 @@
 ## Table of Contents
 - **Bitcoin Merchants Toolbox**
-  - [getBTCAddress][getBTCAddress]
-  - [getBTCBalance][getBTCBalance]
-  - [getBTCInvoice][getBTCInvoice]
-  - [getBTCRate][getBTCRate]
+  - [getBTCAddress]
+  - [getBTCBalance]
+  - [getBTCInvoice]
+  - [getBTCRate]
+  - [getBTCPrice]
+- [Developer Documentation][DevDocs]
 
 # Bitcoin Merchants Toolbox
 The Bitcoin Merchants Toolbox is a collection of functions for various programming languages that helps merchants interact with Bitcoin in useful ways, such as:
@@ -15,39 +17,41 @@ The Bitcoin Merchants Toolbox is a collection of functions for various programmi
 The Toolbox functions are contained in a single file for ease of use, portability, and minimal clutter.
 
 ## Functions
-- [getBTCAddress][getBTCAddress]
+- [getBTCAddress]
   - Returns addresses owned by the merchant (supports multiple accounts)
-- [getBTCBalance][getBTCBalance]
+- [getBTCBalance]
   - Returns the balance of a merchant's address (supports minimum confirmations)
-- [getBTCInvoice][getBTCInvoice]
+- [getBTCInvoice]
   - Returns a QR Code payment request for customers
-- [getBTCRate][getBTCRate]
-  - Returns the exchange rate of Bitcoin and converts Dollar amounts to Bitcoin amounts
+- [getBTCRate]
+  - Returns the exchange rate of Bitcoin
+- [getBTCPrice]
+  - Converts Dollar amounts to Bitcoin amounts
 
 ## Installation
 ### Configuration File
 All versions of the Toolbox require a configuration file. The configuration file is used to store account names and associated extended public keys.
 
-The configuration file must be named `getBTC.conf`. For an example configuration file, see [getBTC.conf][getBTC.conf].
+The configuration file must be named `getBTC.conf`. For an example configuration file, see [getBTC.conf].
 
 ### Java Instructions
-- Download the [getBTC.java][getBTC.java] file
+- Download the [getBTC.java] file
 - Detailed installation instructions for Java servers will go here (Currently a WIP)
 
 ### Javascript Instructions
-- Download the [getBTC.js][getBTC.js] file
+- Download the [getBTC.js] file
 - Detailed installation instructions for Javascript servers will go here (Currently a WIP)
 
 ### PHP Instructions
-- Download the [getBTC.php][getBTC.php] file
+- Download the [getBTC.php] file
 - Detailed installation instructions for PHP servers will go here (Currently a WIP)
 
 ### Python Instructions
-- Download the [getBTC.py][getBTC.py] file
+- Download the [getBTC.py] file
 - Detailed installation instructions for Python servers will go here (Currently a WIP)
 
 ### Ruby Instructions
-- Download the [getBTC.rb][getBTC.rb] file
+- Download the [getBTC.rb] file
 - Detailed installation instructions for Ruby servers will go here (Currently a WIP)
 
 
@@ -61,3 +65,5 @@ The configuration file must be named `getBTC.conf`. For an example configuration
 [getBTCBalance]: ./getBTCBalance/
 [getBTCInvoice]: ./getBTCInvoice/
 [getBTCRate]: ./getBTCRate/
+[getBTCPrice]: ./getBTCPrice/
+[DevDocs]: ../docs/

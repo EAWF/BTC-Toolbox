@@ -4,6 +4,7 @@
   - [getBTCBalance]
   - **getBTCInvoice**
   - [getBTCRate]
+  - [getBTCPrice]
 - [Developer Documentation][DevDocs]
 
 # getBTCInvoice
@@ -61,7 +62,7 @@ $account = "Donations";
 $index = 0;
 $address = getBTCAddress($account,$index);
 $usd_amount = 10.99;
-$btc_amount = getBTCRate($usd_amount);
+$btc_amount = getBTCPrice($usd_amount);
 $label="My Company Inc. - Donation";
 $message="Thanks for your patronage!";
 $invoice = getBTCInvoice($address, $btc_amount, $label, $message);
@@ -105,4 +106,5 @@ Currently a WIP.
 [getBTCBalance]: ../getBTCBalance/
 [getBTCInvoice]: ../getBTCInvoice/
 [getBTCRate]: ../getBTCRate/
+[getBTCPrice]: ../getBTCPrice/
 [DevDocs]: ../docs/

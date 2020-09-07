@@ -3,8 +3,6 @@
 
  require_once 'getBTC.php';
 
- echo exec('clear');
- 
  $account = "Default";
  $index = 0;
  $amount = 10.00;
@@ -27,7 +25,7 @@
  echo "TESTING getBTCRate:\n===================\n";
  echo "Amount to Convert $".number_format($amount,2,'.',',')." USD:\n";
  $starttime = microtime(true);
- $result = getBTCRate($amount);
+ $result = getBTCPrice($amount);
  $endtime = microtime(true);
  $timediff = $endtime - $starttime;
  echo number_format($result,8,'.',',')." BTC";

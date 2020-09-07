@@ -3,24 +3,29 @@
   - [getBTCAddress]
   - [getBTCBalance]
   - [getBTCInvoice]
-  - **getBTCRate**
-  - [getBTCPrice]
+  - [getBTCRate]
+  - **getBTCPrice**
 - [Developer Documentation][DevDocs]
 
-# getBTCRate
-Function that returns either the current USD price of Bitcoin, or the Bitcoin amount for a specified USD amount.
+# getBTCPrice
+Function that returns the Bitcoin amount for a specified USD amount.
 
-Uses the [Bitstamp v2 API][bitstamp-api] to retrieve price data.
+Calls getBTCRate to retrieve current exchange rate data.
 
 ### Inputs
-- None
-
-### Outputs
-- Exchange Rate
+- USD Amount
   - Type: float
   - Units:  Dollars
+  - Restrictions:
+    - Must be greater than 0
+
+### Outputs
+- BTC Value based on the current BTC Exchange Rate
+  - Type: float
+  - Units:  Bitcoin
   - Description:
-    - The exchange rate (in USD) of 1 Bitcoin. Format returned: #########.##
+    - The value of BTC based on the submitted dollar amount. 
+    - Format returned: #########.########
       - *It is up to the programmer to decide on the ultimate format desired for their situation.*
 
 ## Usage
@@ -36,9 +41,10 @@ Currently a WIP.
 <?php
 require_once('getBTC.php');
 
-# Prints the current price of Bitcoin in USD
-$exchange_rate = getBTCRate();
-echo "Current price of Bitcoin is: " . $exchange_rate;
+# Prints the current bitcoin value of desired dollars
+$dollars = 12345.67;
+$btcvalue = getBTCPrice($dollars);
+echo $dollars . " = " . $btcvalue;
 
 ?>
 ```
