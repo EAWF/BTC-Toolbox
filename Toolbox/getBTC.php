@@ -99,27 +99,39 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
 }
 
 /**
- * Get the current USD rate of Bitcoin, or convert a USD amount to Bitcoin amount
+ * Get the current USD rate of Bitcoin
  * 
  * Uses the <a href="https://www.bitstamp.net/api/">Bitstamp v2 API</a> to retrieve USD price data.
  * 
- * @param  float  $amount (Optional, default = 0) Amount in USD to convert to Bitcoin amount
- * @return float  Either the current USD/BTC exchange rate, or an equivalent Bitcoin amount based on the $amount parameter
+ * @param  null
+ * @return float  The current USD/BTC exchange rate in dollars
  */
-function getBTCRate(float $amount = 0): float
+function getBTCRate(): float
 {
     $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
     if (!$response)
         throw new \Exception("Failed to reach bitstamp api");
     $bitstamp = json_decode($response, true);
-    if ($amount <= 0) {           // Assign 0 if null, and protect against accidental use of negative numbers.
-        // Display Rate in Dollars mode
-        $result = $bitstamp["last"];
-    } else {
-        // Exchange Dollars for BTC Mode
-        $result = $amount / $bitstamp["last"];
-    }
-    return round($result, 8, PHP_ROUND_HALF_UP);
+    $result = $bitstamp["last"];
+    return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+}
+
+
+/**
+ * Convert a USD amount to Bitcoin amount based on the current BTC exchange rate.
+ * 
+ * Calls getBTCRate() to retrieve USD price data.
+ * 
+ * @param  float  $amount (Optional, default = 0) Amount in USD to convert to Bitcoin amount
+ * @return float  The equivalent Bitcoin amount based on the $amount parameter
+ */
+function getBTCPrice(float $amount): float
+{
+    if ($amount <= 0)
+       throw new \Exception("Invalid negative or zero dollar amount");    // Protect against accidental use of zero or negative numbers.
+    $rate = getBTCRate();
+    $result = $amount / $rate;
+    return round($result, 8, PHP_ROUND_HALF_UP); // Format: ######.########
 }
 
 /**
