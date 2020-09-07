@@ -5,7 +5,7 @@
   - [getBTCInvoice]
   - [getBTCRate]
   - [getBTCPrice]
-- [Developer Documentation]
+- [Developer Documentation][DevDocs]
 
 # getBTCAddress
 Function that returns an address of an account defined in the [getBTC.conf] file at a specific index.
