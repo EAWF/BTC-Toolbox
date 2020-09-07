@@ -16,6 +16,7 @@ Calls getBTCRate to retrieve current exchange rate data.
 - USD Amount
   - Type: float
   - Units:  Dollars
+    - Amount must be greater than zero(0)
 
 ### Outputs
 - BTC Value based on the current BTC Exchange Rate
