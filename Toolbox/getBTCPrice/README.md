@@ -39,7 +39,7 @@ Currently a WIP.
 <?php
 require_once('getBTC.php');
 
-# Prints the current price of Bitcoin in USD
+# Prints the current bitcoin value of desired dollars
 $dollars = 12345.67;
 $btcvalue = getBTCPrice($dollars);
 echo $dollars . " = " . $btcvalue;
