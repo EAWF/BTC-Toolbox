@@ -4,6 +4,7 @@
   - **getBTCBalance**
   - [getBTCInvoice]
   - [getBTCRate]
+  - [getBTCPrice]
 - [Developer Documentation][DevDocs]
 
 # getBTCBalance
@@ -69,4 +70,5 @@ Currently a WIP.
 [getBTCBalance]: ../getBTCBalance/
 [getBTCInvoice]: ../getBTCInvoice/
 [getBTCRate]: ../getBTCRate/
+[getBTCPrice]: ../getBTCPrice/
 [DevDocs]: ../docs/
