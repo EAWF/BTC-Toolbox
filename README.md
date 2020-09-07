@@ -23,7 +23,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 * [getBTCBalance] - Checks the blockchain for the current balance of the payment address and number of confirmations.
 
 ## Safe Test Vectors
-* Safe test addresses may been obtained by using [Ian Coleman]'s excellent [BIP 39 Mnemonic Code Converter] with this 12 word mnemonic:
+* Safe test addresses may been obtained by using [Ian Coleman]'s excellent [BIP-39 Mnemonic Code Converter] with this 12 word mnemonic:
   - ```abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about```
   - ***WARNING!!! - DO NOT SEND BITCOIN TO ADDRESSES CREATED FROM THIS BIP-39 MNEMONIC!!! YOU WILL LOSE YOUR BITCOIN!!!!!***
   
