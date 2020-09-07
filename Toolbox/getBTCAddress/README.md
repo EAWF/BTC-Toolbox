@@ -4,6 +4,7 @@
   - [getBTCBalance]
   - [getBTCInvoice]
   - [getBTCRate]
+  - [getBTCPrice]
 - [Developer Documentation][DevDocs]
 
 # getBTCAddress
@@ -71,4 +72,5 @@ Currently a WIP.
 [getBTCBalance]: ../getBTCBalance/
 [getBTCInvoice]: ../getBTCInvoice/
 [getBTCRate]: ../getBTCRate/
+[getBTCPrice]: ../getBTCPrice/
 [DevDocs]: ../docs/
