@@ -3,8 +3,6 @@
 
  require_once 'getBTC.php';
 
- echo exec('clear');
- 
  $account = "Default";
  $index = 0;
  $amount = 10.00;
