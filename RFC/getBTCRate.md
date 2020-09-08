@@ -67,8 +67,8 @@
 ?>
 ```
 ### getBTC.php Changes:
-- Replace ***getBTCRate()*** to obtain the current price from ***getBTC.json***
-  - From:
+Replace ***getBTCRate()*** to obtain the current price from ***getBTC.json***
+* From:
 ```php
 function getBTCRate(): float
 {
@@ -80,7 +80,7 @@ function getBTCRate(): float
     return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
 }
 ```
-  - To:
+* To:
 ```php
 function getBTCRate(): float
 {
