@@ -1,4 +1,5 @@
-# New getBTCRate Schema - Proposed by @EAWF
+# New getBTCRate Schema 
+- Proposed by @EAWF 20200908
 # Synopsis:
 * Deal with potential getBTCRate() 400 and 404 Errors
 * Consider Potential API Rate Limiting
