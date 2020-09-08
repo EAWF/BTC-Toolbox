@@ -101,18 +101,14 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
 /**
  * Get the current USD rate of Bitcoin
  * 
- * Uses the <a href="https://www.bitstamp.net/api/">Bitstamp v2 API</a> to retrieve USD price data.
+ * Uses the local file getBTC.json to retrieve USD price data.
  * 
  * @return float  The current USD/BTC exchange rate in dollars
  */
 function getBTCRate(): float
 {
-    $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
-    if (!$response)
-        throw new \Exception("Failed to reach bitstamp api");
-    $bitstamp = json_decode($response, true);
-    $result = $bitstamp['last'];
-    return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+    $response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true);
+    return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
 }
 
 
