@@ -1,5 +1,7 @@
-#On Locating getBTC.conf in PHP
-* @Septem151 asked: ***Where exactly should the getBTC.conf file be located in relation to the getBTC.php file? I've been working under the assumption that they go in the same directory.***
+# Clarification on getBTC.conf 
+* @Septem151 asked:
+***Where exactly should the getBTC.conf file be located in relation to the getBTC.php file? I've been working under the assumption that they go in the same directory.***
+
 * @EAWF Responded:
 
 Yes, for testing, they locate in the same directory, but for security reasons, in production they should be placed in a directory below or to the side of the web docroot and along the Apache php include_path.
