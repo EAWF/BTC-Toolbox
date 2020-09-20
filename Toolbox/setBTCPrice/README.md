@@ -47,7 +47,7 @@ Currently a WIP.
 [getBTCRate]: ../getBTCRate/
 [getBTCPrice]: ../getBTCPrice/
 [setBTCPrice]: ../setBTCPrice/
-[setBTCPrice.php]: ../setBTCPrice.php
+[setBTCPrice.php]: ../setBTCPrice/setBTCPrice.php
 
 [DevDocs]: ../docs/
 
