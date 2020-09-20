@@ -27,6 +27,8 @@ The Toolbox functions are contained in a single file for ease of use, portabilit
   - Returns the exchange rate of Bitcoin
 - [getBTCPrice]
   - Converts Dollar amounts to Bitcoin amounts
+- [setBTCPrice]
+  - Retrieves current exchange rate of Bitcoin
 
 ## Installation
 ### Configuration File
@@ -43,8 +45,11 @@ The configuration file must be named `getBTC.conf`. For an example configuration
 - Detailed installation instructions for Javascript servers will go here (Currently a WIP)
 
 ### PHP Instructions
-- Download the [getBTC.php] file
-- Detailed installation instructions for PHP servers will go here (Currently a WIP)
+- Refer to [] for details on the PHP include_path, file locations, and ownership/permissions setup.
+- Download the [getBTC.php] file and place along the php include_path.
+- Download the [setBTCPrice.php] and place somewhere where a cron job can be run on it.
+  - See the comments in the file for details.
+- Test manually from the command line and then set up the cron job per the file comments.
 
 ### Python Instructions
 - Download the [getBTC.py] file
@@ -66,4 +71,5 @@ The configuration file must be named `getBTC.conf`. For an example configuration
 [getBTCInvoice]: ./getBTCInvoice/
 [getBTCRate]: ./getBTCRate/
 [getBTCPrice]: ./getBTCPrice/
+[setBTCPrice]: ./setBTCPrice/
 [DevDocs]: ../docs/
