@@ -7,7 +7,7 @@
   - [getBTC.conf]
 - [Developer Documentation][DevDocs]
 
-![bg][banner]
+![banner]
 # A Toolbox for Building Your Own Bitcoin Paywall
 ***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
 
