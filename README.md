@@ -1,3 +1,7 @@
+# Bitcoin Merchant's Toolbox<img src="https://raw.githubusercontent.com/EAWF/EAWF/master/images/BitcoinHere.png" valign=middle align=right /><br/>***BTCToolbox.org***
+## A Toolbox for Building Your Own Bitcoin Paywall
+***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
+
 ## Table of Contents
 - [Toolbox]
   - [getBTCAddress]
@@ -6,10 +10,6 @@
   - [getBTCRate]
   - [getBTC.conf]
 - [Developer Documentation][DevDocs]
-
-![banner]
-# A Toolbox for Building Your Own Bitcoin Paywall
-***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
 
 ## Target Audience
 * Merchants/Sellers of products and services who want to add bitcoin as a method of invoice remittance for their operations.
