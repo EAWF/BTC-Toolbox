@@ -7,6 +7,8 @@
   - [getBTC.conf]
 - [Developer Documentation][DevDocs]
 
+[![bg][banner]]
+
 # A Toolbox for Building Your Own Bitcoin Paywall
 ***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
 
@@ -49,6 +51,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 [getBTCRate]: ./Toolbox/getBTCRate/
 [getBTC.conf]: ./Toolbox/getBTC.conf/
 [DevDocs]: ./Toolbox/docs/
+[banner]: ./Toolbox/etc/images/BTCHereBtnS.png
 [Bob Holden]: https://github.com/EAWF
 [Carson Mullins]: https://github.com/Septem151
 [Ian Coleman]: https://github.com/iancoleman
