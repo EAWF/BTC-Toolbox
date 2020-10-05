@@ -1,5 +1,5 @@
 # ***Bitcoin Merchant's Toolbox*** <img src="https://raw.githubusercontent.com/EAWF/EAWF/master/images/BitcoinHere.png" valign=middle align=right />
-***BTCToolbox.org***
+[***BTCToolbox.org***][Website]
 ## A Toolbox for Building Your Own Bitcoin Paywall
 ***Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
 
@@ -51,7 +51,7 @@ These are tools and code snippets that you can use to build your own Bitcoin pay
 [getBTCRate]: ./Toolbox/getBTCRate/
 [getBTC.conf]: ./Toolbox/getBTC.conf/
 [DevDocs]: ./Toolbox/docs/
-[banner]: ./etc/images/BTCHereBtnS.png
+[Website]: http://btctoolbox.org
 [Bob Holden]: https://github.com/EAWF
 [Carson Mullins]: https://github.com/Septem151
 [Ian Coleman]: https://github.com/iancoleman
