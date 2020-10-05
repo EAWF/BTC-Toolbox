@@ -1,5 +1,4 @@
-<img src="https://raw.githubusercontent.com/EAWF/EAWF/master/images/BitcoinHere.png" valign=middle align=right />
-# Bitcoin Merchant's Toolbox
+# Bitcoin Merchant's Toolbox <img src="https://raw.githubusercontent.com/EAWF/EAWF/master/images/BitcoinHere.png" valign=middle align=right />
 ***BTCToolbox.org***
 ## A Toolbox for Building Your Own Bitcoin Paywall
 ***Our Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
