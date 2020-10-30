@@ -13,8 +13,8 @@
 - [Developer Documentation][DevDocs]
 
 ## Target Audience
-* Merchants/Sellers of products and services who want to add bitcoin as a method of invoice remittance for their operations.
-* Programmers developing bitcoin payment gateways for use by Merchants/Sellers of products and services.
+* Merchants/Sellers/Vendors of products and services who want to add bitcoin as a method of invoice remittance for their operations.
+* Programmers developing bitcoin payment gateways for use by Merchants/Sellers/Vendors of products and services.
 
 ## The Toolbox
 These are tools and code snippets that you can use to build your own Bitcoin paywall.
