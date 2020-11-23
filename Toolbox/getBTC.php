@@ -180,7 +180,7 @@ class ExtendedPublicKey
     /**
      * Properties of an Extended Public Key
      */
-    protected $version, $depth, $fingerprint, $childNum, $chainCode, $pubKey, $encodedExtPubKey, $parentIndeces;
+    protected $version, $depth, $fingerprint, $childNum, $chainCode, $pubKey, $encodedExtPubKey, $parentIndices;
 
     /**
      * Constructor for ExtendedPublicKey objects
@@ -194,7 +194,7 @@ class ExtendedPublicKey
      * @param  string   $chainCode        Hexadecimal chain code (32 bytes), the chain code for this extended public key
      * @param  string   $pubKey           Hexadecimal public key (33 bytes), in compressed DER encoding
      * @param  string   $encodedExtPubKey (optional, default = null) Hexadecimal encoding of this extended public key, calculated if not given
-     * @param  string[] $parentIndeces    (optional, default = []) Array of all parent's child numbers for knowing the derivation path
+     * @param  string[] $parentIndices    (optional, default = []) Array of all parent's child numbers for knowing the derivation path
      * @throws \Exception                 if the given values are not valid for an extended public key
      */
     public function __construct(
@@ -205,7 +205,7 @@ class ExtendedPublicKey
         string $chainCode,
         string $pubKey,
         string $encodedExtPubKey = null,
-        array $parentIndeces = []
+        array $parentIndices = []
     ) {
         foreach (static::VERSIONS as $extKeyVals) {
             if (strtolower($version) === $extKeyVals["hex"]) {
@@ -216,9 +216,9 @@ class ExtendedPublicKey
         if (empty($this->version))
             throw new \Exception('Unknown version bytes detected. Unable to get address for extended public key: ' . $this->encodedExtPubKey);
         $this->depth = $depth;
-        if (hexdec($depth) - 3 != count($parentIndeces))
-            throw new \Exception('Incorrect amount of parent indeces. Needed: ' . (hexdec($depth) - 3) . ", Provided: " . count($parentIndeces));
-        $this->parentIndeces = $parentIndeces;
+        if (hexdec($depth) - 3 != count($parentIndices))
+            throw new \Exception('Incorrect amount of parent indeces. Needed: ' . (hexdec($depth) - 3) . ", Provided: " . count($parentIndices));
+        $this->parentIndices = $parentIndices;
         $this->fingerprint = $fingerprint;
         $this->childNum = $childNum;
         $this->chainCode = $chainCode;
@@ -277,17 +277,17 @@ class ExtendedPublicKey
      */
     public static function fromParent(string $childNum, string $chainCode, string $pubKey, ExtendedPublicKey $parent): ExtendedPublicKey
     {
-        if (count($parent->parentIndeces) > 0)
-            $parentIndeces = array_merge($parent->parentIndeces, [$parent->childNum]);
+        if (count($parent->parentIndices) > 0)
+            $parentIndices = array_merge($parent->parentIndices, [$parent->childNum]);
         else
-            $parentIndeces = [$parent->childNum];
+            $parentIndices = [$parent->childNum];
         // Increment the depth of the parent by 1, which will be the child's depth, and left-pad to length 2 (1 byte)
         $depth = dechex(hexdec($parent->depth) + 1);
         if (strlen($depth) % 2 != 0)
             $depth = '0' . $depth;
         // Child Fingerprint is equal to the first 4 bytes of the Hash160 of the parent's public key
         $fingerprint =  substr(HashUtil::hash160($parent->pubKey), 0, 8);
-        return new static($parent->version, $depth, $fingerprint, $childNum, $chainCode, $pubKey, null, $parentIndeces);
+        return new static($parent->version, $depth, $fingerprint, $childNum, $chainCode, $pubKey, null, $parentIndices);
     }
 
     /**
@@ -372,8 +372,8 @@ class ExtendedPublicKey
                 break;
             }
         }
-        for ($i = 0; $i <= count($this->parentIndeces); $i++) {
-            $lookIndex = ($i < count($this->parentIndeces)) ? $this->parentIndeces[$i] : $this->childNum;
+        for ($i = 0; $i <= count($this->parentIndices); $i++) {
+            $lookIndex = ($i < count($this->parentIndices)) ? $this->parentIndices[$i] : $this->childNum;
             if (static::isHardenedIndex($lookIndex)) // is hardened? Subtract 2^31 and add ' symbol
             {
                 $lookIndex = gmp_init($lookIndex, 16);
