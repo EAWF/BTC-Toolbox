@@ -1,3 +1,5 @@
+# WARNING
+* This piece of software is provided without warranty of any kind, use it at your own risk.
 # ***Bitcoin Merchant's Toolbox*** <img src="https://raw.githubusercontent.com/EAWF/EAWF/master/images/BitcoinHere.png" valign=middle align=right />
 [***BTCToolbox.org***][Website]
 ## A Toolbox for Building Your Own Bitcoin Paywall
