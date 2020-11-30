@@ -6,13 +6,7 @@
 ***Mission: To provide a simple set of tools for programmers to use to build Bitcoin Paywalls***
 
 ## Table of Contents
-- [Toolbox]
-  - [getBTCAddress]
-  - [getBTCBalance]
-  - [getBTCInvoice]
-  - [getBTCRate]
-  - [getBTC.conf]
-- [Developer Documentation][DevDocs]
+**[[Toolbox]] -- [[getBTCAddress]] -- [[getBTCBalance]] -- [[getBTCInvoice]] -- [[getBTCRate]] -- [[getBTC.conf]] -- [[DevDocs]]**
 
 ## Target Audience
 * Merchants/Sellers/Vendors of products and services who want to add bitcoin as a method of invoice remittance for their operations.
