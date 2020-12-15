@@ -1012,4 +1012,5 @@ class BitcoinECC extends Singleton
             $compressedPubKey = '03' . $x;    //if $pubKey['y'] is odd
         return $compressedPubKey;
     }
-}
+ }
+?>
