@@ -1,6 +1,5 @@
 <?php
-
-/**
+ /**
  * File containing the Bitcoin Merchants Toolbox functions
  * 
  * See https://github.com/EAWF/Bitcoin-Merchants-Toolbox for installation & usage instructions.
@@ -12,9 +11,74 @@
  * @author     Jan Moritz Lindemann (https://github.com/rgex)
  */
 
-// Test that PHP modules are installed
-if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
+ // Test that PHP modules are installed
+ if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
     die("Error: Required extension(s) php-base58, php-gmp, and php-mcrypt not installed.\n");
+
+
+ /**
+ * Obtains the current USD rate of Bitcoin using a reachable source and stores to a local file getBTC.json.
+ * 
+ * Call this function from a server cron job once per minute to avoid hitting API rates
+ *
+ * @return float  The current USD/BTC exchange rate in dollars
+ */
+ function setBTCRate()
+ {
+  $filename = "/var/www/php/getBTC.json";
+  if( !file_exists($filename) ){
+   $time = time();
+   $record = array('source' => "Init", 'price' => "0.00", 'timestamp' => "$time", 'updated' => "$time");
+   $result = json_encode($record);
+   file_put_contents($filename, $result);
+   chmod($filename,0660);
+  }
+  $current = json_decode(file_get_contents($filename),true);
+  if ($response = json_decode(@file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true)){
+   $record['source'] = "Bitstamp";
+   $record['price'] = $response['last'];
+   $record['timestamp'] = $response['timestamp'];
+  } elseif ($response = json_decode(@file_get_contents('https://api.bitfinex.com/v1/pubticker/btcusd'),true)){
+   $record['source'] = "Bitfinex";
+   $record['price'] = $response['last_price'];
+   $record['timestamp'] = $response['timestamp'];
+  } elseif ($response = json_decode(@file_get_contents('https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD'),true)){
+   $record['source'] = "BitcoinAverage";
+   $record['price'] = $response['price'];
+   $record['timestamp'] = $response['timestamp'];
+  }
+  if ($record){
+   $record['updated'] = $response['timestamp'];
+   $result = json_encode($record);
+  }else{
+   $time = time();
+   $current['updated'] = $time;
+   $result = json_encode($current);
+  }
+  file_put_contents($filename, $result);
+  chmod($filename,0660);  
+ }
+
+
+ /**
+ * Get the current USD rate of Bitcoin from Bitstamp
+ * Uses https://www.bitstamp.net/api/">Bitstamp v2 API to retrieve USD price data.
+ * 
+ * @return float  The current USD/BTC exchange rate in dollars
+ */
+ function getBTCRate(): float
+ {
+   if($response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true);)
+    {
+     return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+    }else{
+     $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
+     if (!$response)
+        throw new \Exception("Failed to reach bitstamp api");
+     $bitstamp = json_decode($response, true);
+     $result = $bitstamp['last'];
+     return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+}
 
 /**
  * Derive a Bitcoin Address from a named account at the given index
@@ -33,6 +97,7 @@ function getBTCAddress(string $name, int $childNum): string
     return ExtendedPublicKey::CKDpub($externalExtPubKey, $childNum)->getAddress();
 }
 
+    
 /**
  * Checks the balance (in BTC units) of a Bitcoin Address with an optional minimum number of confirmations
  * 
@@ -98,24 +163,11 @@ function getBTCInvoice(string $address, float $amount = 0, string $label = '', s
     return $string;
 }
 
-/**
- * Get the current USD rate of Bitcoin
- * 
- * Uses the local file getBTC.json to retrieve USD price data.
- * 
- * @return float  The current USD/BTC exchange rate in dollars
- */
-function getBTCRate(): float
-{
-    $response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true);
-    return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
-}
-
 
 /**
  * Convert a USD amount to Bitcoin amount based on the current BTC exchange rate.
  * 
- * Calls getBTCRate() to retrieve USD price data.
+ * Requires getBTCRate() to retrieve USD price data.
  * 
  * @param  float  $amount (Optional, default = 0) Amount in USD to convert to Bitcoin amount
  * @return float  The equivalent Bitcoin amount based on the $amount parameter
