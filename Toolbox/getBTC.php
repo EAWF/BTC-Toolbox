@@ -23,17 +23,16 @@
  *
  * @return float  The current USD/BTC exchange rate in dollars
  */
- function setBTCRate()
- {
+ function setBTCRate(){
   $filename = "/var/www/php/getBTC.json";
-  if( !file_exists($filename) ){
+  if(!file_exists($filename)){
    $time = time();
    $record = array('source' => "Init", 'price' => "0.00", 'timestamp' => "$time", 'updated' => "$time");
    $result = json_encode($record);
    file_put_contents($filename, $result);
    chmod($filename,0660);
   }
-  $current = json_decode(file_get_contents($filename),true);
+  $current = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true);
   if ($response = json_decode(@file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/'),true)){
    $record['source'] = "Bitstamp";
    $record['price'] = $response['last'];
@@ -66,21 +65,20 @@
  * 
  * @return float  The current USD/BTC exchange rate in dollars
  */
- function getBTCRate(): float
- {
-   if($response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true))
-    {
-     return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
-    }else{
-     $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
-     if (!$response)
-        throw new \Exception("Failed to reach bitstamp api");
-     $bitstamp = json_decode($response, true);
-     $result = $bitstamp['last'];
-     return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
-}
+ function getBTCRate(): float{
+  if($response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true)){
+   return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+  }else{
+   $response = file_get_contents('https://www.bitstamp.net/api/v2/ticker/btcusd/');
+   if (!$response){throw new \Exception("Failed to reach bitstamp api");}
+   $bitstamp = json_decode($response, true);
+   $result = $bitstamp['last'];
+   return round($result, 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+  }
+ }
 
-/**
+
+ /**
  * Derive a Bitcoin Address from a named account at the given index
  * 
  * Main interaction function to derive a RECEIVING (external) address from a given extended public key that is associated
