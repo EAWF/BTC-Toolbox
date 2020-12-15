@@ -68,7 +68,7 @@
  */
  function getBTCRate(): float
  {
-   if($response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true);)
+   if($response = json_decode(file_get_contents(stream_resolve_include_path("getBTC.json")),true))
     {
      return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
     }else{
