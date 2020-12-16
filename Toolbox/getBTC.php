@@ -11,9 +11,48 @@
  * @author     Jan Moritz Lindemann (https://github.com/rgex)
  */
 
+ /*
+ * User Configuration Variables
+ */
+ // $pub - The Account-Level Extended Public Key obtained from your Bitcoin HD Wallet. 
+ $pub="";
+
+ // $path - directory where you want the configurations files to appear.
+ $myPath="";
+
+ 
+ /**************************************************************************************************************
+ *      DO NOT CHANGE ANYTHING BELOW THIS LINE !!!
+ **************************************************************************************************************/
  // Test that PHP modules are installed
  if (!extension_loaded('base58') || !extension_loaded('gmp') || !extension_loaded('mcrypt'))
     die("Error: Required extension(s) php-base58, php-gmp, and php-mcrypt not installed.\n");
+  
+ $path = $_SERVER['DOCUMENT_ROOT'];
+ set_include_path(get_include_path().PATH_SEPARATOR.$path);
+   $path .= "/common/header.php";
+   include_once($path);
+ $rateJSON="getBTC.json"; 
+
+ /**
+ * Obtains the current USD rate of Bitcoin using a reachable source and stores to a local file getBTC.json.
+ * 
+ * Call this function from a server cron job once per minute to avoid hitting API rates
+ *
+ * @return float  The current USD/BTC exchange rate in dollars
+ */
+ function getBTCRate():float{
+  if($rate=json_decode(file_get_contents(stream_resolve_include_path($filename)),true)){
+   return round($response['price'], 2, PHP_ROUND_HALF_UP);  // Format:  ########.##
+  }
+  $time = time();
+  $record = array('source' => "Init", 'price' => "0.00", 'timestamp' => "$time", 'updated' => "$time");
+  $result = json_encode($record);
+  file_put_contents($filename, $result);
+  chmod($filename,0660);  
+ }
+
+
 
 
  /**
