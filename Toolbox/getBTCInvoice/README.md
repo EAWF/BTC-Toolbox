@@ -44,13 +44,6 @@ Default:xpub6BosfCnifzxcFwrSzQiqu2DBVTshkCXacvNsWGYJVVhhawA7d4R5WSWGFNbi8Aw6ZRc1
 Donations:zpub6rVZC52z8ugGany9wytHSPQ3DnfvKNPM4Em2tTLPeE2TGd9i5hmjC2kwXNt8oMHAdXruRQAkuqWYmKraSaip3xfPjTq4zKCAJiYGKpmcZ9B
 ```
 
-### Java
-Currently a WIP.
-
-### Javascript
-Currently a WIP.
-
-### PHP
 ```php
 /*
  * Requires qrcode.min.js - [https://raw.githubusercontent.com/davidshimjs/qrcodejs/master/qrcode.min.js]
@@ -91,12 +84,6 @@ END;
 
 ```
 With the above script, you can play with the Amount, Label and Message fields to observe the results
-
-### Python
-Currently a WIP.
-
-### Ruby
-Currently a WIP.
 
 
 [BIP-21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
