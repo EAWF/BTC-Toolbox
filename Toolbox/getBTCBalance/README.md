@@ -32,13 +32,6 @@ Uses the [Blockstream Esplora][esplora] API to retrieve balance information.
 
 ## Usage
 
-### Java
-Currently a WIP.
-
-### Javascript
-Currently a WIP.
-
-### PHP
 ```php
 <?php
 require_once('getBTC.php');
@@ -55,13 +48,6 @@ $balance = getBTCBalance($address, $min_confirmations);
 echo "The address " . $address . " has a total balance of: " . $balance;
 ?>
 ```
-
-### Python
-Currently a WIP.
-
-### Ruby
-Currently a WIP.
-
 
 [esplora]: https://github.com/Blockstream/esplora
 [getBTC.conf]: ../getBTC.conf
