@@ -30,13 +30,6 @@ Calls getBTCRate to retrieve current exchange rate data.
 
 ## Usage
 
-### Java
-Currently a WIP.
-
-### Javascript
-Currently a WIP.
-
-### PHP
 ```php
 <?php
 require_once('getBTC.php');
@@ -48,12 +41,6 @@ echo $dollars . " = " . $btcvalue;
 
 ?>
 ```
-
-### Python
-Currently a WIP.
-
-### Ruby
-Currently a WIP.
 
 
 [bitstamp-api]: https://www.bitstamp.net/api/
