@@ -35,13 +35,6 @@ DigitalProducts:ypub6Ww3ibxVfGzLrAH1PNcjyAWenMTbbAosGNB6VvmSEgytSER9azLDWCxoJwW7
 Donations:zpub6rVZC52z8ugGany9wytHSPQ3DnfvKNPM4Em2tTLPeE2TGd9i5hmjC2kwXNt8oMHAdXruRQAkuqWYmKraSaip3xfPjTq4zKCAJiYGKpmcZ9B
 ```
 
-### Java
-Currently a WIP.
-
-### Javascript
-Currently a WIP.
-
-### PHP
 ```php
 <?php
 require_once('getBTC.php');
@@ -59,12 +52,6 @@ $address = getBTCAddress("Donations", 123456);
 echo "Address at index 123456 of the Donations account is: " . $address;
 ?>
 ```
-
-### Python
-Currently a WIP.
-
-### Ruby
-Currently a WIP.
 
 [getBTC.conf]: ../getBTC.conf
 [Toolbox]: ../
