@@ -2,8 +2,14 @@
  /**
  * setBTCPrice - Get the current USD rate of Bitcoin and store in /var/www/php/getBTC.json
  *
- * Use CronJob:  * * * * * /usr/bin/php /var/www/php/setBTCPrice.php
+ * Ownership/Permissions:
+ *  chown root:apache   (UID Root owns system, Group Apache runs PHP and the web server.)
+ *  chmod 770    (Executable by owner and group)
  *
+ * Cron Entry:  * * * * * /usr/bin/php /var/www/php/setBTCPrice.php
+ *
+ * getBTC.json File is created on first run.
+ *  
  */
  $record = array();
  $filename = "/var/www/php/getBTC.json";
